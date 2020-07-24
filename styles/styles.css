@@ -1,0 +1,206 @@
+@charset "UTF-8";
+/* first mobile */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+}
+
+.logo {
+  height: 49px;
+  padding-left: 22px;
+  padding-top: 29px;
+  padding-bottom: 17px;
+  position: absolute;
+  z-index: 2;
+}
+
+/* Inicia Barra de navegación */
+nav {
+  position: relative;
+  height: 95px;
+  border-top: 5px solid #572EE5;
+  background: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  transition: all 1s ease;
+  padding: 0;
+  margin: 0;
+}
+
+/* Inicia Menú tipo hamburguesa first mobile */
+.toggle {
+  display: none;
+}
+
+.toggle:checked ~ .menu {
+  display: block;
+}
+
+.icon {
+  display: inline-block;
+  width: 15px;
+  height: 2px;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.hamburguer {
+  display: block;
+  width: 15px;
+  height: 2px;
+  background: black;
+  position: absolute;
+  top: 21px;
+  right: 19px;
+  transition: all 0.3s ease-in-out;
+  box-sizing: border-box;
+}
+
+.hamburguer:before,
+.hamburguer:after {
+  content: "";
+  display: block;
+  width: 15px;
+  height: 2px;
+  background: black;
+  position: absolute;
+  top: -6px;
+  transition: inherit;
+}
+
+.hamburguer:after {
+  top: 6px;
+}
+
+.toggle:checked + .icon > .hamburguer {
+  background: #572EE5;
+  transform: rotate(45deg);
+}
+
+.toggle:checked + .icon > .hamburguer:before {
+  background: #572EE5;
+  top: 0;
+  transform: rotate(90deg);
+}
+
+.toggle:checked + .icon > .hamburguer:after {
+  background: #572EE5;
+  top: 0;
+  transform: rotate(90deg);
+}
+
+/* Finaliza Menú tipo hamburguesa first mobile */
+/* Opciones del menú first mobile */
+.menu {
+  text-align: left;
+  width: 100%;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  background: #0000EC;
+  margin-top: 44px;
+  padding: 0px;
+  z-index: 3;
+}
+.menu li {
+  flex: auto;
+  list-style: none;
+  margin-top: 16px;
+  margin-left: 16px;
+  margin-bottom: 8px;
+}
+.menu li:last-child {
+  margin-bottom: 24px;
+}
+
+.menu_link {
+  text-decoration: none;
+  flex: auto;
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 300;
+  font-size: 16px;
+  color: #FFFFFF;
+  letter-spacing: 0;
+  line-height: 28px;
+  text-transform: uppercase;
+}
+
+/* Opciones del menú desktop y tablet */
+@media screen and (min-width: 768px) {
+  .logo {
+    width: 36px;
+    height: 36px;
+    padding-left: 100px;
+    padding-top: 22px;
+    padding-bottom: 22px;
+  }
+
+  nav {
+    height: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: right;
+    transition: all 1s ease;
+    position: relative;
+    margin-right: 100px;
+  }
+
+  .icon {
+    display: none;
+  }
+
+  .toggle {
+    display: none;
+  }
+
+  .toggle:checked ~ .menu {
+    display: flex;
+  }
+
+  .menu {
+    width: 50%;
+    text-align: right;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px;
+  }
+  .menu li {
+    flex: auto;
+    list-style: none;
+    margin-top: 26px;
+    margin-left: 0px;
+    margin-bottom: 26px;
+  }
+  .menu li:last-child {
+    margin-bottom: 26px;
+  }
+
+  .menu_link {
+    text-decoration: none;
+    flex: auto;
+    color: #060A24;
+  }
+  .menu_link:hover {
+    font-weight: 500;
+    text-decoration: line-through;
+    color: #00F3BB;
+  }
+  .menu_link:active {
+    text-decoration: line-through;
+    color: rgba(6, 10, 36, 0.56);
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */
