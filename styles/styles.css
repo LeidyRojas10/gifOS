@@ -1,4 +1,20 @@
 @charset "UTF-8";
+@font-face {
+  font-family: "Montserrat-bold";
+  src: url("../fonts/Montserrat-Bold.ttf");
+}
+@font-face {
+  font-family: "Montserrat-medium";
+  src: url("../fonts/Montserrat-Medium.ttf");
+}
+@font-face {
+  font-family: "Roboto-bold";
+  src: url("../fonts/Roboto-Bold.ttf");
+}
+@font-face {
+  font-family: "Roboto-regular";
+  src: url("../fonts/Roboto-Regular.ttf");
+}
 /* first mobile */
 * {
   padding: 0;
@@ -128,23 +144,21 @@ nav {
 .menu_link_final {
   text-decoration: none;
   flex: auto;
-  font-family: "IBM Plex Mono", monospace;
-  font-weight: 300;
-  font-size: 16px;
+  font-family: "Montserrat-bold";
+  font-size: 15px;
   color: #FFFFFF;
-  letter-spacing: 0;
-  line-height: 28px;
+  text-align: center;
+  line-height: 30px;
 }
 
 .menu_link {
   text-decoration: none;
   flex: auto;
-  font-family: "IBM Plex Mono", monospace;
-  font-weight: 300;
-  font-size: 16px;
+  font-family: "Montserrat-bold";
+  font-size: 15px;
   color: #FFFFFF;
-  letter-spacing: 0;
-  line-height: 28px;
+  text-align: center;
+  line-height: 30px;
 }
 .menu_link::after {
   content: "";

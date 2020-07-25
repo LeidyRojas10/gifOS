@@ -132,23 +132,21 @@ nav {
 .menu_link_final {
     text-decoration: none;
     flex: auto;
-    font-family: 'IBM Plex Mono', monospace;
-    font-weight: 300;
-    font-size: 16px;
+    font-family: 'Montserrat-bold';
+    font-size: 15px;
     color: #FFFFFF;
-    letter-spacing: 0;
-    line-height: 28px;
+    text-align: center;
+    line-height: 30px;
 }
 
 .menu_link {
     text-decoration: none;
     flex: auto;
-    font-family: 'IBM Plex Mono', monospace;
-    font-weight: 300;
-    font-size: 16px;
+    font-family: 'Montserrat-bold';
+    font-size: 15px;
     color: #FFFFFF;
-    letter-spacing: 0;
-    line-height: 28px;
+    text-align: center;
+    line-height: 30px;
 
     &::after {
         content: '';
