@@ -128,6 +128,18 @@ nav {
 
 }
 
+
+.menu_link_final {
+    text-decoration: none;
+    flex: auto;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 300;
+    font-size: 16px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    line-height: 28px;
+}
+
 .menu_link {
     text-decoration: none;
     flex: auto;
