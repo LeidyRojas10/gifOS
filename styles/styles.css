@@ -21,6 +21,10 @@
   margin: 0;
 }
 
+#theme {
+  display: none;
+}
+
 header {
   width: 100vw;
   padding: 0;
@@ -146,7 +150,7 @@ nav {
   flex: auto;
   font-family: "Montserrat-bold";
   font-size: 15px;
-  color: #FFFFFF;
+  color: white;
   text-align: center;
   line-height: 30px;
 }
@@ -156,7 +160,7 @@ nav {
   flex: auto;
   font-family: "Montserrat-bold";
   font-size: 15px;
-  color: #FFFFFF;
+  color: white;
   text-align: center;
   line-height: 30px;
 }
