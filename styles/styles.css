@@ -21,10 +21,6 @@
   margin: 0;
 }
 
-#theme {
-  display: none;
-}
-
 header {
   width: 100vw;
   padding: 0;
@@ -175,25 +171,66 @@ nav {
   border-bottom: 0.1px solid white;
 }
 
+.navigation_bottom {
+  display: none;
+  width: 54px;
+  height: 54px;
+  background-color: white;
+  border: 1px solid #572EE5;
+  border-radius: 50%;
+  position: absolute;
+  top: 18px;
+  right: 156px;
+  bottom: 18px;
+  outline: none;
+  color: #572EE5;
+  z-index: 3;
+}
+.navigation_bottom:hover {
+  background-color: #572EE5;
+  color: white;
+}
+.navigation_bottom:hover > img {
+  filter: brightness(0) invert(1);
+}
+.navigation_bottom:active {
+  background-color: #9CAFC3;
+  color: white;
+  border: 1px solid #9CAFC3;
+}
+.navigation_bottom > img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+}
+
 /* Opciones del menú desktop y tablet */
 @media screen and (min-width: 768px) {
   .logo {
-    width: 36px;
-    height: 36px;
-    padding-left: 100px;
-    padding-top: 22px;
-    padding-bottom: 22px;
+    height: 59.1px;
+    padding-left: 156px;
+    padding-top: 18px;
+    padding-bottom: 12.9px;
   }
 
   nav {
-    height: 80px;
+    min-width: 100%;
+    height: 90px;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
     align-items: right;
     transition: all 1s ease;
     position: relative;
-    margin-right: 100px;
+    margin-right: 156px;
+  }
+
+  .navigation_bottom {
+    display: inherit;
   }
 
   .icon {
@@ -209,38 +246,46 @@ nav {
   }
 
   .menu {
-    width: 50%;
+    width: 47%;
     text-align: right;
     background: white;
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin: 0px;
+    height: 90px;
   }
   .menu li {
     flex: auto;
     list-style: none;
-    margin-top: 26px;
+    margin-top: 36px;
     margin-left: 0px;
-    margin-bottom: 26px;
+    margin-bottom: 38px;
+  }
+  .menu li:first-child {
+    margin-top: 36px;
   }
   .menu li:last-child {
-    margin-bottom: 26px;
+    margin-right: 30%;
   }
 
-  .menu_link {
+  .menu_link_final, .menu_link {
     text-decoration: none;
     flex: auto;
-    color: #060A24;
+    font-family: "Montserrat-bold";
+    font-size: 13px;
+    color: #572EE5;
+    letter-spacing: 0;
+    text-align: center;
+    text-transform: uppercase;
   }
-  .menu_link:hover {
-    font-weight: 500;
-    text-decoration: line-through;
-    color: #00F3BB;
+  .menu_link_final:hover, .menu_link:hover {
+    text-decoration: underline;
+    text-decoration-color: #5ED7C6;
   }
-  .menu_link:active {
-    text-decoration: line-through;
-    color: rgba(6, 10, 36, 0.56);
+  .menu_link_final:active, .menu_link:active {
+    text-decoration: none;
+    color: #9CAFC3;
   }
 }
 
