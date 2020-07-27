@@ -294,9 +294,6 @@ nav {
   }
 }
 /* first mobile */
-#search_introduction {
-  margin: 7px 44px 31px 45px;
-}
 #search_introduction .h1_turquoise, #search_introduction h1 {
   font-family: "Montserrat-bold";
   font-size: 25px;
@@ -305,6 +302,9 @@ nav {
   line-height: 33px;
   margin-bottom: 31px;
 }
+#search_introduction h1 {
+  margin: 7px 44px 0px 45px;
+}
 #search_introduction .h1_turquoise {
   color: #50E3C2;
 }
@@ -312,15 +312,25 @@ nav {
   display: none;
 }
 
+.search_introduction_image {
+  display: block;
+  position: relative;
+  width: 273px;
+  height: auto;
+  top: 31px;
+  right: 51px;
+  left: 51px;
+  bottom: 0px;
+}
+
+/* Inicia Menú tipo hamburguesa first mobile */
 /* Opciones desktop y tablet */
 @media screen and (min-width: 768px) {
-  #search_introduction {
-    margin: 76px 253px 24px 253px;
-  }
   #search_introduction h1 {
     margin-bottom: 0px;
     font-size: 35px;
     line-height: 50px;
+    margin: 76px 253px 0px 253px;
   }
   #search_introduction h1 br {
     display: none;
