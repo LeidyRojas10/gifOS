@@ -21,6 +21,11 @@
   margin: 0;
 }
 
+.container {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
 header {
   width: 100vw;
   padding: 0;
@@ -286,6 +291,47 @@ nav {
   .menu_link_final:active, .menu_link:active {
     text-decoration: none;
     color: #9CAFC3;
+  }
+}
+/* first mobile */
+#search_introduction {
+  margin: 7px 44px 31px 45px;
+}
+#search_introduction .h1_turquoise, #search_introduction h1 {
+  font-family: "Montserrat-bold";
+  font-size: 25px;
+  color: #572EE5;
+  text-align: center;
+  line-height: 33px;
+  margin-bottom: 31px;
+}
+#search_introduction .h1_turquoise {
+  color: #50E3C2;
+}
+#search_introduction .h1_main_title {
+  display: none;
+}
+
+/* Opciones desktop y tablet */
+@media screen and (min-width: 768px) {
+  #search_introduction {
+    margin: 76px 253px 24px 253px;
+  }
+  #search_introduction h1 {
+    margin-bottom: 0px;
+    font-size: 35px;
+    line-height: 50px;
+  }
+  #search_introduction h1 br {
+    display: none;
+  }
+  #search_introduction .h1_turquoise {
+    margin-bottom: 0px;
+    font-size: 35px;
+    line-height: 50px;
+  }
+  #search_introduction .h1_main_title {
+    display: inline;
   }
 }
 

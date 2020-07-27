@@ -1,0 +1,53 @@
+/* first mobile */
+#search_introduction{
+    margin: 7px 44px 31px 45px;
+
+    %share_h1{
+        font-family: 'Montserrat-bold';
+        font-size: 25px;
+        color: $purple;
+        text-align: center;
+        line-height: 33px;
+        margin-bottom: 31px;
+    }
+
+    & h1 {
+        @extend %share_h1;
+    }
+
+    .h1_turquoise{
+        @extend %share_h1;
+        color: $turquoise_2;
+    }
+.h1_main_title{
+    display: none;
+}
+}
+
+/* Opciones desktop y tablet */
+
+@media screen and (min-width: 768px) {
+    #search_introduction{
+        margin: 76px 253px 24px 253px;
+    
+        & h1{
+            margin-bottom: 0px;
+            font-size: 35px;
+            line-height: 50px;
+            & br{
+                display: none;
+            }
+        }
+
+        .h1_turquoise{
+            margin-bottom: 0px;
+            font-size: 35px;
+            line-height: 50px;
+            } 
+
+        .h1_main_title{
+            display: inline;
+        }
+    
+    }
+}
