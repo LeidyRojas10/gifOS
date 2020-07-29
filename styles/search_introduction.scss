@@ -1,5 +1,8 @@
 /* first mobile */
 #search_introduction{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     %share_h1{
         font-family: 'Montserrat-bold';
@@ -26,22 +29,74 @@
 
 .search_introduction_image{
         display: block;
-        position: relative;
         width: 273px;
         height: auto;
-        top: 31px;
+        margin-top: 31px;
         right: 51px;
         left: 51px;
         bottom: 0px;
+}
+
+/* Inicia buscador first mobile */
+
+.search_box{
+    width: 334px;
+    height: 50px;
+    border: $purple solid 1px;
+    border-radius: 27px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+
+
+    & > input {
+        margin-left: 55px;
+        width: 100%;
+        border: 0;
+        outline: none;
+        font-family: 'Roboto-regular';
+        font-size: 16px;
+        
+
+        &:focus {
+            margin-left: 13px;
+            order: 2;
+
+            & ~ #searchbox_search_button{
+                order: 1;
+                margin-left: 21px;
+                margin-right: 0px;
+                & > img {
+                    filter: brightness(0.7) invert(1) grayscale(1);
+                }
+            }
+
+            & ~ #searchbox_cancel_button{
+                display: inline;
+                order: 3;
+            }
+        }
+    }
+    & > button {
+        margin-right: 20px;
+        font-size: 20px;
+        background-color: $main_background;
+        outline: none;
+        color: $purple;
+        border: none;
+    }
+
+    #searchbox_cancel_button{
+        display: none;
+    }
+
 }
 
 
 
 
 
-
-
-/* Inicia Menú tipo hamburguesa first mobile */
 
 /* Opciones desktop y tablet */
 
@@ -72,8 +127,13 @@
 
     .search_introduction_image{
         width: 399px;
-        top: 24px;
+        margin-top: 24px;
         right: 520px;
         left: 521px;
-}
+    }
+
+    .search_box{
+        width: 100%;
+        max-width: 551px;
+    }
 }
