@@ -406,5 +406,43 @@ nav {
     max-width: 551px;
   }
 }
+/* first mobile */
+.trendings_title {
+  font-family: "Montserrat-bold";
+  font-size: 16px;
+  color: #572EE5;
+  text-align: center;
+  line-height: 25px;
+  margin-top: 31px;
+  margin-bottom: 2px;
+}
+
+#trendings_paragraph {
+  font-family: "Montserrat-medium";
+  font-size: 14px;
+  color: #572EE5;
+  text-align: center;
+  line-height: 25px;
+  margin-top: 0px;
+  margin-bottom: 45px;
+}
+
+/* Opciones desktop y tablet */
+@media screen and (min-width: 768px) {
+  .trendings_title {
+    font-size: 18px;
+    margin-top: 73px;
+    margin-bottom: 7px;
+  }
+
+  #trendings_paragraph {
+    font-size: 16px;
+    margin-top: 0px;
+    margin-bottom: 95px;
+  }
+  #trendings_paragraph br {
+    display: none;
+  }
+}
 
 /*# sourceMappingURL=styles.css.map */

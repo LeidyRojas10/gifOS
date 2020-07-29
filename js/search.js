@@ -1,7 +1,7 @@
 //Este archivo tiene como finalidad anejar las peticiones de búsqueda de GIF y tendencias
 
 //Esta es la API Key de Giphy developers que me habilita el uso de las apis de Giphy
-const KEY = "api_key=";
+const KEY = "api_key=yGMJAYeVTaWUz1e4xHnA4K1Yu7oxznmO";
 
 //La constante headers tiene como finalidad definir los formatos de respuesta y envío de datos a través de la Api de Giphy
 //que para nuestro caso solo se acepta archivos JSON y envíos del mismo tipo
@@ -24,7 +24,7 @@ function getTrendings() {
     // Request es un objeto que describe que tipo de operación requiero y qué condiciones debe cumplir para que sea exitoso
     // Para efectos de esta función debo solicitar información por los cual es un GET y espero un JSON como respuesta
     let request = {
-        method:'GET',
+        method: 'GET',
         headers: HEADERS
     }
     //Ahora procedo a hacer la consulta a la Api de Giphy usando la url que cree y la petición
@@ -39,16 +39,16 @@ function getTrendings() {
         })
         .then(json => { //Paso 2: dado que fue un http-200 obtengo el json de Giphy con los trends
             console.log(json.data)
-            let trend=document.getElementById("trends_gif");
-            trend.innerHTML='';
-            for(var position=0; position<3; position++){
-                let gif=json.data[position].images.fixed_height.url;
-                trend.innerHTML=trend.innerHTML + "<img src='"+ gif + "' class='trend_gif'></img>";
+            let trend = document.getElementById("trends_gif");
+            trend.innerHTML = '';
+            for (var position = 0; position < 3; position++) {
+                let gif = json.data[position].images.fixed_height.url;
+                trend.innerHTML = trend.innerHTML + "<img src='" + gif + "' class='trend_gif'></img>";
             }
         })
         .catch(function (error) { // En caso que alguno de los pasos falle capturo el error para analizar qué ocurrio
             console.error("Error en la petición" + error.message)
         })
 }
-
+//Muestran los trendings
 getTrendings();
