@@ -1,13 +1,18 @@
 /* first mobile */
-.trendings_title{
+%title{
         font-family: 'Montserrat-bold';
-        font-size: 16px;
         color: $purple;
         text-align: center;
-        line-height: 25px;
-        margin-top: 31px;
-        margin-bottom: 2px;
 }
+
+.trendings_title{
+    @extend %title;
+    font-size: 16px;
+    line-height: 25px;
+    margin-top: 31px;
+    margin-bottom: 2px;
+}
+
 
 #trendings_paragraph{
         font-family: 'Montserrat-medium';
@@ -20,17 +25,63 @@
 }
 
 
+/* Inicia trendings container first mobile */
+
+.trendings_container{
+    background-color: $light_grey_background;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+
+    & > .trendings_title_container{
+        @extend %title;
+        font-size: 20px;
+        line-height: 30px;
+        margin-top: 46px;
+        margin-bottom: 7px;
+    }
+
+    & > .trendings_paragraph_container{
+        font-family: 'Roboto-regular';
+        font-size: 16px;
+        color: $black;
+        text-align: center;
+        line-height: 23px;
+        margin-top: 0px;
+        margin-bottom: 32px;
+    }
+
+    & > .gif_container{
+        display: flex;
+        flex-direction: row;
+
+        .gifs_slider {
+            width: 100%;
+            height: 250px;
+            display: flex;
+            overflow-x: auto;
+          }
+          .trend_gif {
+            width: 243px;
+            height: 187px;
+            flex-shrink: 0;
+            padding-left: 22px;
+          }
+    }
+}
+
 
 /* Opciones desktop y tablet */
 
 @media screen and (min-width: 768px) {
     
     .trendings_title{
+        @extend %title;
         font-size: 18px;
         margin-top: 73px;
         margin-bottom: 7px;
     }
-    
+ 
     #trendings_paragraph{
         font-size: 16px;
         margin-top: 0px;
@@ -40,6 +91,47 @@
             display: none;
         }
     }
+
     
+.trendings_container{
+     
+    & >  .trendings_title_container{
+        @extend %title;
+        font-size: 25px;
+        margin-top: 67px;
+        margin-bottom: 12px;
+    }
+
+    & > .trendings_paragraph_container{
+        font-size: 18px;
+        margin-top: 0px;
+        margin-bottom: 53px;
+
+        & br{
+            display: none;
+        }
+    }
+
+    & > .gif_container{
+    display: flex;
+    flex-direction: row;
+
+        .gifs_slider {
+        width: 100%;
+        height: 250px;
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        justify-content: center;
+      }
+         .trend_gif {
+        width: 357px;
+        height: 275px;
+        flex-shrink: 0;
+        padding-left: 29px;
+      }
+}
+}
+
 }
 

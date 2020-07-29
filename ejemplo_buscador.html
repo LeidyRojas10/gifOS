@@ -40,28 +40,15 @@
                 alt="imagen tipo ilustración para la página de inicio que está sobre el buscador">
             <!-- Inicia Buscador-->
             <div class="search_box">
-                <input class="search_box_input" type="text" placeholder="Busca GIFOS y más">
-                <button id="searchbox_search_button" type="button"><img src="/assets/icon-search.svg"></button>
+                <input  id="search" class="search_box_input" type="text" placeholder="Busca GIFOS y más">
+                <button id="searchbox_search_button" type="button" onclick="searchGif()"><img src="/assets/icon-search.svg"></button>
                 <button id="searchbox_cancel_button" type="button"><img src="/assets/close.svg"></button>
             </div>
         </section>
 
         <!-- Inicia sección de tendencias -->
-        <section id="trendings" class="container">
-            <h2 class="trendings_title">Trending:</h2>
-            <p id="trendings_paragraph">Reactions, Entertainment,<br> Sports, Stickers, Artists</p>
-            <!-- Inicia Trending GIFOS -->
-            <div class="trendings_container">
-                <h2 class="trendings_title_container">Trending GIFOS</h2>
-                <p class="trendings_paragraph_container">Mira los últimos <br>GIFOS de nuestra comunidad.</p>
-                <div class="gif_container">
-                    <button class="trending-box__button trending-box__button-left" type="button"><i
-                            class="icon-button-left"></i></button>
-                    <div id="slider" class="gifs_slider"></div>
-                    <button class="trending-box__button trending-box__button-right" type="button"><i
-                            class="icon-button-right"></i></button>
-                </div>
-            </div>
+        <section id="busqueda" class="search_content">
+            <div id="gif-container"></div>
         </section>
 
     </main>
