@@ -1,7 +1,7 @@
-//Este archivo tiene como finalidad anejar las peticiones de búsqueda de GIF y tendencias
+//Este archivo tiene como finalidad manejar las peticiones de búsqueda de GIF y tendencias
 
 //Esta es la API Key de Giphy developers que me habilita el uso de las apis de Giphy
-const KEY = "api_key=";
+const KEY = "api_key=yGMJAYeVTaWUz1e4xHnA4K1Yu7oxznmO";
 
 //La constante headers tiene como finalidad definir los formatos de respuesta y envío de datos a través de la Api de Giphy
 //que para nuestro caso solo se acepta archivos JSON y envíos del mismo tipo
@@ -41,11 +41,11 @@ function getTrendings() {
             }
         })
         .then(json => { //Paso 2: dado que fue un http-200 obtengo el json de Giphy con los trends
-            if(screen.width > 768){
-                loadTrends(json,3);
+            if (screen.width > 768) {
+                loadTrends(json, 3);
             }
-            else{
-                loadTrends(json,12);
+            else {
+                loadTrends(json, 12);
             }
         })
         .catch(function (error) { // En caso que alguno de los pasos falle capturo el error para analizar qué ocurrio
@@ -53,14 +53,14 @@ function getTrendings() {
         })
 }
 
-function loadTrends(json,limit){
+function loadTrends(json, limit) {
     console.log(json.data)
-            let trend = document.getElementById("slider");
-            trend.innerHTML = '';
-            for (var position = 0; position < limit; position++) {
-                let gif = json.data[position].images.fixed_height.url;
-                trend.innerHTML = trend.innerHTML + "<img src='" + gif + "' class='trend_gif'></img>";
-            }
+    let trend = document.getElementById("slider");
+    trend.innerHTML = '';
+    for (var position = 0; position < limit; position++) {
+        let gif = json.data[position].images.fixed_height.url;
+        trend.innerHTML = trend.innerHTML + "<img src='" + gif + "' class='trend_gif'></img>";
+    }
 }
 
 
@@ -71,67 +71,67 @@ function loadTrends(json,limit){
 
 
 //--------------------- Barra de búsqueda
-//Lee el texto actual en la barra de búsqueda y si es vació no hace nada, de lo contrario carga los gifs
-function searchGif(){
+//Lee el texto actual en la barra de búsqueda y si es vacio no hace nada, de lo contrario carga los gifs
+function searchGif() {
     let word = document.getElementById('search').value;
-    if(word != undefined || word != ""){
-        setCurrent(word,0)
-        loadGifs(word,0);
+    if (word != undefined || word != "") {
+        setCurrent(word, 0)
+        loadGifs(word, 0);
     }
 }
 
 // Se hace la consulta a Giphy de los gif con base en la palabra buscada
-function loadGifs(word,offset){ // offset de dónde arranca 
-    if(word != undefined || word != ""){
-        let url = getRequestURL(word,offset);
-        setCurrent(word,offset)
-        let request = { method:'GET', headers: HEADERS};
-        fetch(url,request)
-        .then(response => {
-            if(response.status==200){
-                return response.json();
-            }
-            else{
-                throw "Error in the request.";
-            }
-        })
-        .then(function(content){
-            loadGif(content)
-        })
-        .catch(function(error){
-            console.error("Error en la petición"+error.message)
-        })
+function loadGifs(word, offset) { // offset de dónde arranca 
+    if (word != undefined || word != "") {
+        let url = getRequestURL(word, offset);
+        setCurrent(word, offset)
+        let request = { method: 'GET', headers: HEADERS };
+        fetch(url, request)
+            .then(response => {
+                if (response.status == 200) {
+                    return response.json();
+                }
+                else {
+                    throw "Error in the request.";
+                }
+            })
+            .then(function (content) {
+                loadGif(content)
+            })
+            .catch(function (error) {
+                console.error("Error en la petición" + error.message)
+            })
     }
 }
-//Carga en el html los gif buscados segú la palabra
-function loadGif(jsonData){
+//Carga en el html los gif buscados según la palabra
+function loadGif(jsonData) {
     let gifContainer = document.getElementById("gif-container");
     let current = getCurrent();
-    let gifContent="";
-    if(current.offset==0){
-        gifContainer.innerHTML='';
+    let gifContent = "";
+    if (current.offset == 0) {
+        gifContainer.innerHTML = '';
     }
     let data = jsonData.data;
-    for(var j =0;j<data.length;j++){
+    for (var j = 0; j < data.length; j++) {
         var gif = data[j].images.fixed_height.url;
-        gifContent+='<div class="gif"><img src="'+gif+'"></img></div>';
+        gifContent += '<div class="gif"><img src="' + gif + '"></img></div>';
     }
-    gifContainer.innerHTML+=gifContent;
+    gifContainer.innerHTML += gifContent;
 }
 
-function getRequestURL(word,offset,limit){
-    return "https://api.giphy.com/v1/gifs/search?"+KEY+"&q="+word+"&limit="+(limit==undefined || limit <=0 ? LIMIT:limit)+"&offset="+offset+"&rating=g&lang=en";
+function getRequestURL(word, offset, limit) {
+    return "https://api.giphy.com/v1/gifs/search?" + KEY + "&q=" + word + "&limit=" + (limit == undefined || limit <= 0 ? LIMIT : limit) + "&offset=" + offset + "&rating=g&lang=en";
 }
 
-function getCurrent(){
+function getCurrent() {
     let jsonStr = localStorage.getItem(WORD_LOCAL);
     return JSON.parse(jsonStr);
 }
 
-function setCurrent(currentWord,currentOffset){
-    let gifos_current = {word: currentWord, offset: currentOffset};
+function setCurrent(currentWord, currentOffset) {
+    let gifos_current = { word: currentWord, offset: currentOffset };
     let jsonValue = JSON.stringify(gifos_current);
-    localStorage.setItem(WORD_LOCAL,jsonValue)
+    localStorage.setItem(WORD_LOCAL, jsonValue)
 }
 
 

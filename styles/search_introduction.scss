@@ -1,10 +1,10 @@
 /* first mobile */
-#search_introduction{
+#search_introduction {
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    %share_h1{
+    %share_h1 {
         font-family: 'Montserrat-bold';
         font-size: 25px;
         color: $purple;
@@ -18,28 +18,29 @@
         margin: 7px 44px 0px 45px;
     }
 
-    .h1_turquoise{
+    .h1_turquoise {
         @extend %share_h1;
         color: $turquoise_2;
     }
-.h1_main_title{
-    display: none;
-}
+
+    .h1_main_title {
+        display: none;
+    }
 }
 
-.search_introduction_image{
-        display: block;
-        width: 273px;
-        height: auto;
-        margin-top: 31px;
-        right: 51px;
-        left: 51px;
-        bottom: 0px;
+.search_introduction_image {
+    display: block;
+    width: 273px;
+    height: auto;
+    margin-top: 31px;
+    right: 51px;
+    left: 51px;
+    bottom: 0px;
 }
 
 /* Inicia buscador first mobile */
 
-.search_box{
+.search_box {
     width: 334px;
     height: 50px;
     border: $purple solid 1px;
@@ -50,35 +51,38 @@
     justify-content: flex-end;
 
 
-    & > input {
+    &>input {
         margin-left: 55px;
         width: 100%;
         border: 0;
         outline: none;
         font-family: 'Roboto-regular';
         font-size: 16px;
-        
+
 
         &:focus {
-            margin-left: 13px;
+            margin-left: 55px;
             order: 2;
 
-            & ~ #searchbox_search_button{
+            &~#searchbox_search_button {
+                display: none;
                 order: 1;
-                margin-left: 21px;
+                margin-left: 55px;
                 margin-right: 0px;
-                & > img {
+
+                &>img {
                     filter: brightness(0.7) invert(1) grayscale(1);
                 }
             }
 
-            & ~ #searchbox_cancel_button{
+            &~#searchbox_cancel_button {
                 display: inline;
                 order: 3;
             }
         }
     }
-    & > button {
+
+    &>button {
         margin-right: 20px;
         font-size: 20px;
         background-color: $main_background;
@@ -87,7 +91,7 @@
         border: none;
     }
 
-    #searchbox_cancel_button{
+    #searchbox_cancel_button {
         display: none;
     }
 
@@ -97,39 +101,95 @@
 /* Opciones desktop y tablet */
 
 @media screen and (min-width: 768px) {
-    #search_introduction{
-    
-        & h1{
+    #search_introduction {
+
+        & h1 {
             margin-bottom: 0px;
             font-size: 35px;
             line-height: 50px;
             margin: 76px 253px 0px 253px;
-            & br{
+
+            & br {
                 display: none;
             }
         }
 
-        .h1_turquoise{
+        .h1_turquoise {
             margin-bottom: 0px;
             font-size: 35px;
             line-height: 50px;
-            } 
+        }
 
-        .h1_main_title{
+        .h1_main_title {
             display: inline;
         }
-    
+
     }
 
-    .search_introduction_image{
+    .search_introduction_image {
         width: 399px;
         margin-top: 24px;
         right: 520px;
         left: 521px;
     }
 
-    .search_box{
+    .search_box {
         width: 100%;
         max-width: 551px;
+
+        &>input {
+
+            &:focus {
+                margin-left: 13px;
+
+                &~#searchbox_search_button {
+                    display: inline;
+                    margin-left: 21px;
+                    margin-right: 0px;
+                }
+            }
+        }
+
+        /* Buscador activo borrador
+
+        & > .active_search_box{
+        border-top: 1px solid $light_grey;
+        position: relative;
+        width: vw(286, 375);
+        max-width: 503px;
+        padding: 14px 0 8px;
+        margin: 0 24px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+
+            .suggestion{
+                list-style: none;
+                color: $light_grey;
+                font-family: 'Roboto-regular';
+                font-size: 16px;
+
+                    & ~ #searchbox_search_button{
+                        margin-right: 14.6px;
+                    }
+            }
+
+            & > button {
+                color: $light_grey;
+                left: 23.6px;
+            }
+        
+            #searchbox_search_button{
+               top: 17.6px;
+               font-size: 15.8px;
+
+            }
+
+        }
+       
+    }*/
+
     }
 }

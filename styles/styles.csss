@@ -125,7 +125,7 @@ nav {
 .menu {
   text-align: center;
   width: 100%;
-  height: 100vw;
+  height: 584px;
   display: none;
   align-items: center;
   justify-content: space-between;
@@ -607,4 +607,4 @@ nav {
   }
 }
 
-/*# sourceMappingURL=styles.css.map */
+/*# sourceMappingURL=styles.csss.map */
