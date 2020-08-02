@@ -58,7 +58,7 @@
 
         .gifs_slider {
             width: 100%;
-            height: 250px;
+            height: fit-content;
             display: flex;
             overflow-x: auto;
         }
