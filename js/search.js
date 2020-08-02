@@ -1,7 +1,7 @@
 //Este archivo tiene como finalidad manejar las peticiones de búsqueda de GIF y tendencias
 
 //Esta es la API Key de Giphy developers que me habilita el uso de las apis de Giphy
-const KEY = "api_key=yGMJAYeVTaWUz1e4xHnA4K1Yu7oxznmO";
+const KEY = "api_key=";
 
 //La constante headers tiene como finalidad definir los formatos de respuesta y envío de datos a través de la Api de Giphy
 //que para nuestro caso solo se acepta archivos JSON y envíos del mismo tipo
