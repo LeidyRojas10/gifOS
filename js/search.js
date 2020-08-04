@@ -65,11 +65,6 @@ function loadTrends(json, limit) {
 
 
 
-
-
-
-
-
 //--------------------- Barra de búsqueda
 //Lee el texto actual en la barra de búsqueda y si es vacio no hace nada, de lo contrario carga los gifs
 function searchGif() {
@@ -105,7 +100,7 @@ function loadGifs(word, offset) { // offset de dónde arranca
 }
 //Carga en el html los gif buscados según la palabra
 function loadGif(jsonData) {
-    let gifContainer = document.getElementById("gif-container");
+    let gifContainer = document.getElementById("gif-result");
     let current = getCurrent();
     let gifContent = "";
     if (current.offset == 0) {
@@ -117,6 +112,16 @@ function loadGif(jsonData) {
         gifContent += '<div class="gif"><img src="' + gif + '"></img></div>';
     }
     gifContainer.innerHTML += gifContent;
+    document.getElementById("results_title").innerHTML=current.word;
+    if(window.innerWidth >= 768){
+        document.getElementById("gif-result").style="padding-top:59px";
+        document.getElementById("results_title").style="padding-top:95px";
+    }
+    else{
+        document.getElementById("gif-result").style="padding-top:38px";
+        document.getElementById("results_title").style="padding-top:79px";
+    }
+ 
 }
 
 function getRequestURL(word, offset, limit) {
