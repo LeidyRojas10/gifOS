@@ -25,17 +25,17 @@ const request = {
 function loadTrendingsWords(){
     fetch(trendingsWords_url, request)
     .then(response => response.json())
-    .then(data => showTrendingsWords(data))
+    .then(jsonData => showTrendingsWords(jsonData))
     .catch( error => console.error( 'Something went wrong' ) );
 }
 
 
 //función para pintar en el html las trendings words de Giphy
 
-function showTrendingsWords(data){
+function showTrendingsWords(jsonData){
     let trendings_paragraph = document.getElementById('trendings_paragraph');
     trendings_paragraph.innerHTML = '';
-    trendings_paragraph.innerHTML = data.data[0]+ ", " + data.data[1] + ", " + data.data[2] + ", " + data.data[3] + ", " + data.data[4];
+    trendings_paragraph.innerHTML = jsonData.data[0]+ ", " + jsonData.data[1] + ", " + jsonData.data[2] + ", " + jsonData.data[3] + ", " + jsonData.data[4];
 }
 
 loadTrendingsWords();
