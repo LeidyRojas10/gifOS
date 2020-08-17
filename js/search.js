@@ -56,7 +56,7 @@ function loadGifs(word, offset) { // offset de dónde arranca
                 }
             })
             .then(function (content) {
-                loadGif(content)
+                showGifs(content)
             })
             .catch(function (error) {
                 console.error("Error en la petición" + error.message)
@@ -64,7 +64,7 @@ function loadGifs(word, offset) { // offset de dónde arranca
     }
 }
 //Carga en el html los gif buscados según la palabra
-function loadGif(jsonData) {
+function showGifs(jsonData) {
     let gifContainer = document.getElementById("gif-result");
     let gifos = getGifos();
     let gifContent = "";
@@ -90,4 +90,15 @@ function loadGif(jsonData) {
         document.getElementById("results_title").style="padding-top:79px";
     }
  
+    document.getElementById("more_results").style.display="block";
+
+}
+
+//Botón Ver más 
+
+function moreResults (){
+    let gifos = getGifos();
+    gifos.search.offset =  gifos.search.offset + 12;
+    saveGifos(gifos);
+    loadGifs(gifos.search.searchWord,gifos.search.offset);
 }
