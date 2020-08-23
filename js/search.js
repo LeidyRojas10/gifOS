@@ -71,31 +71,49 @@ function showGifs(jsonData) {
     if (gifos.search.offset == 0) {
         gifContainer.innerHTML = '';
     }
-    let data = jsonData.data;
-    // Se va a iterar utilizando una variable llamada posición que arranca en 0 y que incrementará por cada iteración en 1, 
-    // hasta que la posición deje de ser menor al total de elementos en el arreglo llamado Data.
-    for (var position = 0; position < data.length; position++) {
-        var gifUrl = data[position].images.fixed_height.url;
-        gifContent += '<div class="gif"><img src="' + gifUrl + '"></img></div>';
-    }
-    gifContainer.innerHTML += gifContent;
 
-    document.getElementById("results_title").innerHTML = gifos.search.searchWord;
+    // Cuando la búsqueda no arroja resultados muestre la imagen  "Intenta con otra búsqueda."
+    let data = jsonData.data;
+    if (data.length == 0) {
+        document.getElementById("no_results").style.display = "flex";
+        document.getElementById("more_results").style.display = "none";
+        document.getElementById("gif-result").style = "padding-top:0px";
+    }
+    // Cuando la búsqueda sí arroja resultados
+    else {
+        // Se va a iterar utilizando una variable llamada posición que arranca en 0 y que incrementará por cada iteración en 1, 
+        // hasta que la posición deje de ser menor al total de elementos en el arreglo llamado Data.
+        for (var position = 0; position < data.length; position++) {
+            var gifUrl = data[position].images.fixed_height.url;
+            gifContent += '<div class="gif"><img src="' + gifUrl + '"></img></div>';
+        }
+        gifContainer.innerHTML += gifContent;
+        document.getElementById("more_results").style.display = "block";
+
+        if (window.innerWidth >= 768) {
+            //configuración para desktop
+            document.getElementById("gif-result").style = "padding-top:59px";
+        }
+        else {
+            //configuración para mobile
+            document.getElementById("gif-result").style = "padding-top:38px";
+        }
+        document.getElementById("no_results").style.display = "none";
+    }
 
     if (window.innerWidth >= 768) {
         //configuración para desktop
-        document.getElementById("gif-result").style = "padding-top:59px";
         document.getElementById("results_title").style = "padding-top:83.9px";
         document.getElementById("trendings_paragraph").style.marginBottom = "74px";
     }
     else {
         //configuración para mobile
-        document.getElementById("gif-result").style = "padding-top:38px";
         document.getElementById("results_title").style = "padding-top:43px";
         document.getElementById("trendings_paragraph").style.marginBottom = "35px";
     }
+    document.getElementById("results_title").innerHTML = gifos.search.searchWord;
+
     //configuración de visibilidad al cargar búsquedas
-    document.getElementById("more_results").style.display = "block";
     document.getElementById("results_bar").style.display = "block";
 
 }

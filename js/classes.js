@@ -33,7 +33,7 @@ function saveGifos (gifos){
     localStorage.setItem(GIFOS_KEY, JSON.stringify(gifos));
 }
 
-//Esta función se encarga de regresar los valores actuales de GIFOS
+//Esta función se encarga de regresar los valores actuales de GIFOS guardados en el LocalStorage
 function getGifos (){
     let gifosString= localStorage.getItem(GIFOS_KEY);
     let gifos= JSON.parse(gifosString);

@@ -725,6 +725,26 @@ footer .footer_copyright {
   color: white;
 }
 
+/* Búsqueda sin resultado */
+#no_results {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+#no_results > img {
+  margin-top: 38px;
+  margin-bottom: 0px;
+}
+#no_results > h3 {
+  font-family: "Montserrat-bold";
+  font-size: 20px;
+  color: #50E3C2;
+  text-align: center;
+  line-height: 25px;
+  margin-top: 29px;
+  margin-bottom: 78px;
+}
+
 /* Opciones desktop y tablet */
 @media screen and (min-width: 768px) {
   #gif-result {
@@ -749,6 +769,15 @@ footer .footer_copyright {
 
   #results_bar {
     width: 338px;
+  }
+
+  #no_results > img {
+    margin-top: 109px;
+    margin-bottom: 0px;
+  }
+  #no_results > h3 {
+    font-size: 22px;
+    margin-bottom: 149px;
   }
 }
 
