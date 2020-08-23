@@ -40,7 +40,7 @@ function createUrlForSearching(word, offset) {
 function loadGifs(word, offset) { // offset de dónde arranca 
     if (word != undefined || word != "") {
         let url = createUrlForSearching(word, offset);
-        
+
         let gifos = getGifos();
         gifos.search.offset = offset;
         saveGifos(gifos);
@@ -80,25 +80,31 @@ function showGifs(jsonData) {
     }
     gifContainer.innerHTML += gifContent;
 
-    document.getElementById("results_title").innerHTML=gifos.search.searchWord;
-    if(window.innerWidth >= 768){
-        document.getElementById("gif-result").style="padding-top:59px";
-        document.getElementById("results_title").style="padding-top:95px";
+    document.getElementById("results_title").innerHTML = gifos.search.searchWord;
+
+    if (window.innerWidth >= 768) {
+        //configuración para desktop
+        document.getElementById("gif-result").style = "padding-top:59px";
+        document.getElementById("results_title").style = "padding-top:83.9px";
+        document.getElementById("trendings_paragraph").style.marginBottom = "74px";
     }
-    else{
-        document.getElementById("gif-result").style="padding-top:38px";
-        document.getElementById("results_title").style="padding-top:79px";
+    else {
+        //configuración para mobile
+        document.getElementById("gif-result").style = "padding-top:38px";
+        document.getElementById("results_title").style = "padding-top:43px";
+        document.getElementById("trendings_paragraph").style.marginBottom = "35px";
     }
- 
-    document.getElementById("more_results").style.display="block";
+    //configuración de visibilidad al cargar búsquedas
+    document.getElementById("more_results").style.display = "block";
+    document.getElementById("results_bar").style.display = "block";
 
 }
 
 //Botón Ver más 
 
-function moreResults (){
+function moreResults() {
     let gifos = getGifos();
-    gifos.search.offset =  gifos.search.offset + 12;
+    gifos.search.offset = gifos.search.offset + 12;
     saveGifos(gifos);
-    loadGifs(gifos.search.searchWord,gifos.search.offset);
+    loadGifs(gifos.search.searchWord, gifos.search.offset);
 }
