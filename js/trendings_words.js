@@ -1,7 +1,6 @@
 //Este archivo tiene como finalidad mostrar las tendencias (palabras) en Giphy
 const trendingsWords = 'https://api.giphy.com/v1/trending/searches';
-const apiKey = 'api_key=yGMJAYeVTaWUz1e4xHnA4K1Yu7oxznmO';
-const trendingsWords_url = ( trendingsWords + '?' + apiKey);
+const trendingsWords_url = ( trendingsWords + '?' + KEY);
 
 // Una vez obtenga la url estructurada puedo hacerle la consulta a la API de las trendings words
 //Para ello uso el método fetch y así obtener las palabras en tendencia

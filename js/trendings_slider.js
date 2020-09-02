@@ -5,7 +5,7 @@ const limitDesktop = 'limit=3';
 const offset = 0;
 const rating = 'rating=g';
 
-const trendings_url = ( trendingsGifs + '?' + apiKey + '&' + rating );
+const trendings_url = ( trendingsGifs + '?' + KEY + '&' + rating );
 
 
 

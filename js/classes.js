@@ -1,3 +1,13 @@
+//Esta es la API Key de Giphy developers que me habilita el uso de las apis de Giphy
+const KEY = "api_key=yGMJAYeVTaWUz1e4xHnA4K1Yu7oxznmO";
+
+//La constante headers tiene como finalidad definir los formatos de respuesta y envío de datos a través de la Api de Giphy
+//que para nuestro caso solo se acepta archivos JSON y envíos del mismo tipo
+const HEADERS = {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json'
+}
+
 class Gif {
     constructor(title, user, favorite, url){
         this.title = title;
