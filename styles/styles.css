@@ -781,18 +781,18 @@ footer .footer_copyright {
   }
 }
 /* first mobile */
-#favorites {
+#introduction {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-#favorites > .favorites_icon {
+#introduction > .introduction_icon {
   width: 28px;
   height: 21px;
   margin-top: 5px;
   bottom: 0px;
 }
-#favorites h1 {
+#introduction h1 {
   font-family: "Montserrat-bold";
   color: #572EE5;
   text-align: center;
@@ -802,22 +802,22 @@ footer .footer_copyright {
   margin-bottom: 0px;
 }
 
-#favorites-results {
+#content {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-#gif-favorites-content {
+#gif-content {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
 }
-#gif-favorites-content .gif {
+#gif-content .gif {
   width: 156px;
   height: 120px;
 }
-#gif-favorites-content .gif > img {
+#gif-content .gif > img {
   width: 100%;
   height: 100%;
 }
@@ -841,7 +841,7 @@ footer .footer_copyright {
   color: white;
 }
 
-/* Favoritos sin contenido */
+/* Favoritos y Mis GIFOS sin contenido */
 #no_content {
   display: none;
   flex-direction: column;
@@ -865,26 +865,26 @@ footer .footer_copyright {
 
 /* Opciones desktop y tablet */
 @media screen and (min-width: 768px) {
-  #favorites > .favorites_icon {
+  #introduction > .introduction_icon {
     margin-top: 11px;
   }
-  #favorites h1 {
+  #introduction h1 {
     font-size: 25px;
     margin-top: 8px;
     margin-bottom: 0px;
   }
 
-  #gif-favorites-content {
+  #gif-content {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 29px;
     width: fit-content;
   }
-  #gif-favorites-content .gif {
+  #gif-content .gif {
     width: 260px;
     height: 200px;
   }
-  #gif-favorites-content .gif > img {
+  #gif-content .gif > img {
     width: 100%;
     height: 100%;
   }

@@ -1,10 +1,10 @@
 /* first mobile */
-#favorites {
+#introduction {
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    & > .favorites_icon{
+    & > .introduction_icon{
         width: 28px;
         height: 21px;
         margin-top: 5px;
@@ -22,13 +22,13 @@
     }
 }
 
-#favorites-results{
+#content{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#gif-favorites-content{
+#gif-content{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 10px;
@@ -65,7 +65,7 @@
 }
 
 
-/* Favoritos sin contenido */
+/* Favoritos y Mis GIFOS sin contenido */
 
 #no_content{
     display: none;
@@ -95,9 +95,9 @@
 
 @media screen and (min-width: 768px) {
 
-    #favorites {
+    #introduction {
        
-        & > .favorites_icon{
+        & > .introduction_icon{
             margin-top: 11px;
         }
     
@@ -108,7 +108,7 @@
         }
     }
 
-    #gif-favorites-content{
+    #gif-content{
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         grid-gap: 29px;
