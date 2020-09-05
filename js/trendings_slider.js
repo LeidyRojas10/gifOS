@@ -48,17 +48,32 @@ function loadTrends(json, limit) {
 
 //Event para que los trending Gifos se recarguen de acuerdo a la resolución de la pantalla en el Slider
 function displayTrendingGifs() {
-    const w = document.documentElement.clientWidth;
-    if (w >= 768) {
-        getTrendings(limitDesktop);
+    const currentWidth = document.documentElement.clientWidth;
+    let previousWidth = sessionStorage.getItem("Gifos_Width");
+    if (previousWidth) {
+        if (currentWidth >= 768 && parseInt(previousWidth) < 768) {
+            getTrendings(limitDesktop);
+        }
+        if (currentWidth <= 768 && parseInt(previousWidth) > 768) {
+            getTrendings(limitMobile);
+        }
     }
     else {
-        getTrendings(limitMobile);
+        if (currentWidth >= 768) {
+            getTrendings(limitDesktop);
+        }
+        else {
+            getTrendings(limitMobile);
+        }
     }
+    sessionStorage.setItem("Gifos_Width", currentWidth.toString());
 }
 
 // Anexar al evento el listener de la función del cambio de resolución
 window.addEventListener("resize", displayTrendingGifs);
+
+//Limpiar sessionStorage
+sessionStorage.clear();
 
 //Muestran los trendings
 displayTrendingGifs();
