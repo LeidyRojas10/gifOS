@@ -21,6 +21,11 @@ function searchGif() {
     }
 }
 
+//Listener para el botón buscar
+document.getElementById("searchbox_search_button").addEventListener("click", function(){
+    searchGif();
+  });
+
 
 function createUrlForSearching(word, offset) {
     return "https://api.giphy.com/v1/gifs/search?" + KEY + "&q=" + word + "&limit=12" + "&offset=" + offset + "&rating=g&lang=en";
@@ -116,3 +121,8 @@ function moreResults() {
     saveGifos(gifos);
     loadGifs(gifos.search.searchWord, gifos.search.offset);
 }
+
+//Listener para el botón "ver más"
+document.getElementById("more_results").addEventListener("click", function(){
+    moreResults();
+  });
