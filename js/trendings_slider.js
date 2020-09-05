@@ -5,12 +5,9 @@ const limitDesktop = 3;
 const offset = 0;
 const rating = 'rating=g';
 
-const trendings_url = (trendingsGifs + '?' + KEY + '&' + rating);
-
-
-
 function getTrendings(limit) {
-    let url = trendingsGifs + "?" + KEY + "&limit=" + limit + "&rating=g"; // esta es la dirección para obtener de a 3 trendings
+    let gifosData = getGifos();
+    let url = trendingsGifs + "?" + KEY + "&limit=" + limit + "&rating=g&offset=" + gifosData.trendingOffset; // esta es la dirección para obtener de a 3 trendings
     // Request es un objeto que describe que tipo de operación requiero y qué condiciones debe cumplir para que sea exitoso
     // Para efectos de esta función debo solicitar información por los cual es un GET y espero un JSON como respuesta
     let request = {
@@ -44,6 +41,40 @@ function loadTrends(json, limit) {
         trend.innerHTML = trend.innerHTML + "<img src='" + gif + "' class='trend_gif'></img>";
     }
 }
+
+//Acción de los botones del slider Trending GIFOS 
+
+//Función para actualizar el offset para la carga de los trending a la izquierda
+function moreTrendingsLeft() {
+    let gifosData = getGifos();
+    if (gifosData.trendingOffset >= 3) {
+        gifosData.trendingOffset = gifosData.trendingOffset - 3;
+        saveGifos(gifosData);
+        getTrendings(limitDesktop);
+    }
+    console.log("presione_izq. offset actual:" + gifosData.trendingOffset);
+}
+
+//Listener para el botón "slider button left"
+document.getElementById("slider_button_left").addEventListener("click", function () {
+    moreTrendingsLeft();
+});
+
+
+//Función para actualizar el offset para la carga de los trending a la derecha
+function moreTrendingsRight() {
+    let gifosData = getGifos();
+    gifosData.trendingOffset = gifosData.trendingOffset + 3;
+    saveGifos(gifosData);
+    console.log("presione_derecha. offset actual:" + gifosData.trendingOffset);
+    getTrendings(limitDesktop);
+}
+
+//Listener para el botón "slider button right"
+document.getElementById("slider_button_right").addEventListener("click", function () {
+    moreTrendingsRight();
+});
+
 
 
 //Event para que los trending Gifos se recarguen de acuerdo a la resolución de la pantalla en el Slider
