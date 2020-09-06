@@ -27,22 +27,42 @@ document.getElementById("searchbox_search_button").addEventListener("click", fun
 });
 
 //Función para obtener las sugerencias del autocompletado
-function getSuggestions(){
-    
+function getSuggestions() {
+    let word = document.getElementById('search').value;
+    let autocompleteUrl = "https://api.giphy.com/v1/gifs/search/tags?api_key=yGMJAYeVTaWUz1e4xHnA4K1Yu7oxznmO&q=" + word;
+    // Para efectos de esta función debo solicitar información por los cual es un GET y espero un JSON como respuesta
+    let request = {
+        method: 'GET',
+        headers: HEADERS
+    }
+    //Ahora procedo a hacer la consulta a la Api de Giphy usando la url que cree y la petición
+    fetch(autocompleteUrl, request)
+        .then(result => { //Paso 1: si la petición fue correcta procedo a verificar que haya sido un http-200, de lo contrario error
+            if (result.status == 200) {
+                return result.json();
+            }
+            else {
+                throw "algo salio mal";
+            }
+        })
+        .then(response => { //Paso 2: dado que fue un http-200 obtengo el json de Giphy con las sugerencias para autocompletar la 
+            //búsqueda
+            showSuggestions(response.data);
+        })
+        .catch(function (error) { // En caso que alguno de los pasos falle capturo el error para analizar qué ocurrio
+            //console.error("Error en la petición" + error.message);
+        })
 }
 
 //Función para mostrar las sugerencias del autocompletado en la barra de búsqueda
-function showSuggestions(){
+function showSuggestions(suggestions) {
     document.getElementById("search_options").innerHTML = "";
     let ul = document.getElementById("search_options");
-    let suggestions = [
-        "hola" , "mundo" , "proyecto" , "Gifos" , "gifs"
-    ]
 
     //Para una posición que arranca en 0, mientras que esa posición sea menor a 5 la voy a incrementar en 1 cada vez q se repita
-    for(let position = 0; position < 5; position++){
+    for (let position = 0; position < 5; position++) {
         let li = document.createElement("li");
-        li.innerHTML='<button><img src="/assets/icon-search.svg"> '+suggestions[position]+'</button>';
+        li.innerHTML = '<button><img src="/assets/icon-search.svg"> ' + suggestions[position].name + '</button>';
         ul.appendChild(li);
     }
 }
@@ -51,8 +71,8 @@ document.getElementById("search").addEventListener('keyup', function (event) {
     if (event.keyCode == '13') {
         searchGif();
     }
-    else{
-        showSuggestions();
+    else {
+        getSuggestions();
     }
 
     console.log(event.code);
@@ -74,7 +94,7 @@ document.getElementById("search").addEventListener('blur', (event) => {
         document.getElementById("search_line").style.display = "none";
         document.getElementById("search_options").style.display = "none";
         document.getElementById("search_box").style.position = "relative";
-    }    
+    }
 });
 
 
@@ -196,7 +216,6 @@ function showGifs(jsonData) {
 }
 
 //Botón Ver más 
-
 function moreResults() {
     let gifos = getGifos();
     gifos.search.offset = gifos.search.offset + 12;
