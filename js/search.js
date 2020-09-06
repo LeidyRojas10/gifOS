@@ -26,11 +26,32 @@ document.getElementById("searchbox_search_button").addEventListener("click", fun
     searchGif();
 });
 
+
 document.getElementById("search").addEventListener('keyup', function (event) {
     if (event.keyCode == '13') {
         searchGif();
     }
+
     console.log(event.code);
+});
+
+//Listener para Focus y Blur para el autocompletar la búsqueda
+const searchInput = document.getElementById("search");
+
+document.getElementById("search").addEventListener('focus', (event) => {
+    if (window.innerWidth >= 768) {
+        document.getElementById("search_line").style.display = "block";
+        document.getElementById("search_options").style.display = "block";
+        document.getElementById("search_box").style.position = "absolute";
+    }
+});
+
+document.getElementById("search").addEventListener('blur', (event) => {
+    if (window.innerWidth >= 768) {
+        document.getElementById("search_line").style.display = "none";
+        document.getElementById("search_options").style.display = "none";
+        document.getElementById("search_box").style.position = "relative";
+    }    
 });
 
 
@@ -163,4 +184,12 @@ function moreResults() {
 //Listener para el botón "ver más"
 document.getElementById("more_results").addEventListener("click", function () {
     moreResults();
+});
+
+// Anexar al evento el listener de la función del cambio de resolución de mobile a desktop aparezca la ilustración sobre la
+//barra de búsqueda
+window.addEventListener("resize", function () {
+    if (window.innerWidth >= 768) {
+        document.getElementById("main_image").style.display = "block";
+    }
 });

@@ -330,6 +330,13 @@ nav {
 }
 
 /* Inicia buscador first mobile */
+#search_main {
+  width: 334px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .search_box {
   width: 334px;
   border: #572EE5 solid 1px;
@@ -338,6 +345,8 @@ nav {
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
+  position: relative;
+  /* Inicia buscador activo - no visible en mobile */
 }
 .search_box .search_bar {
   display: flex;
@@ -383,6 +392,12 @@ nav {
 .search_box .search_bar #searchbox_cancel_button {
   display: none;
 }
+.search_box #search_line {
+  display: none;
+}
+.search_box #search_options {
+  display: none;
+}
 
 /* Opciones desktop y tablet */
 @media screen and (min-width: 768px) {
@@ -411,9 +426,15 @@ nav {
     left: 521px;
   }
 
+  #search_main {
+    width: 100%;
+    max-width: 551px;
+  }
+
   .search_box {
     width: 100%;
     max-width: 551px;
+    position: relative;
     /* Buscador activo */
   }
   .search_box .search_bar > input:not(:placeholder-shown) {
@@ -428,16 +449,20 @@ nav {
     border-top: 1px solid #9CAFC3;
     width: 85%;
     padding-bottom: 4px;
+    display: none;
   }
   .search_box #search_options {
     width: 92%;
     list-style: none;
     padding-left: 23px;
     padding-right: 23px;
+    position: relative;
+    display: none;
   }
   .search_box #search_options > li {
     width: 100%;
     padding-top: 10px;
+    background-color: white;
   }
   .search_box #search_options > li:last-child {
     padding-bottom: 18px;
