@@ -59,9 +59,10 @@
         outline: none;
         font-family: 'Roboto-regular';
         font-size: 16px;
+        
 
 
-        &:focus {
+        &:not(:placeholder-shown) {
             margin-left: 55px;
             order: 2;
 

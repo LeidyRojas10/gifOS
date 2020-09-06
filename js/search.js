@@ -22,9 +22,35 @@ function searchGif() {
 }
 
 //Listener para el botón buscar
-document.getElementById("searchbox_search_button").addEventListener("click", function(){
+document.getElementById("searchbox_search_button").addEventListener("click", function () {
     searchGif();
-  });
+});
+
+document.getElementById("search").addEventListener('keyup', function (event) {
+    if (event.keyCode == '13') {
+        searchGif();
+    }
+    console.log(event.code);
+});
+
+
+//Limpiar o cancelar búsqueda
+function clearSearch() {
+    document.getElementById("results_title").innerHTML = "";
+    document.getElementById("results_bar").style.display = "none";
+    document.getElementById("no_results").style.display = "none";
+    document.getElementById("more_results").style.display = "none";
+    document.getElementById("gif-result").style = "padding-top:0px";
+    document.getElementById("gif-result").innerHTML = "";
+    document.getElementById("search").value = "";
+    document.getElementById("main_title").style.display = "block";
+    document.getElementById("main_image").style.display = "block";
+
+    console.log("Se borró la búsqueda");
+}
+
+//Listener para el botón limpiar o cancelar búsqueda
+document.getElementById("searchbox_cancel_button").addEventListener("click", clearSearch);
 
 
 function createUrlForSearching(word, offset) {
@@ -67,6 +93,7 @@ function showGifs(jsonData) {
         gifContainer.innerHTML = '';
     }
 
+
     // Cuando la búsqueda no arroja resultados muestre la imagen  "Intenta con otra búsqueda."
     let data = jsonData.data;
     if (data.length == 0) {
@@ -82,7 +109,7 @@ function showGifs(jsonData) {
             var gifUrl = data[position].images.fixed_height.url;
             gifContent += '<div class="gif"><img src="' + gifUrl + '"></img></div>';
         }
-        gifContainer.innerHTML += gifContent;
+        gifContainer.insertAdjacentHTML ('beforeend',gifContent);
         document.getElementById("more_results").style.display = "block";
 
         if (window.innerWidth >= 768) {
@@ -92,6 +119,8 @@ function showGifs(jsonData) {
         else {
             //configuración para mobile
             document.getElementById("gif-result").style = "padding-top:38px";
+            document.getElementById("main_title").style.display = "none";
+            document.getElementById("main_image").style.display = "none";
         }
         document.getElementById("no_results").style.display = "none";
     }
@@ -123,6 +152,6 @@ function moreResults() {
 }
 
 //Listener para el botón "ver más"
-document.getElementById("more_results").addEventListener("click", function(){
+document.getElementById("more_results").addEventListener("click", function () {
     moreResults();
-  });
+});
