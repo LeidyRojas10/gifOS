@@ -62,9 +62,20 @@ function showSuggestions(suggestions) {
     //Para una posición que arranca en 0, mientras que esa posición sea menor a 5 la voy a incrementar en 1 cada vez q se repita
     for (let position = 0; position < 5; position++) {
         let li = document.createElement("li");
-        li.innerHTML = '<button><img src="/assets/icon-search.svg"> ' + suggestions[position].name + '</button>';
+        //Variable botón para el autocompletado
+        let button = document.createElement("button");
+        button.innerHTML = '<img src="/assets/icon-search.svg"> ' + suggestions[position].name;
+        button.addEventListener('click',completeSearch(suggestions[position].name));
+        li.appendChild(button);
         ul.appendChild(li);
     }
+}
+
+//Función para completar la búsqueda con base a una sugerencia y realice la acción de búsqueda
+function completeSearch(word) {
+    console.log(word);
+    document.getElementById('search').value = word;
+    searchGif();
 }
 
 document.getElementById("search").addEventListener('keyup', function (event) {
