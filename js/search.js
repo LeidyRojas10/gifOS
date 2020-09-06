@@ -26,10 +26,33 @@ document.getElementById("searchbox_search_button").addEventListener("click", fun
     searchGif();
 });
 
+//Función para obtener las sugerencias del autocompletado
+function getSuggestions(){
+    
+}
+
+//Función para mostrar las sugerencias del autocompletado en la barra de búsqueda
+function showSuggestions(){
+    document.getElementById("search_options").innerHTML = "";
+    let ul = document.getElementById("search_options");
+    let suggestions = [
+        "hola" , "mundo" , "proyecto" , "Gifos" , "gifs"
+    ]
+
+    //Para una posición que arranca en 0, mientras que esa posición sea menor a 5 la voy a incrementar en 1 cada vez q se repita
+    for(let position = 0; position < 5; position++){
+        let li = document.createElement("li");
+        li.innerHTML='<button><img src="/assets/icon-search.svg"> '+suggestions[position]+'</button>';
+        ul.appendChild(li);
+    }
+}
 
 document.getElementById("search").addEventListener('keyup', function (event) {
     if (event.keyCode == '13') {
         searchGif();
+    }
+    else{
+        showSuggestions();
     }
 
     console.log(event.code);

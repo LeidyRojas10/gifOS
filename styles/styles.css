@@ -346,6 +346,7 @@ nav {
   align-items: center;
   justify-content: flex-end;
   position: relative;
+  background-color: white;
   /* Inicia buscador activo - no visible en mobile */
 }
 .search_box .search_bar {

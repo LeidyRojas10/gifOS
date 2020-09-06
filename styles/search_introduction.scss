@@ -57,6 +57,7 @@
     align-items: center;
     justify-content: flex-end;
     position: relative;
+    background-color: $main_background;
 
     & .search_bar{
         display: flex;
