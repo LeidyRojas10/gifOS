@@ -448,10 +448,10 @@ nav {
 
     }*/
   }
-  .search_box > input:focus {
+  .search_box > input:not(:placeholder-shown) {
     margin-left: 13px;
   }
-  .search_box > input:focus ~ #searchbox_search_button {
+  .search_box > input:not(:placeholder-shown) ~ #searchbox_search_button {
     display: inline;
     margin-left: 21px;
     margin-right: 0px;

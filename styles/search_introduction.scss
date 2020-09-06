@@ -141,7 +141,7 @@
 
         &>input {
 
-            &:focus {
+            &:not(:placeholder-shown) {
                 margin-left: 13px;
 
                 &~#searchbox_search_button {

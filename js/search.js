@@ -37,6 +37,7 @@ document.getElementById("search").addEventListener('keyup', function (event) {
 //Limpiar o cancelar búsqueda
 function clearSearch() {
     document.getElementById("results_title").innerHTML = "";
+    document.getElementById("results_title").style = "padding-top:0px";
     document.getElementById("results_bar").style.display = "none";
     document.getElementById("no_results").style.display = "none";
     document.getElementById("more_results").style.display = "none";
@@ -45,6 +46,14 @@ function clearSearch() {
     document.getElementById("search").value = "";
     document.getElementById("main_title").style.display = "block";
     document.getElementById("main_image").style.display = "block";
+    if (window.innerWidth >= 768) {
+        //configuración para desktop
+        document.getElementById("trendings_paragraph").style.marginBottom = "95px";
+    }
+    else {
+        //configuración para mobile
+        document.getElementById("trendings_paragraph").style.marginBottom = "45px";
+    }
 
     console.log("Se borró la búsqueda");
 }
@@ -109,7 +118,7 @@ function showGifs(jsonData) {
             var gifUrl = data[position].images.fixed_height.url;
             gifContent += '<div class="gif"><img src="' + gifUrl + '"></img></div>';
         }
-        gifContainer.insertAdjacentHTML ('beforeend',gifContent);
+        gifContainer.insertAdjacentHTML('beforeend', gifContent);
         document.getElementById("more_results").style.display = "block";
 
         if (window.innerWidth >= 768) {
