@@ -42,6 +42,8 @@ function loadTrends(json, limit) {
     }
 }
 
+//
+
 //Acción de los botones del slider Trending GIFOS 
 
 //Función para actualizar el offset para la carga de los trending a la izquierda

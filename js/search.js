@@ -65,7 +65,7 @@ function showSuggestions(suggestions) {
         //Variable botón para el autocompletado
         let button = document.createElement("button");
         button.innerHTML = '<img src="/assets/icon-search.svg"> ' + suggestions[position].name;
-        button.addEventListener('click',completeSearch(suggestions[position].name));
+        //button.addEventListener('click',completeSearch(suggestions[position].name));
         li.appendChild(button);
         ul.appendChild(li);
     }
