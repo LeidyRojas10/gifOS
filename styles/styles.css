@@ -1010,5 +1010,84 @@ footer .footer_copyright {
   }
 }
 /* first desktop y tablet */
+@media screen and (min-width: 768px) {
+  #create_gifos {
+    display: flex;
+    margin-top: 5px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  #create_gifos #create_gifos_container {
+    width: 688px;
+    min-height: 390px;
+    border: 1px solid #572EE5;
+    position: relative;
+  }
+  #create_gifos #create_gifos_container .create_container_main {
+    position: absolute;
+    width: vw(20, 1440);
+    height: vw(20, 1440);
+    right: 20px;
+    bottom: 20px;
+  }
+  #create_gifos #create_gifos_container .create_container_main > .create_gifos_framework_1 {
+    border-top: solid #50E3C2 1px;
+    border-left: solid #50E3C2 1px;
+    left: 20px;
+    top: 20px;
+  }
+  #create_gifos #create_gifos_container .create_container_main .create_gifos_framework_2 {
+    border-right: solid #50E3C2 1px;
+    right: 20px;
+    top: 20px;
+  }
+  #create_gifos #create_gifos_container .create_container_main .create_gifos_framework_3 {
+    border-bottom: solid #50E3C2 1px;
+    left: 20px;
+    bottom: 20px;
+  }
+  #create_gifos #create_gifos_container .create_container_main .create_gifos_framework_4 {
+    border-bottom: solid #50E3C2 1px;
+    border-right: solid #50E3C2 1px;
+    right: 20px;
+    bottom: 20px;
+  }
+  #create_gifos #create_gifos_container .create_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 34px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 480px;
+    min-height: 320px;
+  }
+  #create_gifos #create_gifos_container .create_container #title {
+    font-family: "Montserrat-bold";
+    font-size: 25px;
+    color: #572EE5;
+    text-align: center;
+    line-height: 33px;
+    margin-bottom: 31px;
+    margin: 7px 44px 0px 45px;
+  }
+  #create_gifos #create_gifos_container .create_container #title .h1_turquoise {
+    color: #50E3C2;
+  }
+  #create_gifos #create_gifos_container .create_container .create_paragraph_container {
+    font-family: "Montserrat-medium";
+    font-size: 14px;
+    color: #572EE5;
+    text-align: center;
+    line-height: 25px;
+    margin-top: 0px;
+    margin-bottom: 45px;
+  }
+}
 
 /*# sourceMappingURL=styles.css.map */
