@@ -1,0 +1,69 @@
+/* first mobile */
+
+.gif {
+    position: relative;
+    width: 156px;
+    height: 120px;
+
+    &>img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #008CBA;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .5s ease;
+
+    & .gif_cards_buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+
+        & button {
+            width: 32px;
+            height: 32px;
+            color: $main_background;
+            opacity: 0.7;
+            border-radius: 6px;
+            border: none;
+            margin: 10px 10px 0px 0px;
+        }
+    }
+
+    & .gif_cards_info {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+
+    }
+}
+
+.gif:hover .overlay {
+    height: 100%;
+}
+
+/* Opciones desktop y tablet */
+
+@media screen and (min-width: 768px) {
+
+    .gif {
+        width: 260px;
+        height: 200px;
+
+        &>img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+}

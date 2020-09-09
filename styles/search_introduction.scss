@@ -12,7 +12,7 @@
         line-height: 33px;
         margin-bottom: 31px;
     }
-    
+
 
     & h1 {
         @extend %share_h1;
@@ -41,7 +41,7 @@
 
 /* Inicia buscador first mobile */
 
-#search_main{
+#search_main {
     width: 334px;
     display: flex;
     flex-direction: column;
@@ -59,7 +59,7 @@
     position: relative;
     background-color: $main_background;
 
-    & .search_bar{
+    & .search_bar {
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -68,38 +68,38 @@
         height: 50px;
 
 
-        &>input {   
+        &>input {
             margin-left: 55px;
             width: 100%;
             border: 0;
             outline: none;
             font-family: 'Roboto-regular';
             font-size: 16px;
-            
-    
-    
+
+
+
             &:not(:placeholder-shown) {
                 margin-left: 55px;
                 order: 2;
-    
+
                 &~#searchbox_search_button {
                     display: none;
                     order: 1;
                     margin-left: 55px;
                     margin-right: 0px;
-    
+
                     &>img {
                         filter: brightness(0.7) invert(1) grayscale(1);
                     }
                 }
-    
+
                 &~#searchbox_cancel_button {
                     display: inline;
                     order: 3;
                 }
             }
         }
-    
+
         &>button {
             margin-right: 20px;
             font-size: 20px;
@@ -108,23 +108,23 @@
             color: $purple;
             border: none;
         }
-    
+
         #searchbox_cancel_button {
             display: none;
         }
-    
+
 
     }
 
     /* Inicia buscador activo - no visible en mobile */
-    #search_line{
-      display: none;
-    }
-
-    & #search_options{
+    #search_line {
         display: none;
     }
-    
+
+    & #search_options {
+        display: none;
+    }
+
 }
 
 
@@ -164,7 +164,7 @@
         left: 521px;
     }
 
-    #search_main{
+    #search_main {
         width: 100%;
         max-width: 551px;
     }
@@ -173,9 +173,9 @@
         width: 100%;
         max-width: 551px;
         position: relative;
-       
 
-        & .search_bar{
+
+        & .search_bar {
 
             &>input {
 
@@ -189,59 +189,59 @@
                     }
                 }
             }
-         }
+        }
 
-        /* Buscador activo */ 
+        /* Buscador activo */
 
-        #search_line{
+        #search_line {
             border-top: 1px solid $light_grey;
             width: 85%;
             padding-bottom: 4px;
             display: none;
         }
 
-        & #search_options{
+        & #search_options {
             width: 92%;
             list-style: none;
             padding-left: 23px;
             padding-right: 23px;
             position: relative;
             display: none;
-            
-                & > li{
+
+            &>li {
+                width: 100%;
+                padding-top: 10px;
+                background-color: $main_background;
+
+                &:last-child {
+                    padding-bottom: 18px;
+                }
+
+                &>button {
                     width: 100%;
-                    padding-top: 10px;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    color: $light_grey;
+                    font-family: 'Roboto-regular';
+                    font-size: 16px;
+                    text-align: left;
                     background-color: $main_background;
-                    
-                    &:last-child{
-                        padding-bottom: 18px;
-                    }
+                    outline: none;
+                    border: none;
+                    left: 23.6px;
 
-                    &> button{
-                        width: 100%;
-                        display: flex;
-                        flex-direction: row;
-                        align-items: center;
-                        color: $light_grey;
-                        font-family: 'Roboto-regular';
-                        font-size: 16px;
-                        text-align: left;
-                        background-color: $main_background;
-                        outline: none;
-                        border: none;
-                        left: 23.6px;
 
-                
-                    & > img{
+                    &>img {
                         filter: brightness(0.7) invert(1) grayscale(1);
                         top: 15.2px;
                         height: 15.8px;
                         width: 15.8px;
-                        padding-right: 14.6px ;
+                        padding-right: 14.6px;
                     }
 
                 }
-                }
+            }
 
         }
 

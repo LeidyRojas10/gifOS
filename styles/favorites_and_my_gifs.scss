@@ -4,7 +4,7 @@
     flex-direction: column;
     align-items: center;
 
-    & > .introduction_icon{
+    &>.introduction_icon {
         width: 28px;
         height: 21px;
         margin-top: 5px;
@@ -22,29 +22,29 @@
     }
 }
 
-#content{
+#content {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#gif-content{
+#gif-content {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 10px;
 
-    &  .gif{
+    & .gif {
         width: 156px;
         height: 120px;
 
-        & > img {
+        &>img {
             width: 100%;
             height: 100%;
         }
     }
 }
 
-#more_content{
+#more_content {
     display: none;
     width: 127px;
     height: 50px;
@@ -67,19 +67,19 @@
 
 /* Favoritos y Mis GIFOS sin contenido */
 
-#no_content{
+#no_content {
     display: none;
     flex-direction: column;
     align-items: center;
 
-    & > img {
+    &>img {
         width: 150px;
         height: 150px;
         margin-top: 38px;
         margin-bottom: 0px;
     }
 
-    & > h3{
+    &>h3 {
         font-family: 'Montserrat-bold';
         font-size: 18px;
         color: $turquoise_2;
@@ -96,11 +96,11 @@
 @media screen and (min-width: 768px) {
 
     #introduction {
-       
-        & > .introduction_icon{
+
+        &>.introduction_icon {
             margin-top: 11px;
         }
-    
+
         & h1 {
             font-size: 25px;
             margin-top: 8px;
@@ -108,36 +108,36 @@
         }
     }
 
-    #gif-content{
+    #gif-content {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         grid-gap: 29px;
         width: fit-content;
-    
-        &  .gif{
+
+        & .gif {
             width: 260px;
             height: 200px;
-    
-            & > img {
+
+            &>img {
                 width: 100%;
                 height: 100%;
             }
         }
     }
 
-    #no_content{
-       
-        & > img {
+    #no_content {
+
+        &>img {
             margin-top: 110px;
             margin-bottom: 0px;
         }
-    
-        & > h3{           
+
+        &>h3 {
             font-size: 22px;
             line-height: 33px;
             margin-bottom: 137px;
         }
-    
+
     }
-    
+
 }
