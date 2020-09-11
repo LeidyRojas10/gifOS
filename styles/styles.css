@@ -1019,6 +1019,7 @@ footer .footer_copyright {
     align-items: stretch;
     /*Inicia cámara imagen*/
     /*Inicia Crear Gifo contenedor principal morado*/
+    /*Inicia Paso a paso para crear Gifos*/
     /*Inicia film imagen*/
   }
   #create_gifos .camera_container {
@@ -1035,6 +1036,7 @@ footer .footer_copyright {
   #create_gifos .create_main {
     display: flex;
     flex-direction: column;
+    align-items: stretch;
   }
   #create_gifos #create_gifos_container {
     display: flex;
@@ -1118,6 +1120,23 @@ footer .footer_copyright {
     text-align: center;
     line-height: 29px;
     margin-top: 3px;
+  }
+  #create_gifos .gifos_status_main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  #create_gifos .gifos_status_main > .gifos_status_main_step_to_step {
+    display: flex;
+    flex-direction: row;
+    width: 146px;
+    justify-content: space-between;
+  }
+  #create_gifos .gifos_status_main > .divisor {
+    width: 100%;
+    border-top: 1px solid #50E3C2;
   }
   #create_gifos .film_container {
     margin-top: auto;

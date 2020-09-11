@@ -26,6 +26,7 @@
         .create_main {
             display: flex;
             flex-direction: column;
+            align-items: stretch;
         }
 
         /*Inicia Crear Gifo contenedor principal morado*/
@@ -128,6 +129,29 @@
             }
 
             /*Finaliza contenido Parte 1*/
+
+        }
+
+        /*Inicia Paso a paso para crear Gifos*/
+
+        .gifos_status_main {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+
+            &>.gifos_status_main_step_to_step {
+                display: flex;
+                flex-direction: row;
+                width: 146px;
+                justify-content: space-between;
+            }
+
+            &>.divisor {
+                width: 100%;
+                border-top: 1px solid $turquoise_2;
+            }
 
         }
 
