@@ -13,7 +13,7 @@
 <body>
 
     <header>
-        <img class="logo" src="/assets/gifos_diurno.png" alt="logo de GIFOS modo diurno">
+        <img class="logo" src="./assets/gifos_diurno.png" alt="logo de GIFOS modo diurno">
         <!-- Inicia Barra de navegación -->
         <nav>
             <input type="checkbox" id="toggle" class="toggle">
@@ -24,7 +24,7 @@
                 <li> <a href="#" class="menu_link">Modo Nocturno</a></li>
                 <li> <a href="#" class="menu_link">Favoritos</a></li>
                 <li> <a href="#" class="menu_link_final">Mis GIFOS</a></li>
-                <li> <button class="navigation_bottom" type="button"> <img src="/assets/botton_gif.svg"
+                <li> <button class="navigation_bottom" type="button"> <img src="./assets/botton_gif.svg"
                             alt="imagen para botón crear tus propios GIFOS"></button></li>
             </ul>
         </nav>
@@ -32,35 +32,58 @@
     </header>
 
     <main>
-        <!-- Inicia Crear GIFO -->
+        <!-- Inicia Sección Crear GIFO -->
         <section id="create_gifos" class="container">
-            <!-- Inicia Crear Gifo 1 -->
-            <div id="create_gifos_container">
-                <div class="create_container_main">
-                    <div class="create_gifos_framework_1"></div>
-                    <div class="create_gifos_framework_2"></div>
-                    <div class="create_gifos_framework_3"></div>
-                    <div class="create_gifos_framework_4"></div>
-                    <div class="create_container">
-                        <h1 id="title">Aquí podrás<br> crear tus propios<span class="h1_turquoise">GIFOS</span></h1>
-                        <p class="create_paragraph_container">¡Crea tu GIFO en sólo 3 pasos!<br>
-                            (sólo necesitas una cámara para grabar un video)</p>
-                        <div class="camera_container">
-                            <img class="camera" src="./assets/camara.svg" alt="Imagen de una cámara de video">
-                            <img class="camera_light" src="./assets/element-luz-camara.svg" alt="Luz turquesa de la cámara de video">
+            <!-- Inicia Contenedor de la cámara-->
+            <div class="camera_container">
+                <img class="camera" src="./assets/camara.svg" alt="Imagen de una cámara de video">
+                <img class="camera_light" src="./assets/element-luz-camara.svg"
+                    alt="Luz turquesa de la cámara de video">
+            </div>
+            <!-- Inicia Crear Gifo parte 1-->
+            <div class="create_main">
+                <div id="create_gifos_container">
+                    <div class="create_container_main">
+                        <!-- Inicia Panel decorativo turquesa top-->
+                        <div class="corner-panel">
+                            <div class="corner">
+                                <div class="top left"></div>
+                            </div>
+                            <div class="corner">
+                                <div class="top right"></div>
+                            </div>
                         </div>
-                        <img class="video_tape" src="./assets/pelicula.svg" alt="Imagen de un rollo de grabación de la cámara">
+                        <!-- Inicia contenido Parte 1-->
+                        <div class="create_container">
+                            <h1 id="title">Aquí podrás<br> crear tus propios<span class="h1_turquoise"> GIFOS</span>
+                            </h1>
+                            <p class="create_paragraph_container">¡Crea tu GIFO en sólo 3 pasos!<br>
+                                (sólo necesitas una cámara para grabar un video)</p>
+                        </div>
+                        <!-- Inicia Panel decorativo turquesa bottom -->
+                        <div class="corner-panel">
+                            <div class="corner">
+                                <div class="bottom left"></div>
+                            </div>
+                            <div class="corner">
+                                <div class="bottom right"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- Inicia Paso a paso para crear Gifos -->
-            <div class="gifos_status_main">
-                <div class="gifos_status_main_step_to_step">
-                    <div class="step_1">1</div>
-                    <div class="step_2">2</div>
-                    <div class="step_3">3</div>
+                <!-- Inicia Paso a paso para crear Gifos -->
+                <div class="gifos_status_main">
+                    <div class="gifos_status_main_step_to_step">
+                        <div class="step_1">1</div>
+                        <div class="step_2">2</div>
+                        <div class="step_3">3</div>
+                    </div>
+                    <button id="start_button" type="button">comenzar</button>
                 </div>
-                <button id="start_button" type="button">comenzar</button>
+            </div>
+            <!-- Inicia Contenedor del film-->
+            <div class="film_container">
+                <img class="video_tape" src="./assets/pelicula.svg" alt="Imagen de un rollo de grabación de la cámara">
             </div>
         </section>
 

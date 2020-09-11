@@ -1014,79 +1014,114 @@ footer .footer_copyright {
   #create_gifos {
     display: flex;
     margin-top: 5px;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    /*Inicia cámara imagen*/
+    /*Inicia Crear Gifo contenedor principal morado*/
+    /*Inicia film imagen*/
+  }
+  #create_gifos .camera_container {
+    display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    position: relative;
+    margin-bottom: 50px;
+  }
+  #create_gifos .camera_container > .camera_light {
+    margin-left: 2px;
+    margin-right: 4px;
+  }
+  #create_gifos .create_main {
+    display: flex;
+    flex-direction: column;
   }
   #create_gifos #create_gifos_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 688px;
-    min-height: 390px;
+    height: 390px;
     border: 1px solid #572EE5;
-    position: relative;
+    /*Panel decorativo Turquesa*/
+    /*Finaliza panel decorativo Turquesa*/
+    /*Inicia contenido Parte 1*/
+    /*Finaliza contenido Parte 1*/
   }
   #create_gifos #create_gifos_container .create_container_main {
+    width: 648px;
+    height: 350px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  #create_gifos #create_gifos_container .corner-panel {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 25px;
+  }
+  #create_gifos #create_gifos_container .corner {
+    width: 25px;
+    height: 25px;
+    position: relative;
+  }
+  #create_gifos #create_gifos_container .top,
+#create_gifos #create_gifos_container .bottom {
     position: absolute;
-    width: vw(20, 1440);
-    height: vw(20, 1440);
-    right: 20px;
-    bottom: 20px;
+    width: 25px;
+    height: 25px;
   }
-  #create_gifos #create_gifos_container .create_container_main > .create_gifos_framework_1 {
-    border-top: solid #50E3C2 1px;
-    border-left: solid #50E3C2 1px;
-    left: 20px;
-    top: 20px;
+  #create_gifos #create_gifos_container .top {
+    top: 0;
+    border-top: 1px solid #50E3C2;
   }
-  #create_gifos #create_gifos_container .create_container_main .create_gifos_framework_2 {
-    border-right: solid #50E3C2 1px;
-    right: 20px;
-    top: 20px;
+  #create_gifos #create_gifos_container .bottom {
+    bottom: 0;
+    border-bottom: 1px solid #50E3C2;
   }
-  #create_gifos #create_gifos_container .create_container_main .create_gifos_framework_3 {
-    border-bottom: solid #50E3C2 1px;
-    left: 20px;
-    bottom: 20px;
+  #create_gifos #create_gifos_container .left {
+    left: 0;
+    border-left: 1px solid #50E3C2;
   }
-  #create_gifos #create_gifos_container .create_container_main .create_gifos_framework_4 {
-    border-bottom: solid #50E3C2 1px;
-    border-right: solid #50E3C2 1px;
-    right: 20px;
-    bottom: 20px;
+  #create_gifos #create_gifos_container .right {
+    right: 0;
+    border-right: 1px solid #50E3C2;
   }
   #create_gifos #create_gifos_container .create_container {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    position: relative;
+    align-items: center;
     top: 34px;
     left: 50%;
-    transform: translateX(-50%);
     text-align: center;
-    width: 480px;
-    min-height: 320px;
+    width: 100%;
+    height: 100%;
   }
   #create_gifos #create_gifos_container .create_container #title {
     font-family: "Montserrat-bold";
     font-size: 25px;
     color: #572EE5;
     text-align: center;
-    line-height: 33px;
-    margin-bottom: 31px;
-    margin: 7px 44px 0px 45px;
+    line-height: 35px;
+    margin-bottom: 0px;
   }
   #create_gifos #create_gifos_container .create_container #title .h1_turquoise {
     color: #50E3C2;
   }
   #create_gifos #create_gifos_container .create_container .create_paragraph_container {
-    font-family: "Montserrat-medium";
-    font-size: 14px;
-    color: #572EE5;
+    font-family: "Roboto-regular";
+    font-size: 16px;
+    color: #000000;
     text-align: center;
-    line-height: 25px;
-    margin-top: 0px;
-    margin-bottom: 45px;
+    line-height: 29px;
+    margin-top: 3px;
+  }
+  #create_gifos .film_container {
+    margin-top: auto;
+    margin-left: 67px;
   }
 }
 
