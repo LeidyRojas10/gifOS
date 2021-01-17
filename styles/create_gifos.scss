@@ -10,15 +10,13 @@
 
         /*Inicia cámara imagen*/
         .camera_container {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 50px;
+            display: block;
+            padding-top: 118.6px;
 
             &>.camera_light {
                 margin-left: 2px;
                 margin-right: 4px;
+                margin-bottom: 13.4px;
             }
         }
 
@@ -146,13 +144,68 @@
                 flex-direction: row;
                 width: 146px;
                 justify-content: space-between;
+
+                &>.step {
+                    display: flex;
+                    width: 32px;
+                    height: 32px;
+                    justify-content: center;
+                    align-items: center;
+                    border: 1px solid $purple;
+                    border-radius: 50%;
+                    margin-top: 24px;
+                    right: 25px;
+                    outline: none;
+                    font-family: 'Roboto-regular';
+                    font-weight: 700;
+                    font-size: 18px;
+                    color: $purple;
+
+                    &:hover {
+                        background-color: $purple;
+                        color: $main_background;
+                    }
+
+
+                    &:last-child {
+                        margin-left: 0;
+                    }
+                }
             }
 
-            &>.divisor {
-                width: 100%;
-                border-top: 1px solid $turquoise_2;
+
+            &>#start_button {
+                width: 127px;
+                height: 50px;
+                border: $purple solid 1px;
+                background-color: $main_background;
+                border-radius: 25px;
+                font-family: 'Montserrat-bold';
+                font-size: 13px;
+                color: $purple;
+                text-transform: uppercase;
+                margin-top: 46px;
+                margin-bottom: 26px;
+
+                &:hover {
+                    background-color: $purple;
+                    color: $main_background;
+                }
             }
 
+        }
+
+        .divisor {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 795.9px;
+            border: 3.45px solid $purple;
+            background-color: $purple;
+            border-radius: 3.45px;
+            position: absolute;
+            margin-top: 0px;
+            margin-bottom: 20px;
         }
 
         /*Inicia film imagen*/
@@ -160,6 +213,7 @@
         .film_container {
             margin-top: auto;
             margin-left: 67px;
+            margin-bottom: 102px;
         }
     }
 }

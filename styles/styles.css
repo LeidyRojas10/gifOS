@@ -1023,15 +1023,13 @@ footer .footer_copyright {
     /*Inicia film imagen*/
   }
   #create_gifos .camera_container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 50px;
+    display: block;
+    padding-top: 118.6px;
   }
   #create_gifos .camera_container > .camera_light {
     margin-left: 2px;
     margin-right: 4px;
+    margin-bottom: 13.4px;
   }
   #create_gifos .create_main {
     display: flex;
@@ -1134,13 +1132,62 @@ footer .footer_copyright {
     width: 146px;
     justify-content: space-between;
   }
-  #create_gifos .gifos_status_main > .divisor {
-    width: 100%;
-    border-top: 1px solid #50E3C2;
+  #create_gifos .gifos_status_main > .gifos_status_main_step_to_step > .step {
+    display: flex;
+    width: 32px;
+    height: 32px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #572EE5;
+    border-radius: 50%;
+    margin-top: 24px;
+    right: 25px;
+    outline: none;
+    font-family: "Roboto-regular";
+    font-weight: 700;
+    font-size: 18px;
+    color: #572EE5;
+  }
+  #create_gifos .gifos_status_main > .gifos_status_main_step_to_step > .step:hover {
+    background-color: #572EE5;
+    color: white;
+  }
+  #create_gifos .gifos_status_main > .gifos_status_main_step_to_step > .step:last-child {
+    margin-left: 0;
+  }
+  #create_gifos .gifos_status_main > #start_button {
+    width: 127px;
+    height: 50px;
+    border: #572EE5 solid 1px;
+    background-color: white;
+    border-radius: 25px;
+    font-family: "Montserrat-bold";
+    font-size: 13px;
+    color: #572EE5;
+    text-transform: uppercase;
+    margin-top: 46px;
+    margin-bottom: 26px;
+  }
+  #create_gifos .gifos_status_main > #start_button:hover {
+    background-color: #572EE5;
+    color: white;
+  }
+  #create_gifos .divisor {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 795.9px;
+    border: 3.45px solid #572EE5;
+    background-color: #572EE5;
+    border-radius: 3.45px;
+    position: absolute;
+    margin-top: 0px;
+    margin-bottom: 20px;
   }
   #create_gifos .film_container {
     margin-top: auto;
     margin-left: 67px;
+    margin-bottom: 102px;
   }
 }
 
