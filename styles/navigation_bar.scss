@@ -1,8 +1,8 @@
-$background_nav: $main_background;
-$background_item: $purple;
+/*$background_nav: $main_background;*/
+/*$background_item: $purple;*/
 $hamburguer_width: 15px;
 $icon_height: 2px;
-$x_color: $purple;
+/*$x_color: $purple;*/
 
 header {
     padding: 0;
@@ -23,8 +23,8 @@ header {
 nav {
     position: relative;
     height: 95px;
-    border-top: 5px solid $background_item;
-    background: $background_nav;
+    border-top: 5px var(--color-primary);
+    background: var(--color-main-background);
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
@@ -56,7 +56,7 @@ nav {
     display: block;
     width: $hamburguer_width;
     height: $icon_height;
-    background: $purple;
+    background: var(--color-primary);
     position: absolute;
     top: 47px;
     right: 26px;
@@ -71,7 +71,7 @@ nav {
     display: block;
     width: $hamburguer_width;
     height: $icon_height;
-    background: $purple;
+    background: var(--color-primary);
     position: absolute;
     top: -6px;
     transition: inherit;
@@ -82,18 +82,18 @@ nav {
 }
 
 .toggle:checked+.icon>.hamburguer {
-    background: $x_color;
+    background: var(--color-primary);
     transform: rotate(45deg);
 }
 
 .toggle:checked+.icon>.hamburguer:before {
-    background: $x_color;
+    background: var(--color-primary);
     top: 0;
     transform: rotate(90deg);
 }
 
 .toggle:checked+.icon>.hamburguer:after {
-    background: $x_color;
+    background: var(--color-primary);
     top: 0;
     transform: rotate(90deg);
 }
@@ -108,7 +108,7 @@ nav {
     display: none;
     align-items: center;
     justify-content: space-between;
-    background: $purple_90;
+    background:   var(--color-primary-90);
     margin-top: 90px;
     padding: 0px;
     z-index: 3;
@@ -123,7 +123,7 @@ nav {
     }
 
     & li:first-child {
-        margin-top: 17px;
+        margin-top: 1Fpx;
     }
 
 }
@@ -134,7 +134,7 @@ nav {
     flex: auto;
     font-family: 'Montserrat-bold';
     font-size: 15px;
-    color: $menu_link_color;
+    color: var(--color-menu-link-color);
     text-align: center;
     line-height: 30px;
 }
@@ -144,7 +144,7 @@ nav {
     flex: auto;
     font-family: 'Montserrat-bold';
     font-size: 15px;
-    color: $menu_link_color;
+    color: var(--color-menu-link-color);
     text-align: center;
     line-height: 30px;
 
@@ -156,7 +156,7 @@ nav {
         margin-top: 43px;
         margin-bottom: 11.9px;
         left: calc(50% - 20.5px);
-        border-bottom: 0.1px solid $menu_link_color;
+        border-bottom: 0.1px solid var(--color-menu-link-color);
     }
 }
 
@@ -164,20 +164,20 @@ nav {
     display: none;
     width: 54px;
     height: 54px;
-    background-color: $main_background;
-    border: 1px solid $purple;
+    background-color: var(--color-main-background);
+    border: 1px solid var(--color-primary);
     border-radius: 50%;
     position: absolute;
     top: 18px;
     right: 156px;
     bottom: 18px;
     outline: none;
-    color: $purple;
+    color: var(--color-primary);
     z-index: 3;
 
     &:hover {
-        background-color: $purple;
-        color: $main_background;
+        background-color: var(--color-primary);
+        color: var(--color-main-background);
 
         &>img {
             filter: brightness(0) invert(1);
@@ -186,9 +186,9 @@ nav {
 
 
     &:active {
-        background-color: $light_grey;
-        color: $main_background;
-        border: 1px solid $light_grey;
+        background-color: var(--color-light-grey);
+        color: var(--color-main-background);
+        border: 1px solid var(--color-light-grey);
     }
 
     &>img {
@@ -247,7 +247,7 @@ nav {
     .menu {
         width: 47%;
         text-align: right;
-        background: $main_background;
+        background: var(--color-main-background);
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -277,19 +277,19 @@ nav {
         flex: auto;
         font-family: 'Montserrat-bold';
         font-size: 13px;
-        color: $purple;
+        color: var(--color-primary);
         letter-spacing: 0;
         text-align: center;
         text-transform: uppercase;
 
         &:hover {
             text-decoration: underline;
-            text-decoration-color: $turquoise_1;
+            text-decoration-color: var(--color-turquoise-1);
         }
 
         &:active {
             text-decoration: none;
-            color: $light_grey;
+            color: var(--color-light-grey);
         }
     }
 }

@@ -9,7 +9,7 @@ const HEADERS = {
 }
 
 class Gif {
-    constructor(title, user, favorite, url){
+    constructor(title, user, favorite, url) {
         this.title = title;
         this.user = user;
         this.favorite = favorite;
@@ -17,8 +17,8 @@ class Gif {
     }
 }
 
-class Buscador{
-    constructor(searchWord, limit, offset, autocompleteWords){
+class Buscador {
+    constructor(searchWord, limit, offset, autocompleteWords) {
         this.searchWord = searchWord;
         this.limit = limit;
         this.offset = offset;
@@ -26,8 +26,8 @@ class Buscador{
     }
 }
 
-class Gifos{
-    constructor(search, favorites, myOwnGifos, mode){
+class Gifos {
+    constructor(search, favorites, myOwnGifos, mode) {
         this.search = search;
         this.favorites = favorites;
         this.myOwnGifos = myOwnGifos;
@@ -40,15 +40,41 @@ class Gifos{
 const GIFOS_KEY = "GIFOS_APP";
 
 //Esta función se encarga de guardar y actualizar la información del sitio web GIFOS
-function saveGifos (gifos){
+function saveGifos(gifos) {
     localStorage.setItem(GIFOS_KEY, JSON.stringify(gifos));
 }
 
 //Esta función se encarga de regresar los valores actuales de GIFOS guardados en el LocalStorage
-function getGifos (){
-    let gifosString= localStorage.getItem(GIFOS_KEY);
-    let gifos= JSON.parse(gifosString);
+function getGifos() {
+    let gifosString = localStorage.getItem(GIFOS_KEY);
+    let gifos = JSON.parse(gifosString);
     return gifos;
 }
 
-saveGifos(new Gifos( new Buscador("", 12, 0, []) , [], [], "diurno"));
+//Modos de la aplicación
+const lightMode = 'light_mode';
+const darkMode = 'dark_mode';
+const body = document.getElementById("app");
+
+saveGifos(new Gifos(new Buscador("", 12, 0, []), [], [], lightMode));
+
+//Cambiar modo
+function setMode(mode) {
+    let gifos = getGifos();
+    gifos.mode = mode;
+    saveGifos(gifos);
+    body.className = mode;
+}
+
+//Acción del botón cambiar modo
+function changeMode() {
+    let gifos = getGifos();
+    if (gifos.mode === darkMode) {
+        setMode(lightMode);
+    }
+    else {
+        setMode(darkMode);
+    }
+}
+changeMode();
+document.getElementById("changer").addEventListener("click", () => changeMode());

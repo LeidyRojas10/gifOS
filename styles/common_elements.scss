@@ -3,24 +3,54 @@ $menu_link_color: white;
 $purple: #572EE5;
 $purple_90:rgba(87, 46, 229, 0.90);
 $purple_70: rgba(87, 46, 229, 0.70);
-$purple_50: rgba(87, 46, 229, 0.50);
 $light_grey: #9CAFC3;
 $turquoise_1: #5ED7C6;
 $turquoise_2: #50E3C2;
 $black: #000000;
 $light_grey_background:#F3F5F8;
 $social_icon: #CDD6E0;
-
-body .dark {
-    $main_background: black;
-}
-
-/* first mobile */
+$dark_main_background: #37383C;
 
 * {
     padding: 0;
     margin: 0;
 }
+
+/* Modes*/
+
+/* Light mode*/
+
+.light_mode{
+    --color-main-background: white;
+    --color-menu-link-color:white;
+    --color-primary:#572EE5;
+    --color-primary-90:rgba(87, 46, 229, 0.90);
+    --color-primary-70:  rgba(87, 46, 229, 0.70);
+    --color-light-grey: #9CAFC3;
+    --color-turquoise-1: #5ED7C6;
+    --color-turquoise-2: #50E3C2;
+    --color-basic-text: black;
+    --color-trending-background:#F3F5F8;
+    --color-social-icon: #CDD6E0;
+}
+
+/* Dark mode*/
+
+.dark_mode{
+    --color-main-background: #37383C;
+    --color-menu-link-color: white;
+    --color-primary: white;
+    --color-primary-90: black;
+    --color-primary-70:  rgba(87, 46, 229, 0.70);
+    --color-light-grey: #9CAFC3;
+    --color-turquoise-1: #5ED7C6;
+    --color-turquoise-2: #50E3C2;
+    --color-basic-text: white;
+    --color-trending-background:#222326;
+    --color-social-icon: #CDD6E0;
+}
+
+
 
 .container {
     margin-left: 0px;
