@@ -1,34 +1,41 @@
 /* first mobile */
-%title {
-    font-family: 'Montserrat-bold';
-    color: $purple;
-    text-align: center;
+
+#trendings {
+    background-color: var(--color-main-background);
+
+    %title {
+        font-family: 'Montserrat-bold';
+        color: var(--color-primary);
+        text-align: center;
+    }
+
+    .trendings_title {
+        @extend %title;
+        font-size: 16px;
+        line-height: 25px;
+        margin-top: 31px;
+        margin-bottom: 2px;
+    }
+
+
+    #trendings_paragraph {
+        font-family: 'Montserrat-medium';
+        font-size: 14px;
+        color: var(--color-primary);
+        text-align: center;
+        line-height: 25px;
+        margin-top: 0px;
+        margin-bottom: 45px;
+    }
 }
 
-.trendings_title {
-    @extend %title;
-    font-size: 16px;
-    line-height: 25px;
-    margin-top: 31px;
-    margin-bottom: 2px;
-}
 
-
-#trendings_paragraph {
-    font-family: 'Montserrat-medium';
-    font-size: 14px;
-    color: $purple;
-    text-align: center;
-    line-height: 25px;
-    margin-top: 0px;
-    margin-bottom: 45px;
-}
 
 
 /* Inicia trendings container first mobile */
 
 .trendings_container {
-    background-color: $light_grey_background;
+    background-color: var(--color-trending-background);
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -44,7 +51,7 @@
     &>.trendings_paragraph_container {
         font-family: 'Roboto-regular';
         font-size: 16px;
-        color: $black;
+        color: var(--color-basic-text);
         text-align: center;
         line-height: 23px;
         margin-top: 0px;
@@ -80,22 +87,25 @@
 
 @media screen and (min-width: 768px) {
 
-    .trendings_title {
-        @extend %title;
-        font-size: 18px;
-        margin-top: 73px;
-        margin-bottom: 7px;
-    }
+    #trendings {
+        .trendings_title {
+            @extend %title;
+            font-size: 18px;
+            margin-top: 73px;
+            margin-bottom: 7px;
+        }
 
-    #trendings_paragraph {
-        font-size: 16px;
-        margin-top: 0px;
-        margin-bottom: 95px;
+        #trendings_paragraph {
+            font-size: 16px;
+            margin-top: 0px;
+            margin-bottom: 95px;
 
-        & br {
-            display: none;
+            & br {
+                display: none;
+            }
         }
     }
+
 
 
     .trendings_container {
@@ -150,15 +160,15 @@
 
             &>button {
                 display: inline;
-                background-color: $main_background;
-                border: $purple solid 1px;
+                background-color: var(--color-main-background);
+                border: var(--color-primary) solid 1px;
                 width: 40px;
                 height: 40px;
                 outline: none;
 
                 &:hover {
-                    background-color: $purple;
-                    color: $main_background;
+                    background-color: var(--color-primary);
+                    color: var(--color-main-background);
 
                     &>img {
                         filter: brightness(0) invert(1);

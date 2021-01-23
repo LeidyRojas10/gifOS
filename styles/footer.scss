@@ -5,6 +5,7 @@ footer {
     flex-direction: column;
     align-items: center;
     border-bottom: 5px $purple solid;
+    background-color: var(--color-main-background);
 
     & .footer_paragraph {
         font-family: 'Roboto-regular';

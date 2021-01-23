@@ -333,11 +333,12 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: var(--color-main-background);
 }
 #search_introduction .h1_turquoise, #search_introduction h1 {
   font-family: "Montserrat-bold";
   font-size: 25px;
-  color: #572EE5;
+  color: var(--color-primary);
   text-align: center;
   line-height: 33px;
   margin-bottom: 31px;
@@ -346,7 +347,7 @@ nav {
   margin: 7px 44px 0px 45px;
 }
 #search_introduction .h1_turquoise {
-  color: #50E3C2;
+  color: var(--color-turquoise-2);
 }
 #search_introduction .h1_main_title {
   display: none;
@@ -372,14 +373,14 @@ nav {
 
 .search_box {
   width: 334px;
-  border: #572EE5 solid 1px;
+  border: var(--color-primary) solid 1px;
   border-radius: 27px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
   position: relative;
-  background-color: white;
+  background-color: var(--color-main-background);
   /* Inicia buscador activo - no visible en mobile */
 }
 .search_box .search_bar {
@@ -397,6 +398,7 @@ nav {
   outline: none;
   font-family: "Roboto-regular";
   font-size: 16px;
+  background: var(--color-main-background);
 }
 .search_box .search_bar > input:not(:placeholder-shown) {
   margin-left: 55px;
@@ -418,9 +420,9 @@ nav {
 .search_box .search_bar > button {
   margin-right: 20px;
   font-size: 20px;
-  background-color: white;
+  background-color: var(--color-main-background);
   outline: none;
-  color: #572EE5;
+  color: var(--color-primary);
   border: none;
 }
 .search_box .search_bar #searchbox_cancel_button {
@@ -480,7 +482,7 @@ nav {
     margin-right: 0px;
   }
   .search_box #search_line {
-    border-top: 1px solid #9CAFC3;
+    border-top: 1px solid var(--color-light-grey);
     width: 85%;
     padding-bottom: 4px;
     display: none;
@@ -496,7 +498,7 @@ nav {
   .search_box #search_options > li {
     width: 100%;
     padding-top: 10px;
-    background-color: white;
+    background-color: var(--color-main-background);
   }
   .search_box #search_options > li:last-child {
     padding-bottom: 18px;
@@ -506,11 +508,11 @@ nav {
     display: flex;
     flex-direction: row;
     align-items: center;
-    color: #9CAFC3;
+    color: var(--color-light-grey);
     font-family: "Roboto-regular";
     font-size: 16px;
     text-align: left;
-    background-color: white;
+    background-color: var(--color-main-background);
     outline: none;
     border: none;
     left: 23.6px;
@@ -524,23 +526,24 @@ nav {
   }
 }
 /* first mobile */
-.trendings_container > .trendings_title_container, .trendings_title {
+#trendings {
+  background-color: var(--color-main-background);
+}
+#trendings .trendings_container > .trendings_title_container, #trendings .trendings_title {
   font-family: "Montserrat-bold";
-  color: #572EE5;
+  color: var(--color-primary);
   text-align: center;
 }
-
-.trendings_title {
+#trendings .trendings_title {
   font-size: 16px;
   line-height: 25px;
   margin-top: 31px;
   margin-bottom: 2px;
 }
-
-#trendings_paragraph {
+#trendings #trendings_paragraph {
   font-family: "Montserrat-medium";
   font-size: 14px;
-  color: #572EE5;
+  color: var(--color-primary);
   text-align: center;
   line-height: 25px;
   margin-top: 0px;
@@ -549,7 +552,7 @@ nav {
 
 /* Inicia trendings container first mobile */
 .trendings_container {
-  background-color: #F3F5F8;
+  background-color: var(--color-trending-background);
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -563,7 +566,7 @@ nav {
 .trendings_container > .trendings_paragraph_container {
   font-family: "Roboto-regular";
   font-size: 16px;
-  color: #000000;
+  color: var(--color-basic-text);
   text-align: center;
   line-height: 23px;
   margin-top: 0px;
@@ -592,18 +595,17 @@ nav {
 
 /* Opciones desktop y tablet */
 @media screen and (min-width: 768px) {
-  .trendings_title {
+  #trendings .trendings_title {
     font-size: 18px;
     margin-top: 73px;
     margin-bottom: 7px;
   }
-
-  #trendings_paragraph {
+  #trendings #trendings_paragraph {
     font-size: 16px;
     margin-top: 0px;
     margin-bottom: 95px;
   }
-  #trendings_paragraph br {
+  #trendings #trendings_paragraph br {
     display: none;
   }
 
@@ -649,15 +651,15 @@ nav {
   }
   .trendings_container > .gif_container > button {
     display: inline;
-    background-color: white;
-    border: #572EE5 solid 1px;
+    background-color: var(--color-main-background);
+    border: var(--color-primary) solid 1px;
     width: 40px;
     height: 40px;
     outline: none;
   }
   .trendings_container > .gif_container > button:hover {
-    background-color: #572EE5;
-    color: white;
+    background-color: var(--color-primary);
+    color: var(--color-main-background);
   }
   .trendings_container > .gif_container > button:hover > img {
     filter: brightness(0) invert(1);
@@ -678,6 +680,7 @@ footer {
   flex-direction: column;
   align-items: center;
   border-bottom: 5px #572EE5 solid;
+  background-color: var(--color-main-background);
 }
 footer .footer_paragraph {
   font-family: "Roboto-regular";

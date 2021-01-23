@@ -3,11 +3,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: var(--color-main-background);
 
     %share_h1 {
         font-family: 'Montserrat-bold';
         font-size: 25px;
-        color: $purple;
+        color: var(--color-primary);
         text-align: center;
         line-height: 33px;
         margin-bottom: 31px;
@@ -21,7 +22,7 @@
 
     .h1_turquoise {
         @extend %share_h1;
-        color: $turquoise_2;
+        color: var(--color-turquoise-2);
     }
 
     .h1_main_title {
@@ -50,14 +51,14 @@
 
 .search_box {
     width: 334px;
-    border: $purple solid 1px;
+    border: var(--color-primary) solid 1px;
     border-radius: 27px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
     position: relative;
-    background-color: $main_background;
+    background-color: var(--color-main-background);
 
     & .search_bar {
         display: flex;
@@ -75,12 +76,15 @@
             outline: none;
             font-family: 'Roboto-regular';
             font-size: 16px;
+            background: var(--color-main-background);
 
 
 
             &:not(:placeholder-shown) {
                 margin-left: 55px;
                 order: 2;
+
+
 
                 &~#searchbox_search_button {
                     display: none;
@@ -103,9 +107,9 @@
         &>button {
             margin-right: 20px;
             font-size: 20px;
-            background-color: $main_background;
+            background-color: var(--color-main-background);
             outline: none;
-            color: $purple;
+            color: var(--color-primary);
             border: none;
         }
 
@@ -194,7 +198,7 @@
         /* Buscador activo */
 
         #search_line {
-            border-top: 1px solid $light_grey;
+            border-top: 1px solid var(--color-light-grey);
             width: 85%;
             padding-bottom: 4px;
             display: none;
@@ -211,7 +215,7 @@
             &>li {
                 width: 100%;
                 padding-top: 10px;
-                background-color: $main_background;
+                background-color: var(--color-main-background);
 
                 &:last-child {
                     padding-bottom: 18px;
@@ -222,11 +226,11 @@
                     display: flex;
                     flex-direction: row;
                     align-items: center;
-                    color: $light_grey;
+                    color: var(--color-light-grey);
                     font-family: 'Roboto-regular';
                     font-size: 16px;
                     text-align: left;
-                    background-color: $main_background;
+                    background-color: var(--color-main-background);
                     outline: none;
                     border: none;
                     left: 23.6px;
