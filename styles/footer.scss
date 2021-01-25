@@ -4,13 +4,13 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-bottom: 5px $purple solid;
+    border-bottom: 5px var(--color-primary-90) solid;
     background-color: var(--color-main-background);
 
     & .footer_paragraph {
         font-family: 'Roboto-regular';
         font-size: 15px;
-        color: $black;
+        color: var(--color-basic-text);
         letter-spacing: 0;
         margin: 47px 141px 22px 143px;
         padding: 0px;
@@ -23,7 +23,7 @@ footer {
 
         & i {
             font-size: 20px;
-            color: $social_icon;
+            color: var(--color-social-icon);
             text-decoration: none;
         }
     }
@@ -31,7 +31,7 @@ footer {
     & .footer_copyright {
         font-family: 'Roboto-regular';
         font-size: 14px;
-        color: $black;
+        color: var(--color-basic-text);
         letter-spacing: 0;
         line-height: 20px;
         margin: 46px 76px 23px 83px;
