@@ -77,8 +77,14 @@
             font-family: 'Roboto-regular';
             font-size: 16px;
             background: var(--color-main-background);
+            color: var(--color-basic-text);
 
+            &~#searchbox_search_button {
 
+                &>img {
+                    filter: var(--color-icons-2);
+                }
+            }
 
             &:not(:placeholder-shown) {
                 margin-left: 55px;
@@ -93,13 +99,17 @@
                     margin-right: 0px;
 
                     &>img {
-                        filter: brightness(0.7) invert(1) grayscale(1);
+                        filter: var(--color-icons-1);
                     }
                 }
 
                 &~#searchbox_cancel_button {
                     display: inline;
                     order: 3;
+
+                    &>img {
+                        filter: var(--color-icons-2);
+                    }
                 }
             }
         }
@@ -109,7 +119,7 @@
             font-size: 20px;
             background-color: var(--color-main-background);
             outline: none;
-            color: var(--color-primary);
+            color: var(--color-icons-2);
             border: none;
         }
 
@@ -237,7 +247,7 @@
 
 
                     &>img {
-                        filter: brightness(0.7) invert(1) grayscale(1);
+                        filter: var(--color-icons-1);
                         top: 15.2px;
                         height: 15.8px;
                         width: 15.8px;

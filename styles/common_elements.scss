@@ -32,6 +32,8 @@ $dark_main_background: #37383C;
     --color-basic-text: black;
     --color-trending-background:#F3F5F8;
     --color-social-icon: #CDD6E0;
+    --color-icons-1: brightness(0.7) invert(1) grayscale(1);
+    --color-icons-2:#572EE5;
 }
 
 /* Dark mode*/
@@ -48,6 +50,8 @@ $dark_main_background: #37383C;
     --color-basic-text: white;
     --color-trending-background:#222326;
     --color-social-icon: #CDD6E0;
+    --color-icons-1: brightness(0.7) invert(1) grayscale(1);
+    --color-icons-2: brightness(0) invert(1);
 }
 
 

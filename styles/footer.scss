@@ -62,7 +62,7 @@ footer {
                 font-size: 20px;
 
                 &:hover {
-                    color: $purple;
+                    color: var(--color-primary);
                 }
             }
         }
