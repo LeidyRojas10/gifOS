@@ -48,13 +48,18 @@
                     <div class="gif">
                         <img src="http://via.placeholder.com/156x120" alt="">
                         <div class="overlay">
-                            <div class="gif_cards_buttons" >
-                                <button class="gif_favorite_button" data-favorite="true">
+                            <div class="gif_cards_buttons">
+                                <button class="gif_favorite_button" onclick="markAsFavorite(this)" data-favorite="false"
+                                    data-id="123" data-title="amor" data-autor="Leidy"
+                                    data-link="https://media2.giphy.com/media/l4Ki4biBSwhjyrS48/200.gif?cid=cdc63368tjclbbn3o4ddbh62v2qle4gkccwtv9pi99500ifn&rid=200.gif">
                                     <img class="favorite_icon" src="./assets/icon-fav-hover.svg"></img>
                                     <img class="favorite_icon_active" src="./assets/icon-fav-active.svg"></img>
                                 </button>
-                                    
-                                <button class="gif_download_button"><img class="download_icon"
+
+                                <button class="gif_download_button" onclick="downloadGif(this)"
+                                data-link="https://media2.giphy.com/media/l4Ki4biBSwhjyrS48/200.gif?cid=cdc63368tjclbbn3o4ddbh62v2qle4gkccwtv9pi99500ifn&rid=200.gif"
+                                >
+                                    <img class="download_icon"
                                         src="./assets/icon-download.svg"></img></button>
                                 <button class="gif_max_button"><img class="max_icon"
                                         src="./assets/icon-max.svg"></img></button>
@@ -126,6 +131,7 @@
     <!-- Scrips para esta página -->
     <script src="js/classes.js"></script>
     <script src="js/trendings_slider.js"></script>
+    <script src="js/cards.js"></script>
 </body>
 
 </html>

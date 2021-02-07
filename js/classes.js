@@ -9,10 +9,10 @@ const HEADERS = {
 }
 
 class Gif {
-    constructor(title, user, favorite, url) {
+    constructor(id, title, user, url) {
+        this.id = id;
         this.title = title;
         this.user = user;
-        this.favorite = favorite;
         this.url = url;
     }
 }
