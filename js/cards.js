@@ -1,7 +1,15 @@
 //Función para descargar tus Gifos
-const downloadGif = (element) => {
+const downloadGif = async (element) => {
     console.log('downloadGif');
-    window.open(element.dataset.link, '_blank');
+    let gifFromGiphy = await fetch(element.dataset.link);
+    let blobObject = await gifFromGiphy.blob();
+    let imgURL = URL.createObjectURL(blobObject);
+    const saveGif = document.createElement("a");
+    saveGif.href = imgURL;
+    saveGif.download = `myGif.gif`;
+    document.body.appendChild(saveGif);
+    saveGif.click();
+    document.body.removeChild(saveGif);
 };
 
 //Función para marcar como favorito un Gifo
