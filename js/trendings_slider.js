@@ -39,7 +39,7 @@ function loadTrends(json, limit) {
     for (var position = 0; position < limit; position++) {
         console.log(json.data[position]);
         let gif = json.data[position].images.fixed_height.url;
-        let gif_div = generateGifWithOverlay(json.data[position]);
+        let gif_div = generateGifWithOverlay(json.data[position],true);
         trend.appendChild(gif_div);
         // trend.innerHTML = trend.innerHTML + '<div class="gif">';
         // trend.innerHTML = trend.innerHTML + "<img src='" + gif + "' class='trend_gif'></img>";
@@ -49,19 +49,17 @@ function loadTrends(json, limit) {
 }
 
 //Esta función renderiza el overlay en los trending Gifos
-function generateGifWithOverlay(gif) {
+function generateGifWithOverlay(gif, isTrendGifos) {
     
     //Se crea el div contenedor del gifo y el overlay
     const gif_div = document.createElement('div');
     //Al div contenedor se le agrega la clase gif del css
-    gif_div.className = 'gif';
+    gif_div.className = isTrendGifos ? 'trend_gif' : 'gif';
     
     //Se crea una imagen donde se visualizará el gif
     const image = document.createElement('img');
     //Se agrega la dirección url del gif a la imagen
     image.setAttribute('src', gif?.images?.fixed_height?.url);
-    // Se le agrega a la imagen el estilo trend gifo
-    image.className = 'trend_gif';
     //Se agrega la imagen al gif contenedor
     gif_div.appendChild(image);
     

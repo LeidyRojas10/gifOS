@@ -33,9 +33,6 @@ main {
     }
 }
 
-
-
-
 /* Inicia trendings container first mobile */
 
 .trendings_container {
@@ -74,12 +71,6 @@ main {
             overflow-x: auto;
         }
 
-        .trend_gif {
-            width: 243px;
-            height: 187px;
-            flex-shrink: 0;
-            padding-left: 22px;
-        }
 
         &>button {
             display: none;
@@ -109,7 +100,6 @@ main {
             }
         }
     }
-
 
 
     .trendings_container {
@@ -145,21 +135,6 @@ main {
                 flex-direction: row;
                 overflow-x: auto;
                 justify-content: center;
-            }
-
-            .trend_gif {
-                width: 357px;
-                height: 275px;
-                flex-shrink: 0;
-                padding-left: 29px;
-
-                &:first-child {
-                    padding-left: 22px;
-                }
-
-                &:last-child {
-                    padding-right: 25px;
-                }
             }
 
             &>button {
