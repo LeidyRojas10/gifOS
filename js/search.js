@@ -191,9 +191,8 @@ function showGifs(jsonData) {
         // hasta que la posición deje de ser menor al total de elementos en el arreglo llamado Data.
         for (var position = 0; position < data.length; position++) {
             var gifUrl = data[position].images.fixed_height.url;
-            gifContent += '<div class="gif"><img src="' + gifUrl + '"></img></div>';
+            gifContainer.appendChild(generateGifWithOverlay(data[position],false));
         }
-        gifContainer.insertAdjacentHTML('beforeend', gifContent);
         document.getElementById("more_results").style.display = "block";
 
         if (window.innerWidth >= 768) {
