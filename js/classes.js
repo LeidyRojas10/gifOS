@@ -56,7 +56,7 @@ const lightMode = 'light_mode';
 const darkMode = 'dark_mode';
 const body = document.getElementById("app");
 
-saveGifos(new Gifos(new Buscador("", 12, 0, []), [], [], lightMode));
+
 
 //Cambiar modo
 function setMode(mode) {
@@ -76,5 +76,12 @@ function changeMode() {
         setMode(darkMode);
     }
 }
-changeMode();
+
+let currentGifos = getGifos();
+if (!currentGifos) {
+    saveGifos(new Gifos(new Buscador("", 12, 0, []), [], [], lightMode));
+}
+else{
+    setMode(currentGifos.mode);
+}
 document.getElementById("changer").addEventListener("click", () => changeMode());

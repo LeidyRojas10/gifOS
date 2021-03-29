@@ -1,6 +1,6 @@
 
 //Esta función renderiza el overlay en los trending Gifos
-function generateGifWithOverlay(gif, isTrendGifos) {
+function generateGifWithOverlay(gif, isTrendGifos = false,isFavorites = false) {
     
     //Se crea el div contenedor del gifo y el overlay
     const gif_div = document.createElement('div');
@@ -10,7 +10,7 @@ function generateGifWithOverlay(gif, isTrendGifos) {
     //Se crea una imagen donde se visualizará el gif
     const image = document.createElement('img');
     //Se agrega la dirección url del gif a la imagen
-    image.setAttribute('src', gif?.images?.fixed_height?.url);
+    image.setAttribute('src',isFavorites? gif?.url : gif?.images?.fixed_height?.url);
     //Se agrega la imagen al gif contenedor
     gif_div.appendChild(image);
     
@@ -32,10 +32,10 @@ function generateGifWithOverlay(gif, isTrendGifos) {
     favoriteButton.id = gif?.id?.toString().concat('-fab');
     // Se agregan los data attributes
     favoriteButton.dataset.id = gif?.id;
-    favoriteButton.dataset.favorite = false;
+    favoriteButton.dataset.favorite = isFavorites;
     favoriteButton.dataset.title = gif?.title;
     favoriteButton.dataset.author = gif?.username;
-    favoriteButton.dataset.link =  gif?.images?.original?.url;
+    favoriteButton.dataset.link =  isFavorites? gif?.url : gif?.images?.original?.url;
 
     //Agregar la opción del click favorito
     favoriteButton.addEventListener('click',(event) => {
@@ -69,7 +69,7 @@ function generateGifWithOverlay(gif, isTrendGifos) {
    downloadButton.className = 'gif_download_button';
    downloadButton.id = gif?.id?.toString().concat('-download');
    // Se agregan los data attributes
-   downloadButton.dataset.link =  gif?.images?.original?.url;
+   downloadButton.dataset.link =  isFavorites? gif?.url:gif?.images?.original?.url;
 
    //Agregar la opción del click descargar Gifo
    downloadButton.addEventListener('click',(event) => {
