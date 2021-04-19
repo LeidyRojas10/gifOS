@@ -33,18 +33,11 @@ function getTrendings(limit) {
 }
 
 function loadTrends(json, limit) {
-    console.log(json.data)
     let trend = document.getElementById("slider");
     trend.innerHTML = '';
     for (var position = 0; position < limit; position++) {
-        console.log(json.data[position]);
-        let gif = json.data[position].images.fixed_height.url;
         let gif_div = generateGifWithOverlay(json.data[position],true);
         trend.appendChild(gif_div);
-        // trend.innerHTML = trend.innerHTML + '<div class="gif">';
-        // trend.innerHTML = trend.innerHTML + "<img src='" + gif + "' class='trend_gif'></img>";
-        // trend.innerHTML = trend.innerHTML + generateOverlay(json.data[position]);
-        // trend.innerHTML = trend.innerHTML + '</div>';
     }
 }
 
@@ -58,7 +51,6 @@ function moreTrendingsLeft() {
         saveGifos(gifosData);
         getTrendings(limitDesktop);
     }
-    console.log("presione_izq. offset actual:" + gifosData.trendingOffset);
 }
 
 //Listener para el botón "slider button left"
@@ -72,7 +64,6 @@ function moreTrendingsRight() {
     let gifosData = getGifos();
     gifosData.trendingOffset = gifosData.trendingOffset + 3;
     saveGifos(gifosData);
-    console.log("presione_derecha. offset actual:" + gifosData.trendingOffset);
     getTrendings(limitDesktop);
 }
 

@@ -855,16 +855,16 @@ footer .footer_copyright {
   align-items: center;
 }
 
-#gif-content {
+#gif-content-favorites {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
 }
-#gif-content .gif {
+#gif-content-favorites .gif {
   width: 156px;
   height: 120px;
 }
-#gif-content .gif > img {
+#gif-content-favorites .gif > img {
   width: 100%;
   height: 100%;
 }
@@ -921,17 +921,17 @@ footer .footer_copyright {
     margin-bottom: 0px;
   }
 
-  #gif-content {
+  #gif-content-favorites {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 29px;
     width: fit-content;
   }
-  #gif-content .gif {
+  #gif-content-favorites .gif {
     width: 260px;
     height: 200px;
   }
-  #gif-content .gif > img {
+  #gif-content-favorites .gif > img {
     width: 100%;
     height: 100%;
   }

@@ -28,7 +28,7 @@
     align-items: center;
 }
 
-#gif-content {
+#gif-content-favorites {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 10px;
@@ -108,7 +108,7 @@
         }
     }
 
-    #gif-content {
+    #gif-content-favorites {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         grid-gap: 29px;

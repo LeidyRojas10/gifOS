@@ -33,6 +33,7 @@ class Gifos {
         this.myOwnGifos = myOwnGifos;
         this.mode = mode;
         this.trendingOffset = 0;
+        this.favoritesOffset = 0;
     }
 }
 

@@ -20,7 +20,7 @@
                 <span class="hamburguer"></span>
             </label>
             <ul class="menu">
-                <li> <a href="#" class="menu_link">Modo Nocturno</a></li>
+                <li> <a id="changer" href="#" class="menu_link">Modo Nocturno</a></li>
                 <li> <a href="#" class="menu_link">Favoritos</a></li>
                 <li> <a href="#" class="menu_link_final">Mis GIFOS</a></li>
                 <li> <button class="navigation_bottom" type="button"> <img src="./assets/botton_gif.svg"
@@ -35,7 +35,7 @@
         <section id="introduction" class="container">
             <img class="introduction_icon" src="./assets/icon-favoritos.svg" alt="imagen de un corazón pixelado para 
                 la sección tus Gifos favoritos">
-            <h1>Favoritos</h1>
+            <h1 id="favorites_title"> Favoritos</h1>
             <!-- Inicia sección contenido de Favoritos-->
             <div id="content">
                 <div id="no_content">
@@ -43,9 +43,9 @@
                     cuando no se ha encontrado ningún GIFO en Favoritos">
                     <h3>"¡Guarda tu primer GIFO en Favoritos <br> para que se muestre aquí!"</h3>
                 </div>
-                <div id="gif-content">
+                <div id="gif-content-favorites">
                 </div>
-                <button id="more_content" type="button" onclick="moreResults()">ver más</button>
+                <button id="more_content" type="button" onclick="loadMyFavorites()">ver más</button>
             </div>
         </section>
 
