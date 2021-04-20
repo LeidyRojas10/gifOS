@@ -1,0 +1,92 @@
+/* first mobile */
+
+main {
+    background-color: var(--color-main-background);
+}
+
+.modal_container{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-main-background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.modal{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    &>.searchbox_cancel_button {
+        width: 13.8px;
+        height: 14px;
+        color: var(--color-primary);
+        background-color: var(--color-main-background);
+        outline: none;
+        border: none;
+        margin: 0px 0px 0px 0px;
+        left: 321.9px;
+        align-self: flex-end;
+    }
+
+    &>.gif_modal{
+        width: 318px;
+        height: 245px;
+        padding: 78px 0 14px;
+    }
+
+    &>.info_full_modal{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &>.info_modal{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-left: 29.5px
+    }
+    & .modal_paragraph {
+        font-family: 'Roboto-regular';
+        font-size: 15px;
+        margin-bottom: 6px;
+    }
+
+    & .modal_title {
+        height: 19px;
+        font-family: 'Montserrat-bold';
+        font-size: 16px;
+    }
+
+    & .modal_buttons {
+        width: 93px;
+        display: flex;
+        justify-content: space-between;
+        color: $main_background;
+    }
+
+    &  .favorite_active_modal_icon, .download_modal_icon{
+        background-color: $main_background;
+        width: 36px;
+        height: 36px;
+        border: $light_grey 1px solid;
+        border-radius: 6px;
+        font-size: 18px;
+        outline: none;
+
+        & .favorite_hover_modal_icon{
+            display: none;
+        }
+
+        &:hover {
+            opacity: 100%;
+            background-color: $main_background;
+        }
+    }
+
+
+}
