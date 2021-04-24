@@ -145,12 +145,16 @@ main {
                 height: 40px;
                 outline: none;
 
+                &>img {
+                    filter: var(--color-icon-normal);
+                }
+
                 &:hover {
                     background-color: var(--color-primary);
                     color: var(--color-main-background);
 
                     &>img {
-                        filter: brightness(0) invert(1);
+                        filter: var(--color-icon-hover);
                     }
                 }
 
