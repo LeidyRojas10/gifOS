@@ -61,11 +61,11 @@
         width: 93px;
         display: flex;
         justify-content: space-between;
-        color: $main_background;
+        color: var(--color-main-background);
     }
 
     & .favorite_button_modal {
-        background-color: $main_background;
+        background-color: var(--color-main-background);
         width: 36px;
         height: 36px;
         border: 0px;
@@ -90,22 +90,22 @@
 
         &:hover {
             opacity: 100%;
-            background-color: $main_background;
+            background-color:var(--color-main-background);
         }
     }
 
     & .download_button_modal {
-        background-color: $main_background;
+        background-color: var(--color-main-background);
         width: 36px;
         height: 36px;
-        border: $light_grey 1px solid;
+        border: var(--color-light-grey) 1px solid;
         border-radius: 6px;
         font-size: 18px;
         outline: none;
 
         &:hover {
             opacity: 50%;
-            background-color: $main_background;
+            background-color:  var(--color-main-background);
         }
     }
 
@@ -125,7 +125,7 @@
         overflow-x: auto;
         width: 318px;
         height: 245px;
-        padding: 78px 0 14px;
+        padding: 0px 0px 0px;
         align-self: center;
     }
 
@@ -140,12 +140,32 @@
 
     .modal {
         width: fit-content;
-       
+
         &>.modal_close_button {
             width: 15px;
             height: 15px;
             margin: 0px 0px 78.4px 31.4px;
         }
+
+        &>.info_full_modal {
+            width: 695px;
+            margin: 27px 0px 0px 0px;
+        }
+
+        & .modal_title {
+            font-family: 'Roboto-bold';
+        }
+
+        & .favorite_button_modal {
+            border:  var(--color-light-grey) 1px solid;
+            border-radius: 6px;
+
+            &:hover {
+                opacity: 50%;
+                background-color: var(--color-main-background);
+            }
+        }
+
     }
 
     .modal_slider {
@@ -169,14 +189,14 @@
         &>button {
             display: inline;
             background-color: var(--color-main-background);
-            border: $purple_90 solid 1px;
+            border: var(--color-primary) solid 1px;
             width: 40px;
             height: 40px;
             outline: none;
             margin: 0px 25px 0px 25px;
 
             &:hover {
-                background-color: $purple_90;
+                background-color: var(--color-primary);
                 color: var(--color-main-background);
 
                 &>img {
