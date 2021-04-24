@@ -9,14 +9,21 @@
         <title>GIFOS </title>
     </head>
 
-    <body>
+    <body id="app">
 
         <div class="modal_container">
+            
             <div class="modal">
                 <button id="full_modal" type="button" class="modal_close_button">
                     <img src="./assets/close.svg">
                 </button>
-                <img class="gif_modal" src="http://via.placeholder.com/318x295" alt="Imagen del Gif seleccionado ampliado"> 
+                <div class="modal_slider">
+                    <button id="modal_button_left" type="button"><img src="./assets/button-left.svg"
+                        class="modal_icon_left"></button>
+                    <img class="gif_modal" src="http://via.placeholder.com/318x295" alt="Imagen del Gif seleccionado ampliado"> 
+                    <button id="modal_button_right" type="button"><img src="./assets/boton_derecha.svg"
+                        class="modal_icon_right"></button>
+                </div>
                 <div class="info_full_modal">
                     <div class="info_modal">
                         <p class="modal_paragraph">User</p>
