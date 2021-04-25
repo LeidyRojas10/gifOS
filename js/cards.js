@@ -33,7 +33,7 @@ function generateGifWithOverlay(gif, isTrendGifos = false, isFavorites = false) 
     favoriteButton.id = gif?.id?.toString().concat('-fab');
     // Se agregan los data attributes
     favoriteButton.dataset.id = gif?.id;
-    favoriteButton.dataset.favorite = isFavorites;
+    favoriteButton.dataset.favorite = isAFavoriteGif(gif?.id);
     favoriteButton.dataset.title = gif?.title;
     favoriteButton.dataset.username = gif?.username;
     favoriteButton.dataset.link = isFavorites ? gif?.url : gif?.images?.original?.url;
@@ -97,7 +97,7 @@ function generateGifWithOverlay(gif, isTrendGifos = false, isFavorites = false) 
 
     // Se agregan los data attributes
     showButton.dataset.id = gif?.id;
-    showButton.dataset.favorite = isFavorites;
+    showButton.dataset.favorite = isAFavoriteGif(gif?.id);
     showButton.dataset.title = gif?.title;
     showButton.dataset.username = gif?.username;
     console.log(gif,gif.username);
@@ -154,6 +154,13 @@ const downloadGif = async (element) => {
     document.body.removeChild(saveGif);
 };
 
+//Función para determinar sí el id de un Gif se encuentra en la lista de favoritos
+const isAFavoriteGif = (id) => {
+    let gifos = getGifos();
+    let found = gifos.favorites.findIndex((g) => g.id === id);
+    return found >= 0;
+}
+
 
 //Función para marcar como favorito un Gifo
 const markAsFavorite = (element) => {
@@ -161,16 +168,23 @@ const markAsFavorite = (element) => {
     let gif = new Gif(element.dataset.id, element.dataset.title, element.dataset.username, element.dataset.link);
     //Ingresar al Localstorage para obtener el objeto Gifos
     let gifos = getGifos();
+    //Obtener botón show
+    const buttonShow = document.getElementById(element.dataset.id + '-show');
+    const buttonFav = document.getElementById(element.dataset.id + '-fab');
     //Busca sí en la lista de mis favoritos está el Gifo con el id x
-    let found = gifos.favorites.findIndex((g) => g.id === element.dataset.id);
-    if (found >= 0) {
+    if (isAFavoriteGif(element.dataset.id)) {
+        let found = gifos.favorites.findIndex((g) => g.id === element.dataset.id);
         gifos.favorites.splice(found, 1);
         element.dataset.favorite = false;
+        buttonShow.dataset.favorite = false;
+        buttonFav.dataset.favorite = false;
         deleteFavorite(element.dataset.id);
     }
     else {
         gifos.favorites.push(gif);
         element.dataset.favorite = true;
+        buttonShow.dataset.favorite = true;
+        buttonFav.dataset.favorite = true;
     }
     //Guardo nuevamente el objeto Gifos en el LocalStorage
     saveGifos(gifos);
@@ -205,6 +219,9 @@ const openModal = (element) => {
 
     const modal_gif = document.getElementById('modal_gif');
     modal_gif.src = element.dataset.link;
+
+    favoriteModal(element);
+    downloadModal(element);
 }
 
 //Función para cerrar la vista del modal del Gif seleccionado
@@ -218,4 +235,27 @@ const initModal = () => {
     const closeButton = document.getElementById('close_modal');
     closeButton.addEventListener('click', closeModal);
 }
+
+//Función para guardar Gifo en la vista del modal seleccionada
+const favoriteModal = (element) => {
+    const modalsFavoriteButton = document.getElementById('modals_favorite_button');
+    modalsFavoriteButton.dataset.favorite = element.dataset.favorite;
+    modalsFavoriteButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        markAsFavorite(element);
+        modalsFavoriteButton.dataset.favorite = element.dataset.favorite;
+    });
+}
+
+//Función para descargar Gifo en la vista del modal seleccionada
+const downloadModal = (element) => {
+    const downModal = document.getElementById('down_modal');
+    downModal.addEventListener('click', (event) => {
+        event.preventDefault();
+        downloadGif(element);
+    });
+}
+
+
 initModal();
+
