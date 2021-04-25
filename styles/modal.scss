@@ -141,9 +141,6 @@
         align-self: center;
     }
 
-    &>button {
-        display: none;
-    }
 }
 
 /* Opciones desktop y tablet */
@@ -198,39 +195,6 @@
             justify-content: center;
             padding: 0px;
         }
-
-        &>button {
-            display: inline;
-            background-color: var(--color-main-background);
-            border: var(--color-primary) solid 1px;
-            width: 40px;
-            height: 40px;
-            outline: none;
-            margin: 0px 25px 0px 25px;
-
-            &>img {
-                filter: var(--color-icon-normal);
-            }
-
-            &:hover {
-                background-color: var(--color-primary);
-                color: var(--color-main-background);
-
-                &>img {
-                    filter: var(--color-icon-hover);
-                }
-            }
-
-            &>img {
-                position: inherit;
-                top: 50%;
-                left: 50%;
-                height: 50%;
-                width: 8px;
-                height: 14px;
-            }
-        }
-
     }
 
 }

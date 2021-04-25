@@ -74,8 +74,36 @@
             </div>
         </section>
 
-
     </main>
+
+    <!-- Inicia Modal -->
+    <div id="modal_master" class="modal_container">
+        <div class="modal">
+            <button id="close_modal" type="button" class="modal_close_button">
+                <img src="./assets/close.svg">
+            </button>
+            <div class="modal_slider">
+                <img id="modal_gif" class="gif_modal" src="http://via.placeholder.com/318x295"
+                    alt="Imagen del Gif seleccionado ampliado">
+            </div>
+            <div class="info_full_modal">
+                <div class="info_modal">
+                    <p id="modal_user" class="modal_paragraph">User</p>
+                    <h2 id="modal_title" class="modal_title">Título GIFO</h2>
+                </div>
+                <div class="modal_buttons">
+                    <button id="modals_favorite_button" class="favorite_button_modal" type="button"
+                        data-favorite="true">
+                        <img class="favorite_inactive_icon" src="./assets/icon-fav-hover.svg" id="fav_hover_modal_icon">
+                        <img class="favorite_active_icon" src="./assets/icon-fav-active.svg" id="fav_active_modal_icon">
+                    </button>
+                    <button id="down_modal" class="download_button_modal" type="button"><img
+                            src="./assets/icon-download.svg"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Finaliza Modal -->
 
     <!-- Inicia pie de página -->
     <footer id="footer" class="footer">

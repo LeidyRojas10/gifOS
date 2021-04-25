@@ -1386,9 +1386,6 @@ footer .footer_copyright {
   padding: 0px 0px 0px;
   align-self: center;
 }
-.modal_slider > button {
-  display: none;
-}
 
 /* Opciones desktop y tablet */
 @media screen and (min-width: 768px) {
@@ -1433,33 +1430,6 @@ footer .footer_copyright {
     overflow-x: auto;
     justify-content: center;
     padding: 0px;
-  }
-  .modal_slider > button {
-    display: inline;
-    background-color: var(--color-main-background);
-    border: var(--color-primary) solid 1px;
-    width: 40px;
-    height: 40px;
-    outline: none;
-    margin: 0px 25px 0px 25px;
-  }
-  .modal_slider > button > img {
-    filter: var(--color-icon-normal);
-  }
-  .modal_slider > button:hover {
-    background-color: var(--color-primary);
-    color: var(--color-main-background);
-  }
-  .modal_slider > button:hover > img {
-    filter: var(--color-icon-hover);
-  }
-  .modal_slider > button > img {
-    position: inherit;
-    top: 50%;
-    left: 50%;
-    height: 50%;
-    width: 8px;
-    height: 14px;
   }
 }
 
