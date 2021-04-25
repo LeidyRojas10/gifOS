@@ -6,12 +6,25 @@ function generateGifWithOverlay(gif, isTrendGifos = false, isFavorites = false) 
     const gif_div = document.createElement('div');
     //Al div contenedor se le agrega la clase gif del css
     gif_div.className = isTrendGifos ? 'trend_gif' : 'gif';
-    gif_div.id = 'gif-' + gif?.id;
+    gif_div.id = 'gif-container-' + gif?.id;
+
 
     //Se crea una imagen donde se visualizará el gif
     const image = document.createElement('img');
     //Se agrega la dirección url del gif a la imagen
     image.setAttribute('src', isFavorites ? gif?.url : gif?.images?.fixed_height?.url);
+    image.id = 'gif-' + gif?.id;
+    image.dataset.id = gif?.id;
+    image.dataset.favorite = isAFavoriteGif(gif?.id);
+    image.dataset.title = gif?.title;
+    image.dataset.username = gif?.username;
+    image.dataset.link = isFavorites ? gif?.url : gif?.images?.original?.url;
+
+    image.addEventListener('click', (event) => {
+        event.preventDefault();
+        openModal(image);
+    });
+
     //Se agrega la imagen al gif contenedor
     gif_div.appendChild(image);
 
@@ -100,7 +113,7 @@ function generateGifWithOverlay(gif, isTrendGifos = false, isFavorites = false) 
     showButton.dataset.favorite = isAFavoriteGif(gif?.id);
     showButton.dataset.title = gif?.title;
     showButton.dataset.username = gif?.username;
-    console.log(gif,gif.username);
+    console.log(gif, gif.username);
     showButton.dataset.link = isFavorites ? gif?.url : gif?.images?.original?.url;
 
     //Agregar la opción del click descargar Gifo
