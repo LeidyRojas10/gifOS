@@ -35,7 +35,7 @@ function generateGifWithOverlay(gif, isTrendGifos = false, isFavorites = false) 
     favoriteButton.dataset.id = gif?.id;
     favoriteButton.dataset.favorite = isFavorites;
     favoriteButton.dataset.title = gif?.title;
-    favoriteButton.dataset.author = gif?.username;
+    favoriteButton.dataset.username = gif?.username;
     favoriteButton.dataset.link = isFavorites ? gif?.url : gif?.images?.original?.url;
 
     //Agregar la opción del click favorito
@@ -99,7 +99,8 @@ function generateGifWithOverlay(gif, isTrendGifos = false, isFavorites = false) 
     showButton.dataset.id = gif?.id;
     showButton.dataset.favorite = isFavorites;
     showButton.dataset.title = gif?.title;
-    showButton.dataset.author = gif?.username;
+    showButton.dataset.username = gif?.username;
+    console.log(gif,gif.username);
     showButton.dataset.link = isFavorites ? gif?.url : gif?.images?.original?.url;
 
     //Agregar la opción del click descargar Gifo
@@ -156,7 +157,8 @@ const downloadGif = async (element) => {
 
 //Función para marcar como favorito un Gifo
 const markAsFavorite = (element) => {
-    let gif = new Gif(element.dataset.id, element.dataset.title, element.dataset.autor, element.dataset.link);
+    console.log(element.dataset.username);
+    let gif = new Gif(element.dataset.id, element.dataset.title, element.dataset.username, element.dataset.link);
     //Ingresar al Localstorage para obtener el objeto Gifos
     let gifos = getGifos();
     //Busca sí en la lista de mis favoritos está el Gifo con el id x
@@ -196,7 +198,7 @@ const openModal = (element) => {
     modal.style.display = 'flex';
 
     const modal_user = document.getElementById('modal_user');
-    modal_user.innerText = element.dataset.author;
+    modal_user.innerText = element.dataset.username;
 
     const modal_title = document.getElementById('modal_title');
     modal_title.innerText = element.dataset.title;
