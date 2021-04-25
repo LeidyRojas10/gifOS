@@ -5,8 +5,8 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--color-trending-background);
-    display: flex;
+    background-color: var(--color-modal-background);
+    display: none;
     justify-content: center;
     align-items: center;
     z-index: 100;

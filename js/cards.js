@@ -95,7 +95,20 @@ function generateGifWithOverlay(gif, isTrendGifos = false, isFavorites = false) 
     showButton.className = 'gif_max_button';
     showButton.id = gif?.id?.toString().concat('-show');
 
-    //Se crea una imagen donde se visualizará el icono de ampliar dentro del gif
+    // Se agregan los data attributes
+    showButton.dataset.id = gif?.id;
+    showButton.dataset.favorite = isFavorites;
+    showButton.dataset.title = gif?.title;
+    showButton.dataset.author = gif?.username;
+    showButton.dataset.link = isFavorites ? gif?.url : gif?.images?.original?.url;
+
+    //Agregar la opción del click descargar Gifo
+    showButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        openModal(showButton);
+    })
+
+    //Se crea una imagen donde se visualizará el icono de ampliar dentro del gifs
     const showIcon = document.createElement('img');
     //Se agrega la dirección url del gif a la imagen
     showIcon.setAttribute('src', "./assets/icon-max.svg");
@@ -166,13 +179,41 @@ const deleteFavorite = (id) => {
     const gifContainer = document.getElementById('gif-content-favorites');
     if (gifContainer?.hasChildNodes()) {
         let result = null;
-        for(let position = 0; position < gifContainer.childNodes.length && !result; position++){
-            if(gifContainer.childNodes[position]?.id === ('gif-' + id)){
+        for (let position = 0; position < gifContainer.childNodes.length && !result; position++) {
+            if (gifContainer.childNodes[position]?.id === ('gif-' + id)) {
                 result = gifContainer.childNodes[position];
             }
         }
-        if(result){
+        if (result) {
             gifContainer.removeChild(result);
         }
     }
 }
+
+//Función para abrir la opción modal de cada Gif
+const openModal = (element) => {
+    const modal = document.getElementById('modal_master');
+    modal.style.display = 'flex';
+
+    const modal_user = document.getElementById('modal_user');
+    modal_user.innerText = element.dataset.author;
+
+    const modal_title = document.getElementById('modal_title');
+    modal_title.innerText = element.dataset.title;
+
+    const modal_gif = document.getElementById('modal_gif');
+    modal_gif.src = element.dataset.link;
+}
+
+//Función para cerrar la vista del modal del Gif seleccionado
+const closeModal = () => {
+    const modal = document.getElementById('modal_master');
+    modal.style.display = 'none';
+}
+
+//Función para configurar el modal antes de usarse(inicializar)
+const initModal = () => {
+    const closeButton = document.getElementById('close_modal');
+    closeButton.addEventListener('click', closeModal);
+}
+initModal();

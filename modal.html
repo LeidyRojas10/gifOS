@@ -1,48 +1,60 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="styles/styles.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-    
-        <title>GIFOS </title>
-    </head>
 
-    <body id="app" class="light_mode">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 
-        <div class="modal_container">
-            
-            <div class="modal">
-                <button id="full_modal" type="button" class="modal_close_button">
-                    <img src="./assets/close.svg">
-                </button>
-                <div class="modal_slider">
-                    <button id="modal_button_left" type="button"><img src="./assets/button-left.svg"
+    <title>GIFOS </title>
+</head>
+
+<body id="app" class="light_mode">
+    <div id="content">
+        <div id="no_content" style="display: none;">
+            <img src="./assets/icon-favoritos-sin-contenido.png" alt="imagen de un corazón aburrido pixelado
+            cuando no se ha encontrado ningún GIFO en Favoritos">
+            <h3>"¡Guarda tu primer GIFO en Favoritos <br> para que se muestre aquí!"</h3>
+        </div>
+        <div id="gif-content-favorites">
+        <div class="gif" id="gif-26gsgmd7vf2ttWi5y"><img src="https://media1.giphy.com/media/26gsgmd7vf2ttWi5y/giphy.gif?cid=cdc633681g731mzuxragj3mn5q0zo51gdja3pjw1ydbg1bam&amp;rid=giphy.gif&amp;ct=g"><div class="overlay"><div class="gif_cards_buttons"><button class="gif_favorite_button" id="26gsgmd7vf2ttWi5y-fab" data-id="26gsgmd7vf2ttWi5y" data-favorite="true" data-title="Denzel Washington Oscars GIF by The Academy Awards" data-author="undefined" data-link="https://media1.giphy.com/media/26gsgmd7vf2ttWi5y/giphy.gif?cid=cdc633681g731mzuxragj3mn5q0zo51gdja3pjw1ydbg1bam&amp;rid=giphy.gif&amp;ct=g"><img src="./assets/icon-fav-hover.svg" class="favorite_icon"><img src="./assets/icon-fav-active.svg" class="favorite_icon_active"></button><button class="gif_download_button" id="26gsgmd7vf2ttWi5y-download" data-link="https://media1.giphy.com/media/26gsgmd7vf2ttWi5y/giphy.gif?cid=cdc633681g731mzuxragj3mn5q0zo51gdja3pjw1ydbg1bam&amp;rid=giphy.gif&amp;ct=g"><img src="./assets/icon-download.svg" class="download_icon"></button><button class="gif_max_button" id="26gsgmd7vf2ttWi5y-show"><img src="./assets/icon-max.svg" class="max_icon"></button></div><div class="gif_cards_info"><p class="gif-user">undefined</p><p class="gif-title">Denzel Washington Oscars GIF by The Academy Awards</p></div></div></div><div class="gif" id="gif-13axhuqbzavew0"><img src="https://media4.giphy.com/media/13axhuqbzavew0/giphy.gif?cid=cdc633681g731mzuxragj3mn5q0zo51gdja3pjw1ydbg1bam&amp;rid=giphy.gif&amp;ct=g"><div class="overlay"><div class="gif_cards_buttons"><button class="gif_favorite_button" id="13axhuqbzavew0-fab" data-id="13axhuqbzavew0" data-favorite="true" data-title="Bart Simpson Saturday GIF" data-author="undefined" data-link="https://media4.giphy.com/media/13axhuqbzavew0/giphy.gif?cid=cdc633681g731mzuxragj3mn5q0zo51gdja3pjw1ydbg1bam&amp;rid=giphy.gif&amp;ct=g"><img src="./assets/icon-fav-hover.svg" class="favorite_icon"><img src="./assets/icon-fav-active.svg" class="favorite_icon_active"></button><button class="gif_download_button" id="13axhuqbzavew0-download" data-link="https://media4.giphy.com/media/13axhuqbzavew0/giphy.gif?cid=cdc633681g731mzuxragj3mn5q0zo51gdja3pjw1ydbg1bam&amp;rid=giphy.gif&amp;ct=g"><img src="./assets/icon-download.svg" class="download_icon"></button><button class="gif_max_button" id="13axhuqbzavew0-show"><img src="./assets/icon-max.svg" class="max_icon"></button></div><div class="gif_cards_info"><p class="gif-user">undefined</p><p class="gif-title">Bart Simpson Saturday GIF</p></div></div></div><div class="gif" id="gif-Qyt0CCFtHxrNlpCqnL"><img src="https://media1.giphy.com/media/Qyt0CCFtHxrNlpCqnL/giphy.gif?cid=cdc633681g731mzuxragj3mn5q0zo51gdja3pjw1ydbg1bam&amp;rid=giphy.gif&amp;ct=g"><div class="overlay"><div class="gif_cards_buttons"><button class="gif_favorite_button" id="Qyt0CCFtHxrNlpCqnL-fab" data-id="Qyt0CCFtHxrNlpCqnL" data-favorite="true" data-title="Wishing You The Best GIF by MOODMAN" data-author="undefined" data-link="https://media1.giphy.com/media/Qyt0CCFtHxrNlpCqnL/giphy.gif?cid=cdc633681g731mzuxragj3mn5q0zo51gdja3pjw1ydbg1bam&amp;rid=giphy.gif&amp;ct=g"><img src="./assets/icon-fav-hover.svg" class="favorite_icon"><img src="./assets/icon-fav-active.svg" class="favorite_icon_active"></button><button class="gif_download_button" id="Qyt0CCFtHxrNlpCqnL-download" data-link="https://media1.giphy.com/media/Qyt0CCFtHxrNlpCqnL/giphy.gif?cid=cdc633681g731mzuxragj3mn5q0zo51gdja3pjw1ydbg1bam&amp;rid=giphy.gif&amp;ct=g"><img src="./assets/icon-download.svg" class="download_icon"></button><button class="gif_max_button" id="Qyt0CCFtHxrNlpCqnL-show"><img src="./assets/icon-max.svg" class="max_icon"></button></div><div class="gif_cards_info"><p class="gif-user">undefined</p><p class="gif-title">Wishing You The Best GIF by MOODMAN</p></div></div></div></div>
+        <button id="more_content" type="button" onclick="loadMyFavorites()" style="display: block;">ver más</button>
+    </div>
+    <div id= "modal_master" class="modal_container">
+        <div class="modal">
+            <button id="close_modal" type="button" class="modal_close_button">
+                <img src="./assets/close.svg">
+            </button>
+            <div class="modal_slider">
+                <button id="modal_button_left" type="button"><img src="./assets/button-left.svg"
                         class="modal_icon_left"></button>
-                    <img class="gif_modal" src="http://via.placeholder.com/318x295" alt="Imagen del Gif seleccionado ampliado"> 
-                    <button id="modal_button_right" type="button"><img src="./assets/boton_derecha.svg"
+                <img class="gif_modal" src="http://via.placeholder.com/318x295"
+                    alt="Imagen del Gif seleccionado ampliado">
+                <button id="modal_button_right" type="button"><img src="./assets/boton_derecha.svg"
                         class="modal_icon_right"></button>
+            </div>
+            <div class="info_full_modal">
+                <div class="info_modal">
+                    <p class="modal_paragraph">User</p>
+                    <h2 class="modal_title">Título GIFO</h2>
                 </div>
-                <div class="info_full_modal">
-                    <div class="info_modal">
-                        <p class="modal_paragraph">User</p>
-                        <h2 class="modal_title">Título GIFO</h2>
-                    </div>
-                    <div class="modal_buttons">
-                        <button class="favorite_button_modal" type="button" data-favorite="true">
-                            <img class="favorite_inactive_icon" src="./assets/icon-fav-hover.svg" id="fav_hover_modal_icon">
-                            <img class="favorite_active_icon" src="./assets/icon-fav-active.svg" id="fav_active_modal_icon">
-                        </button>
-                        <button class="download_button_modal" type="button"><img src="./assets/icon-download.svg"
-                                id="down_modal_icon"></button>
-                    </div>
+                <div class="modal_buttons">
+                    <button id="modals_favorite_button" class="favorite_button_modal" type="button"
+                        data-favorite="true">
+                        <img class="favorite_inactive_icon" src="./assets/icon-fav-hover.svg" id="fav_hover_modal_icon">
+                        <img class="favorite_active_icon" src="./assets/icon-fav-active.svg" id="fav_active_modal_icon">
+                    </button>
+                    <button id="down_modal" class="download_button_modal" type="button"><img
+                            src="./assets/icon-download.svg"></button>
                 </div>
             </div>
         </div>
+    </div>
 
-    </body>
+</body>
+<script src="js/classes.js"></script>
+<script src="js/cards.js"></script>
+<script src="js/modal.js"> </script>
 
-    <script src="js/modal.js"> </script>
-  
 </html>

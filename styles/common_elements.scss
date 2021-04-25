@@ -37,7 +37,7 @@ $dark_main_background: #37383C;
     --color-icon-normal:#572EE5;
     --color-icon-hover: brightness(0) invert(1);
     --color-icon-active: brightness(0) invert(1);
-
+    --color-modal-background: rgba(255,255,255,0.90);
 }
 
 /* Dark mode*/
@@ -59,6 +59,7 @@ $dark_main_background: #37383C;
     --color-icon-normal: brightness(0) invert(1);
     --color-icon-hover: brightness(0);
     --color-icon-active: brightness(0) invert(1);
+    --color-modal-background: rgba(34,35,38,0.90);
 }
 
 
