@@ -17,10 +17,20 @@ const uploadButton = document.getElementById('upload');
 
 //Función para solicitar permisos de acceso a la cámara 
 const getVideo = () => {
-    const videoPromise = navigator.mediaDevices.getUserMedia({ video: true });
-    videoPromise.then(async function (mediaStream) {
+    let videoPromise = navigator.mediaDevices.getUserMedia({ video: true });
+    videoPromise.then( async function (mediaStream) {
         showVideo(mediaStream);
         const recorder = createRecorder(mediaStream);
+        recordButton.addEventListener('click',(event)=>{
+            event.preventDefault();
+            console.log('a')
+            startRecording(recorder);
+        });
+
+        stopRecordingButton.addEventListener('click',(event)=>{
+            event.preventDefault();
+            stopRecording(recorder);
+        });
     });
     videoPromise.catch(function (err) { console.log(err.name); });
 }
@@ -43,13 +53,30 @@ const createRecorder = (mediaStream) => {
             console.log('started')
         },
     });
-
     return recorder;
 }
 
+//Iniciar la grabación para crear Gifo
+const startRecording = (recorder) =>{
+    recorder.startRecording();
+    console.log ('startRecording');
+}
 
+//Detener la grabación para crear Gifo
+const stopRecording = (recorder) =>{
+    recorder.stopRecording(()=>{
+        console.log ('stopRecording');
+        generateGifo(recorder);
+    });
+}
 
-//Agregar evento clicl al botón Comenzar creación del Gifo
+//Crear Gif a partir de la grabación
+const generateGifo = (recorder) =>{
+    console.log ('generatingGifo');
+    console.log (recorder.getBlob());
+}
+
+//Agregar evento click al botón Comenzar creación del Gifo
 startCreationButton.addEventListener('click', (event) => {
     event.preventDefault();
     getVideo();
