@@ -98,15 +98,41 @@ const uploadGifosRequest = (data) => {
     });
 }
 
+//Función para obtener un Gif por su ID
+const getGifoById = (id) => {
+    const URL = 'https://api.giphy.com/v1/gifs/'+ id + '?' + KEY;
+    return new Promise((resolve, reject) => {
+        fetch(URL, { method: 'GET'})
+            .then(response => { resolve(response.json()) })
+            .catch(error => { reject(error) })
+    });
+}
+
+
 // Procesar respuesta de Giphy
 const receiveGifo = () => {
     if (currentGifo) {
         const giphyRequest = uploadGifosRequest(currentGifo);
         giphyRequest.then((gifData) => {
             console.log(gifData);
+            return gifData?.data?.id;
+        }).then((gifId)=>{
+            getGifoById(gifId).then((gif)=>{
+                console.log(gif);
+                saveMyGifo(gif.data);
+            })
         })
     }
 }
+
+// Guardar mi Gifo
+const saveMyGifo = (gif) =>{
+    let gifos = getGifos();
+    const gifo = new Gif(gif.id,'My Gifo '+ gif.id,'Gifos App',gif?.images?.fixed_height?.url);
+    gifos.myOwnGifos.push(gifo);
+    saveGifos(gifos);
+} ;
+
 
 uploadButton.addEventListener('click', (event) => {
     event.preventDefault();
