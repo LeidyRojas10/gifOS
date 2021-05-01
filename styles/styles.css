@@ -1129,6 +1129,8 @@ footer .footer_copyright {
     margin: 20px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
   }
   #create_gifos #create_gifos_container .corner-panel {
     display: flex;
@@ -1169,13 +1171,14 @@ footer .footer_copyright {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    top: 34px;
-    left: 50%;
     text-align: center;
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    z-index: 2;
+    margin-top: 14px;
+    width: 480px;
+    height: 320px;
   }
-  #create_gifos #create_gifos_container .create_container #title {
+  #create_gifos #create_gifos_container .create_container #create_gifos_title {
     font-family: "Montserrat-bold";
     font-size: 25px;
     color: #572EE5;
@@ -1183,7 +1186,7 @@ footer .footer_copyright {
     line-height: 35px;
     margin-bottom: 0px;
   }
-  #create_gifos #create_gifos_container .create_container #title .h1_turquoise {
+  #create_gifos #create_gifos_container .create_container #create_gifos_title .h1_turquoise {
     color: #50E3C2;
   }
   #create_gifos #create_gifos_container .create_container .create_paragraph_container {
@@ -1193,6 +1196,12 @@ footer .footer_copyright {
     text-align: center;
     line-height: 29px;
     margin-top: 3px;
+  }
+  #create_gifos #create_gifos_container .create_container #gifos_video {
+    width: 480px;
+    height: 320px;
+    display: none;
+    z-index: 10;
   }
   #create_gifos .gifos_status_main {
     display: flex;
@@ -1223,14 +1232,30 @@ footer .footer_copyright {
     font-size: 18px;
     color: #572EE5;
   }
-  #create_gifos .gifos_status_main > .gifos_status_main_step_to_step > .step:hover {
-    background-color: #572EE5;
-    color: white;
-  }
   #create_gifos .gifos_status_main > .gifos_status_main_step_to_step > .step:last-child {
     margin-left: 0;
   }
-  #create_gifos .gifos_status_main > #start_button {
+  #create_gifos .gifos_status_main > .gifos_status_main_step_to_step > .step-full {
+    display: flex;
+    width: 32px;
+    height: 32px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #572EE5;
+    border-radius: 50%;
+    margin-top: 24px;
+    right: 25px;
+    outline: none;
+    font-family: "Roboto-regular";
+    font-weight: 700;
+    font-size: 18px;
+    background-color: #572EE5;
+    color: white;
+  }
+  #create_gifos .gifos_status_main > .gifos_status_main_step_to_step > .step-full:last-child {
+    margin-left: 0;
+  }
+  #create_gifos .gifos_status_main > .create_gifo_button {
     width: 127px;
     height: 50px;
     border: #572EE5 solid 1px;
@@ -1243,7 +1268,7 @@ footer .footer_copyright {
     margin-top: 46px;
     margin-bottom: 26px;
   }
-  #create_gifos .gifos_status_main > #start_button:hover {
+  #create_gifos .gifos_status_main > .create_gifo_button:hover {
     background-color: #572EE5;
     color: white;
   }
@@ -1258,6 +1283,15 @@ footer .footer_copyright {
     position: absolute;
     margin-top: 0px;
     margin-bottom: 20px;
+  }
+  #create_gifos #no_button {
+    margin: 0px;
+    padding: 0px;
+  }
+  #create_gifos #record,
+#create_gifos #stop_recording,
+#create_gifos #upload {
+    display: none;
   }
   #create_gifos .film_container {
     margin-top: auto;

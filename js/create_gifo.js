@@ -6,6 +6,12 @@ const video = document.getElementById('gifos_video');
 //Variable para retener el Gifo grabado antes de subirlo
 let currentGifo;
 
+//Título principal de crear Gifos
+const createGifosTitle = document.getElementById('create_gifos_title');
+
+//Párrafo principal de crear Gifos
+const createGifosParagraph = document.getElementById('create_gifos_paragraph');
+
 //Botón para comenzar 'crear Gifo'
 const startCreationButton = document.getElementById('start_creation');
 
@@ -18,10 +24,38 @@ const stopRecordingButton = document.getElementById('stop_recording');
 //Botón para subir a Gifos el Gif que hemos creado
 const uploadButton = document.getElementById('upload');
 
+//Botón step 1
+const step1 = document.getElementById('step_1');
+
+//Botón step 2
+const step2 = document.getElementById('step_2');
+
+//Botón step 3
+const step3 = document.getElementById('step_3');
+
+//No Botón ID
+const no_button = document.getElementById('no_button');
+
+
+
 //Función para solicitar permisos de acceso a la cámara 
 const getVideo = () => {
+    createGifosTitle.innerHTML = '¿Nos das acceso <br> a tu cámara?';
+    createGifosParagraph.innerHTML = 'El acceso a tu camara será válido sólo <br> por el tiempo en el que estés creando el GIFO.';
+    step1.className = 'step-full';
+    startCreationButton.style.display = 'none';
+    no_button.style.marginTop = '46px';
+    no_button.style.marginBottom = '76px';
     let videoPromise = navigator.mediaDevices.getUserMedia({ video: true });
     videoPromise.then(async function (mediaStream) {
+        createGifosTitle.style.display = 'none';
+        createGifosParagraph.style.display = 'none';
+        video.style.display = 'inline';
+        step1.className = 'step';
+        step2.className = 'step-full';
+        no_button.style.marginTop = '0px';
+        no_button.style.marginBottom = '0px';
+        recordButton.style.display = 'inline';
         showVideo(mediaStream);
         const recorder = createRecorder(mediaStream);
         recordButton.addEventListener('click', (event) => {
@@ -62,6 +96,8 @@ const createRecorder = (mediaStream) => {
 //Iniciar la grabación para crear Gifo
 const startRecording = (recorder) => {
     recorder.startRecording();
+    recordButton.style.display = 'none';
+    stopRecordingButton.style.display = 'inline';
     console.log('startRecording');
 }
 
@@ -69,7 +105,9 @@ const startRecording = (recorder) => {
 const stopRecording = (recorder) => {
     recorder.stopRecording(() => {
         console.log('stopRecording');
+        stopRecordingButton.style.display = 'none';
         generateGifo(recorder);
+        uploadButton.style.display = 'inline';
     });
 }
 
@@ -100,9 +138,9 @@ const uploadGifosRequest = (data) => {
 
 //Función para obtener un Gif por su ID
 const getGifoById = (id) => {
-    const URL = 'https://api.giphy.com/v1/gifs/'+ id + '?' + KEY;
+    const URL = 'https://api.giphy.com/v1/gifs/' + id + '?' + KEY;
     return new Promise((resolve, reject) => {
-        fetch(URL, { method: 'GET'})
+        fetch(URL, { method: 'GET' })
             .then(response => { resolve(response.json()) })
             .catch(error => { reject(error) })
     });
@@ -116,8 +154,8 @@ const receiveGifo = () => {
         giphyRequest.then((gifData) => {
             console.log(gifData);
             return gifData?.data?.id;
-        }).then((gifId)=>{
-            getGifoById(gifId).then((gif)=>{
+        }).then((gifId) => {
+            getGifoById(gifId).then((gif) => {
                 console.log(gif);
                 saveMyGifo(gif.data);
             })
@@ -126,12 +164,12 @@ const receiveGifo = () => {
 }
 
 // Guardar mi Gifo
-const saveMyGifo = (gif) =>{
+const saveMyGifo = (gif) => {
     let gifos = getGifos();
-    const gifo = new Gif(gif.id,'My Gifo '+ gif.id,'Gifos App',gif?.images?.fixed_height?.url);
+    const gifo = new Gif(gif.id, 'My Gifo ' + gif.id, 'Gifos App', gif?.images?.fixed_height?.url);
     gifos.myOwnGifos.push(gifo);
     saveGifos(gifos);
-} ;
+};
 
 
 uploadButton.addEventListener('click', (event) => {

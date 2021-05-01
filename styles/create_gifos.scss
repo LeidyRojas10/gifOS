@@ -44,6 +44,8 @@
                 margin: 20px;
                 display: flex;
                 flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
             }
 
             /*Panel decorativo Turquesa*/
@@ -97,13 +99,16 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                top: 34px;
-                left: 50%;
                 text-align: center;
-                width: 100%;
-                height: 100%;
+                position: absolute;
+                z-index: 2;
+                margin-top: 14px;
+                width: 480px;
+                height: 320px;
 
-                #title {
+
+
+                #create_gifos_title {
                     font-family: 'Montserrat-bold';
                     font-size: 25px;
                     color: $purple;
@@ -123,6 +128,13 @@
                     text-align: center;
                     line-height: 29px;
                     margin-top: 3px;
+                }
+
+                #gifos_video {
+                    width: 480px;
+                    height: 320px;
+                    display: none;
+                    z-index: 10;
                 }
             }
 
@@ -161,10 +173,27 @@
                     font-size: 18px;
                     color: $purple;
 
-                    &:hover {
-                        background-color: $purple;
-                        color: $main_background;
+                    &:last-child {
+                        margin-left: 0;
                     }
+                }
+
+                &>.step-full {
+                    display: flex;
+                    width: 32px;
+                    height: 32px;
+                    justify-content: center;
+                    align-items: center;
+                    border: 1px solid $purple;
+                    border-radius: 50%;
+                    margin-top: 24px;
+                    right: 25px;
+                    outline: none;
+                    font-family: 'Roboto-regular';
+                    font-weight: 700;
+                    font-size: 18px;
+                    background-color: $purple;
+                    color: $main_background;
 
 
                     &:last-child {
@@ -174,7 +203,7 @@
             }
 
 
-            &>#start_button {
+            &>.create_gifo_button {
                 width: 127px;
                 height: 50px;
                 border: $purple solid 1px;
@@ -206,6 +235,17 @@
             position: absolute;
             margin-top: 0px;
             margin-bottom: 20px;
+        }
+
+        #no_button{
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #record,
+        #stop_recording,
+        #upload {
+            display: none;
         }
 
         /*Inicia film imagen*/

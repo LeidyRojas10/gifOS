@@ -10,7 +10,7 @@
     <title>Crear Gifo </title>
 </head>
 
-<body>
+<body id="app">
 
     <header>
         <img class="logo" src="./assets/gifos_diurno.png" alt="logo de GIFOS modo diurno">
@@ -21,7 +21,7 @@
                 <span class="hamburguer"></span>
             </label>
             <ul class="menu">
-                <li> <a href="#" class="menu_link">Modo Nocturno</a></li>
+                <li> <a id="changer" href="#" class="menu_link">Modo Nocturno</a></li>
                 <li> <a href="#" class="menu_link">Favoritos</a></li>
                 <li> <a href="#" class="menu_link_final">Mis GIFOS</a></li>
                 <li> <button class="navigation_bottom" type="button"> <img src="./assets/botton_gif.svg"
@@ -55,10 +55,11 @@
                         </div>
                         <!-- Inicia contenido Parte 1-->
                         <div class="create_container">
-                            <h1 id="title">Aquí podrás<br> crear tus propios<span class="h1_turquoise"> GIFOS</span>
+                            <h1 id="create_gifos_title">Aquí podrás<br> crear tus propios<span class="h1_turquoise"> GIFOS</span>
                             </h1>
-                            <p class="create_paragraph_container">¡Crea tu GIFO en sólo 3 pasos!<br>
+                            <p id="create_gifos_paragraph" class="create_paragraph_container">¡Crea tu GIFO en sólo 3 pasos!<br>
                                 (sólo necesitas una cámara para grabar un video)</p>
+                            <video id="gifos_video"></video>
                         </div>
                         <!-- Inicia Panel decorativo turquesa bottom -->
                         <div class="corner-panel">
@@ -79,7 +80,11 @@
                         <div id="step_3" class="step">3</div>
                     </div>
                     <div class="divisor"></div>
-                    <button id="start_button" type="button">comenzar</button>
+                    <div id="no_button"></div>
+                    <button id="start_creation" class="create_gifo_button" type="button">Comenzar</button>
+                    <button id="record" class="create_gifo_button" type="button"> Grabar</button>
+                    <button id="stop_recording" class="create_gifo_button" type="button"> Finalizar</button>
+                    <button id="upload" class="create_gifo_button" type="button"> Subir Gifo</button>
                 </div>
             </div>
             <!-- Inicia Contenedor del film-->
@@ -105,6 +110,8 @@
     <!-- Scrips para esta página -->
     <script src="js/classes.js"></script>
     <script src="js/trendings_slider.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/RecordRTC/5.5.6/RecordRTC.js"></script>
+    <script src="js/create_gifo.js"></script>
 </body>
 
 </html>
