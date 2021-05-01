@@ -3,6 +3,9 @@
 const gifosCreationStepKey = 'gifosCreationStep';
 const video = document.getElementById('gifos_video');
 
+//Variable para retener el Gifo grabado antes de subirlo
+let currentGifo;
+
 //Botón para comenzar 'crear Gifo'
 const startCreationButton = document.getElementById('start_creation');
 
@@ -18,16 +21,16 @@ const uploadButton = document.getElementById('upload');
 //Función para solicitar permisos de acceso a la cámara 
 const getVideo = () => {
     let videoPromise = navigator.mediaDevices.getUserMedia({ video: true });
-    videoPromise.then( async function (mediaStream) {
+    videoPromise.then(async function (mediaStream) {
         showVideo(mediaStream);
         const recorder = createRecorder(mediaStream);
-        recordButton.addEventListener('click',(event)=>{
+        recordButton.addEventListener('click', (event) => {
             event.preventDefault();
             console.log('a')
             startRecording(recorder);
         });
 
-        stopRecordingButton.addEventListener('click',(event)=>{
+        stopRecordingButton.addEventListener('click', (event) => {
             event.preventDefault();
             stopRecording(recorder);
         });
@@ -57,23 +60,26 @@ const createRecorder = (mediaStream) => {
 }
 
 //Iniciar la grabación para crear Gifo
-const startRecording = (recorder) =>{
+const startRecording = (recorder) => {
     recorder.startRecording();
-    console.log ('startRecording');
+    console.log('startRecording');
 }
 
 //Detener la grabación para crear Gifo
-const stopRecording = (recorder) =>{
-    recorder.stopRecording(()=>{
-        console.log ('stopRecording');
+const stopRecording = (recorder) => {
+    recorder.stopRecording(() => {
+        console.log('stopRecording');
         generateGifo(recorder);
     });
 }
 
 //Crear Gif a partir de la grabación
-const generateGifo = (recorder) =>{
-    console.log ('generatingGifo');
-    console.log (recorder.getBlob());
+const generateGifo = (recorder) => {
+    console.log('generatingGifo');
+    console.log(recorder.getBlob());
+    let form = new FormData();
+    form.append('file', recorder.getBlob(), 'myGif.gif');
+    currentGifo = form;
 }
 
 //Agregar evento click al botón Comenzar creación del Gifo
@@ -82,3 +88,27 @@ startCreationButton.addEventListener('click', (event) => {
     getVideo();
 })
 
+//Agregar evento click al botón Subir Gifo 
+const uploadGifosRequest = (data) => {
+    const URL = 'https://upload.giphy.com/v1/gifs?' + KEY;
+    return new Promise((resolve, reject) => {
+        fetch(URL, { method: 'POST', body: data })
+            .then(response => { resolve(response.json()) })
+            .catch(error => { reject(error) })
+    });
+}
+
+// Procesar respuesta de Giphy
+const receiveGifo = () => {
+    if (currentGifo) {
+        const giphyRequest = uploadGifosRequest(currentGifo);
+        giphyRequest.then((gifData) => {
+            console.log(gifData);
+        })
+    }
+}
+
+uploadButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    receiveGifo();
+})
