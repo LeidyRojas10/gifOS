@@ -1340,6 +1340,51 @@ footer .footer_copyright {
     text-decoration: none;
     color: var(--color-light-grey);
   }
+
+  /*Inicia create Gifos overlay*/
+  .create_gifo_overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(87, 46, 229, 0.7);
+    overflow: hidden;
+    width: 480px;
+    height: 100%;
+    transition: 0.5s ease;
+    z-index: 10;
+  }
+
+  #loading_gifo,
+#loaded_gifo {
+    width: 100%;
+    height: 100%;
+  }
+
+  #loading_gifo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  #loading_gifo > img {
+    width: 22px;
+    height: 22px;
+  }
+  #loading_gifo > p {
+    font-family: "Montserrat-bold";
+    font-size: 15px;
+    color: var(--color-menu-link-color);
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  #loaded_gifo {
+    display: none;
+  }
 }
 /* first mobile */
 .modal_container {

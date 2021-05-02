@@ -43,10 +43,19 @@ let isRecording = false;
 let dateStarted = null;
 
 //Contador
-const timerText = document.getElementById ('timer');
+const timerText = document.getElementById('timer');
 
 //Repetir captura
-const repeatText = document.getElementById ('repeat');
+const repeatText = document.getElementById('repeat');
+
+//Overlead Gifo
+const overlayGifo = document.getElementById('create_gifo_overlay');
+
+//Loading Gifo
+const loadingGifo = document.getElementById('loading_gifo');
+
+//Loaded Gifo
+const loadedGifo = document.getElementById('loaded_gifo');
 
 
 //Función para solicitar permisos de acceso a la cámara 
@@ -169,6 +178,8 @@ const getGifoById = (id) => {
 // Procesar respuesta de Giphy
 const receiveGifo = () => {
     if (currentGifo) {
+        overlayGifo.style.height = '100%';
+        loadingGifo.style.display = 'inline';
         const giphyRequest = uploadGifosRequest(currentGifo);
         giphyRequest.then((gifData) => {
             console.log(gifData);
@@ -188,6 +199,8 @@ const saveMyGifo = (gif) => {
     const gifo = new Gif(gif.id, 'My Gifo ' + gif.id, 'Gifos App', gif?.images?.fixed_height?.url);
     gifos.myOwnGifos.push(gifo);
     saveGifos(gifos);
+    loadingGifo.style.display = 'none';
+    loadedGifo.style.display = 'inline';
 };
 
 
@@ -210,7 +223,7 @@ function calculateTimeDuration(secs) {
         sec = "0" + sec;
     }
 
-    if(hr <= 0) {
+    if (hr <= 0) {
         return min + ':' + sec;
     }
 
@@ -218,9 +231,9 @@ function calculateTimeDuration(secs) {
 }
 
 //Función para mostrar el contador
-const timer = () =>{
+const timer = () => {
     console.log('timer');
-    if(!isRecording) {
+    if (!isRecording) {
         return;
     }
     timerText.innerHTML = calculateTimeDuration((new Date().getTime() - dateStarted) / 1000);
@@ -228,7 +241,7 @@ const timer = () =>{
 }
 
 //Función para reiniciar todo
-const reset = () =>{
+const reset = () => {
     startCreationButton.style.display = 'none';
     recordButton.style.display = 'inline';
     stopRecordingButton.style.display = 'none';
@@ -240,7 +253,7 @@ const reset = () =>{
 }
 
 //Función click al texto Repetir Captura
-repeatText.addEventListener('click', event =>{
+repeatText.addEventListener('click', event => {
     event.preventDefault();
     reset();
 })
