@@ -45,6 +45,8 @@ let dateStarted = null;
 //Contador
 const timerText = document.getElementById ('timer');
 
+//Repetir captura
+const repeatText = document.getElementById ('repeat');
 
 
 //Función para solicitar permisos de acceso a la cámara 
@@ -123,6 +125,8 @@ const stopRecording = (recorder) => {
         isRecording = false;
         generateGifo(recorder);
         uploadButton.style.display = 'inline';
+        timerText.style.display = 'none';
+        repeatText.style.display = 'inline';
     });
 }
 
@@ -222,3 +226,21 @@ const timer = () =>{
     timerText.innerHTML = calculateTimeDuration((new Date().getTime() - dateStarted) / 1000);
     setTimeout(timer, 1000);
 }
+
+//Función para reiniciar todo
+const reset = () =>{
+    startCreationButton.style.display = 'none';
+    recordButton.style.display = 'inline';
+    stopRecordingButton.style.display = 'none';
+    uploadButton.style.display = 'none';
+    timerText.style.display = 'none';
+    repeatText.style.display = 'none';
+    currentGifo = null;
+    getVideo();
+}
+
+//Función click al texto Repetir Captura
+repeatText.addEventListener('click', event =>{
+    event.preventDefault();
+    reset();
+})

@@ -1215,7 +1215,7 @@ footer .footer_copyright {
     margin: 0px;
     padding: 0px;
     display: grid;
-    grid-template-columns: 15% 70% 15%;
+    grid-template-columns: 25% 50% 25%;
     align-items: center;
     justify-items: center;
   }
@@ -1308,6 +1308,11 @@ footer .footer_copyright {
     margin-bottom: 102px;
   }
 
+  .timer {
+    margin-top: 24px;
+    margin-left: auto;
+  }
+
   #timer {
     font-family: "Montserrat-bold";
     font-size: 15px;
@@ -1317,6 +1322,23 @@ footer .footer_copyright {
     display: none;
     margin-top: 24px;
     margin-left: auto;
+  }
+
+  #repeat {
+    text-decoration: none;
+    flex: auto;
+    font-family: "Montserrat-bold";
+    font-size: 13px;
+    color: var(--color-primary);
+    text-align: center;
+    line-height: 30px;
+    text-transform: uppercase;
+    border-bottom: var(--color-turquoise-1) solid 2px;
+    display: none;
+  }
+  #repeat:active {
+    text-decoration: none;
+    color: var(--color-light-grey);
   }
 }
 /* first mobile */
