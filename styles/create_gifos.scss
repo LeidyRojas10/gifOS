@@ -237,7 +237,7 @@
             margin-bottom: 20px;
         }
 
-        #no_button{
+        #no_button {
             margin: 0px;
             padding: 0px;
         }
@@ -255,5 +255,16 @@
             margin-left: 67px;
             margin-bottom: 102px;
         }
+    }
+
+    #timer {
+        font-family: 'Montserrat-bold';
+        font-size: 15px;
+        color: var(--color-primary);
+        text-align: center;
+        line-height: 22px;
+        margin-top: 46px;
+        margin-bottom: 26px;
+        display: none;
     }
 }

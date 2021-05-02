@@ -36,6 +36,15 @@ const step3 = document.getElementById('step_3');
 //No Botón ID
 const no_button = document.getElementById('no_button');
 
+//Flag grabando
+let isRecording = false;
+
+//Hora y fecha de inicio de la grabación
+let dateStarted = null;
+
+//Contador
+const timerText = document.getElementById ('timer');
+
 
 
 //Función para solicitar permisos de acceso a la cámara 
@@ -57,6 +66,7 @@ const getVideo = () => {
         no_button.style.marginBottom = '0px';
         recordButton.style.display = 'inline';
         showVideo(mediaStream);
+        isRecording = false;
         const recorder = createRecorder(mediaStream);
         recordButton.addEventListener('click', (event) => {
             event.preventDefault();
@@ -95,9 +105,13 @@ const createRecorder = (mediaStream) => {
 
 //Iniciar la grabación para crear Gifo
 const startRecording = (recorder) => {
-    recorder.startRecording();
     recordButton.style.display = 'none';
     stopRecordingButton.style.display = 'inline';
+    isRecording = true;
+    dateStarted = new Date().getTime();
+    recorder.startRecording();
+    timerText.style.display = 'inline';
+    timer();
     console.log('startRecording');
 }
 
@@ -106,6 +120,7 @@ const stopRecording = (recorder) => {
     recorder.stopRecording(() => {
         console.log('stopRecording');
         stopRecordingButton.style.display = 'none';
+        isRecording = false;
         generateGifo(recorder);
         uploadButton.style.display = 'inline';
     });
@@ -176,3 +191,34 @@ uploadButton.addEventListener('click', (event) => {
     event.preventDefault();
     receiveGifo();
 })
+
+//Generar formato de horas para el contador o timer
+function calculateTimeDuration(secs) {
+    var hr = Math.floor(secs / 3600);
+    var min = Math.floor((secs - (hr * 3600)) / 60);
+    var sec = Math.floor(secs - (hr * 3600) - (min * 60));
+
+    if (min < 10) {
+        min = "0" + min;
+    }
+
+    if (sec < 10) {
+        sec = "0" + sec;
+    }
+
+    if(hr <= 0) {
+        return min + ':' + sec;
+    }
+
+    return hr + ':' + min + ':' + sec;
+}
+
+//Función para mostrar el contador
+const timer = () =>{
+    console.log('timer');
+    if(!isRecording) {
+        return;
+    }
+    timerText.innerHTML = calculateTimeDuration((new Date().getTime() - dateStarted) / 1000);
+    setTimeout(timer, 1000);
+}
