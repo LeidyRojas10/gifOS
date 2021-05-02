@@ -179,7 +179,14 @@ const getGifoById = (id) => {
 const receiveGifo = () => {
     if (currentGifo) {
         overlayGifo.style.height = '100%';
-        loadingGifo.style.display = 'inline';
+        loadedGifo.style.display = 'none';
+        loadingGifo.style.display = 'flex';
+        uploadButton.style.display = 'none';
+        no_button.style.marginTop = '46px';
+        no_button.style.marginBottom = '76px';
+        step2.className = 'step';
+        step3.className = 'step-full';
+        repeatText.style.display = 'none';
         const giphyRequest = uploadGifosRequest(currentGifo);
         giphyRequest.then((gifData) => {
             console.log(gifData);
@@ -201,6 +208,15 @@ const saveMyGifo = (gif) => {
     saveGifos(gifos);
     loadingGifo.style.display = 'none';
     loadedGifo.style.display = 'flex';
+    document.getElementById('download_gifo_button').addEventListener('click', (event) => {
+        event.preventDefault();
+        downloadGif(gifo);
+    });
+
+    document.getElementById('link_gifo_button').addEventListener('click', (event) => {
+        event.preventDefault();
+        window.open(gifo.url, '_blank');
+    });
 };
 
 
@@ -257,3 +273,17 @@ repeatText.addEventListener('click', event => {
     event.preventDefault();
     reset();
 })
+
+//Función para descargar Gifos creados 
+const downloadGif = async (gif) => {
+    console.log('downloadGif');
+    let gifFromGiphy = await fetch(gif.url);
+    let blobObject = await gifFromGiphy.blob();
+    let imgURL = URL.createObjectURL(blobObject);
+    const saveGif = document.createElement("a");
+    saveGif.href = imgURL;
+    saveGif.download = `myGif.gif`;
+    document.body.appendChild(saveGif);
+    saveGif.click();
+    document.body.removeChild(saveGif);
+};

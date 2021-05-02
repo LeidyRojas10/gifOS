@@ -314,7 +314,7 @@
         background-color: $purple_70;
         overflow: hidden;
         width: 480px;
-        height: 100%;
+        height: 0%;
         transition: .5s ease;
         z-index: 10;
     }
@@ -343,6 +343,11 @@
             text-align: center;
             margin-top: 10px;
         }
+    }
+
+    #loaded_gifo {
+        display: none;
+        flex-direction: column;
     }
 
     #loaded_gifo_buttons {
