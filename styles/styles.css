@@ -1210,13 +1210,22 @@ footer .footer_copyright {
     align-items: center;
     width: 100%;
   }
-  #create_gifos .gifos_status_main > .gifos_status_main_step_to_step {
+  #create_gifos .gifos_status_main > .gifos_steps_and_timer {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    display: grid;
+    grid-template-columns: 15% 70% 15%;
+    align-items: center;
+    justify-items: center;
+  }
+  #create_gifos .gifos_status_main > .gifos_steps_and_timer > .gifos_status_main_step_to_step {
     display: flex;
     flex-direction: row;
     width: 146px;
     justify-content: space-between;
   }
-  #create_gifos .gifos_status_main > .gifos_status_main_step_to_step > .step {
+  #create_gifos .gifos_status_main > .gifos_steps_and_timer > .gifos_status_main_step_to_step > .step {
     display: flex;
     width: 32px;
     height: 32px;
@@ -1232,10 +1241,10 @@ footer .footer_copyright {
     font-size: 18px;
     color: #572EE5;
   }
-  #create_gifos .gifos_status_main > .gifos_status_main_step_to_step > .step:last-child {
+  #create_gifos .gifos_status_main > .gifos_steps_and_timer > .gifos_status_main_step_to_step > .step:last-child {
     margin-left: 0;
   }
-  #create_gifos .gifos_status_main > .gifos_status_main_step_to_step > .step-full {
+  #create_gifos .gifos_status_main > .gifos_steps_and_timer > .gifos_status_main_step_to_step > .step-full {
     display: flex;
     width: 32px;
     height: 32px;
@@ -1252,7 +1261,7 @@ footer .footer_copyright {
     background-color: #572EE5;
     color: white;
   }
-  #create_gifos .gifos_status_main > .gifos_status_main_step_to_step > .step-full:last-child {
+  #create_gifos .gifos_status_main > .gifos_steps_and_timer > .gifos_status_main_step_to_step > .step-full:last-child {
     margin-left: 0;
   }
   #create_gifos .gifos_status_main > .create_gifo_button {
@@ -1305,9 +1314,9 @@ footer .footer_copyright {
     color: var(--color-primary);
     text-align: center;
     line-height: 22px;
-    margin-top: 46px;
-    margin-bottom: 26px;
     display: none;
+    margin-top: 24px;
+    margin-left: auto;
   }
 }
 /* first mobile */
