@@ -1405,7 +1405,6 @@ footer .footer_copyright {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin-top: 90.9px;
   }
   #success_loaded_gifo > img {
     width: 22px;
@@ -1416,7 +1415,7 @@ footer .footer_copyright {
     font-size: 15px;
     color: var(--color-menu-link-color);
     text-align: center;
-    margin-top: 14px;
+    margin-top: 10px;
   }
 }
 /* first mobile */
@@ -1587,4 +1586,4 @@ footer .footer_copyright {
   }
 }
 
-/*# sourceMappingURL=styles.css.map */
+/*# sourceMappingURL=styles.csss.map */

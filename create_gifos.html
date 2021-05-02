@@ -61,6 +61,8 @@
                             <p id="create_gifos_paragraph" class="create_paragraph_container">¡Crea tu GIFO en sólo 3
                                 pasos!<br>
                                 (sólo necesitas una cámara para grabar un video)</p>
+
+                        <!-- Inicia contenido Parte 2-->
                             <video id="gifos_video"></video>
                             <div id="create_gifo_overlay" class="create_gifo_overlay">
                                 <div id="loading_gifo">
@@ -68,7 +70,16 @@
                                     <p>Estamos subiendo tu GIFO</p>
                                 </div>
                                 <div id="loaded_gifo">
-                                    <p>GIFO subido con éxito</p>
+                                    <div id="loaded_gifo_buttons">
+                                        <button id="download_gifo_button" type="button"><img
+                                                src="./assets/icon-download.svg"> </button>
+                                        <button id="link_gifo_button" type="button"><img
+                                                src="./assets/icon-link.svg"> </button>
+                                    </div>
+                                    <div id="success_loaded_gifo">
+                                        <img src="./assets/check.svg">
+                                        <p>GIFO subido con éxito</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>

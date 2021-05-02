@@ -200,7 +200,7 @@ const saveMyGifo = (gif) => {
     gifos.myOwnGifos.push(gifo);
     saveGifos(gifos);
     loadingGifo.style.display = 'none';
-    loadedGifo.style.display = 'inline';
+    loadedGifo.style.display = 'flex';
 };
 
 
