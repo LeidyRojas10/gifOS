@@ -3,7 +3,7 @@
 @media screen and (min-width: 768px) {
     #create_gifos {
         display: flex;
-        margin-top: 5px;
+        padding-top: 5px;
         flex-direction: row;
         justify-content: center;
         align-items: stretch;
@@ -12,6 +12,10 @@
         .camera_container {
             display: block;
             padding-top: 118.6px;
+
+            &>.camera {
+                content: var(--camera-image);
+            }
 
             &>.camera_light {
                 margin-left: 2px;
@@ -35,7 +39,7 @@
             align-items: center;
             width: 688px;
             height: 390px;
-            border: 1px solid $purple;
+            border: 1px solid var(--color-primary);
 
 
             .create_container_main {
@@ -111,7 +115,7 @@
                 #create_gifos_title {
                     font-family: 'Montserrat-bold';
                     font-size: 25px;
-                    color: $purple;
+                    color: var(--color-primary);
                     text-align: center;
                     line-height: 35px;
                     margin-bottom: 0px;
@@ -124,7 +128,7 @@
                 .create_paragraph_container {
                     font-family: 'Roboto-regular';
                     font-size: 16px;
-                    color: $black;
+                    color: var(--color-basic-text);
                     text-align: center;
                     line-height: 29px;
                     margin-top: 3px;
@@ -172,7 +176,7 @@
                         height: 32px;
                         justify-content: center;
                         align-items: center;
-                        border: 1px solid $purple;
+                        border: 1px solid var(--color-primary);
                         border-radius: 50%;
                         margin-top: 24px;
                         right: 25px;
@@ -180,7 +184,7 @@
                         font-family: 'Roboto-regular';
                         font-weight: 700;
                         font-size: 18px;
-                        color: $purple;
+                        color: var(--color-primary);
 
                         &:last-child {
                             margin-left: 0;
@@ -193,7 +197,7 @@
                         height: 32px;
                         justify-content: center;
                         align-items: center;
-                        border: 1px solid $purple;
+                        border: 1px solid var(--color-primary);
                         border-radius: 50%;
                         margin-top: 24px;
                         right: 25px;
@@ -201,8 +205,8 @@
                         font-family: 'Roboto-regular';
                         font-weight: 700;
                         font-size: 18px;
-                        background-color: $purple;
-                        color: $main_background;
+                        background-color: var(--color-primary);
+                        color: var(--color-main-background);
 
 
                         &:last-child {
@@ -216,19 +220,19 @@
             &>.create_gifo_button {
                 width: 127px;
                 height: 50px;
-                border: $purple solid 1px;
-                background-color: $main_background;
+                border: var(--color-primary) solid 1px;
+                background-color: var(--color-main-background);
                 border-radius: 25px;
                 font-family: 'Montserrat-bold';
                 font-size: 13px;
-                color: $purple;
+                color: var(--color-primary);
                 text-transform: uppercase;
                 margin-top: 46px;
                 margin-bottom: 26px;
 
                 &:hover {
-                    background-color: $purple;
-                    color: $main_background;
+                    background-color: var(--color-primary);
+                    color: var(--color-main-background);
                 }
             }
 
@@ -239,8 +243,8 @@
             flex-direction: row;
             justify-content: space-between;
             width: 795.9px;
-            border: 3.45px solid $purple;
-            background-color: $purple;
+            border: 3.45px solid var(--color-primary);
+            background-color: var(--color-primary);
             border-radius: 3.45px;
             position: absolute;
             margin-top: 0px;
@@ -264,6 +268,10 @@
             margin-top: auto;
             margin-left: 67px;
             margin-bottom: 102px;
+
+            &>.video_tape {
+                content: var(--tape-image);
+            }
         }
     }
 

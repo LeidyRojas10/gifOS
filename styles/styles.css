@@ -24,22 +24,24 @@
 /* Light mode*/
 .light_mode {
   --color-main-background: white;
-  --color-menu-link-color:white;
-  --color-primary:#572EE5;
-  --color-primary-90:rgba(87, 46, 229, 0.90);
+  --color-menu-link-color: white;
+  --color-primary: #572EE5;
+  --color-primary-90: rgba(87, 46, 229, 0.90);
   --color-primary-70: rgba(87, 46, 229, 0.70);
   --color-light-grey: #9CAFC3;
   --color-turquoise-1: #5ED7C6;
   --color-turquoise-2: #50E3C2;
   --color-basic-text: black;
-  --color-trending-background:#F3F5F8;
+  --color-trending-background: #F3F5F8;
   --color-social-icon: #CDD6E0;
   --color-icons-1: brightness(0.7) invert(1) grayscale(1);
-  --color-icons-2:#572EE5;
-  --color-icon-normal:#572EE5;
+  --color-icons-2: #572EE5;
+  --color-icon-normal: #572EE5;
   --color-icon-hover: brightness(0) invert(1);
   --color-icon-active: brightness(0) invert(1);
-  --color-modal-background: rgba(255,255,255,0.90);
+  --color-modal-background: rgba(255, 255, 255, 0.90);
+  --camera-image: url("/assets/camara.svg");
+  --tape-image: url("/assets/pelicula.svg");
 }
 
 /* Dark mode*/
@@ -53,14 +55,16 @@
   --color-turquoise-1: #5ED7C6;
   --color-turquoise-2: #50E3C2;
   --color-basic-text: white;
-  --color-trending-background:#222326;
+  --color-trending-background: #222326;
   --color-social-icon: #CDD6E0;
   --color-icons-1: brightness(0.7) invert(1) grayscale(1);
   --color-icons-2: brightness(0) invert(1);
   --color-icon-normal: brightness(0) invert(1);
   --color-icon-hover: brightness(0);
   --color-icon-active: brightness(0) invert(1);
-  --color-modal-background: rgba(34,35,38,0.90);
+  --color-modal-background: rgba(34, 35, 38, 0.90);
+  --camera-image: url("/assets/camara-modo-noc.svg");
+  --tape-image: url("/assets/pelicula-modo-noc.svg");
 }
 
 .container {
@@ -1088,7 +1092,7 @@ footer .footer_copyright {
 @media screen and (min-width: 768px) {
   #create_gifos {
     display: flex;
-    margin-top: 5px;
+    padding-top: 5px;
     flex-direction: row;
     justify-content: center;
     align-items: stretch;
@@ -1100,6 +1104,9 @@ footer .footer_copyright {
   #create_gifos .camera_container {
     display: block;
     padding-top: 118.6px;
+  }
+  #create_gifos .camera_container > .camera {
+    content: var(--camera-image);
   }
   #create_gifos .camera_container > .camera_light {
     margin-left: 2px;
@@ -1117,7 +1124,7 @@ footer .footer_copyright {
     align-items: center;
     width: 688px;
     height: 390px;
-    border: 1px solid #572EE5;
+    border: 1px solid var(--color-primary);
     /*Panel decorativo Turquesa*/
     /*Finaliza panel decorativo Turquesa*/
     /*Inicia contenido Parte 1*/
@@ -1181,7 +1188,7 @@ footer .footer_copyright {
   #create_gifos #create_gifos_container .create_container #create_gifos_title {
     font-family: "Montserrat-bold";
     font-size: 25px;
-    color: #572EE5;
+    color: var(--color-primary);
     text-align: center;
     line-height: 35px;
     margin-bottom: 0px;
@@ -1192,7 +1199,7 @@ footer .footer_copyright {
   #create_gifos #create_gifos_container .create_container .create_paragraph_container {
     font-family: "Roboto-regular";
     font-size: 16px;
-    color: #000000;
+    color: var(--color-basic-text);
     text-align: center;
     line-height: 29px;
     margin-top: 3px;
@@ -1231,7 +1238,7 @@ footer .footer_copyright {
     height: 32px;
     justify-content: center;
     align-items: center;
-    border: 1px solid #572EE5;
+    border: 1px solid var(--color-primary);
     border-radius: 50%;
     margin-top: 24px;
     right: 25px;
@@ -1239,7 +1246,7 @@ footer .footer_copyright {
     font-family: "Roboto-regular";
     font-weight: 700;
     font-size: 18px;
-    color: #572EE5;
+    color: var(--color-primary);
   }
   #create_gifos .gifos_status_main > .gifos_steps_and_timer > .gifos_status_main_step_to_step > .step:last-child {
     margin-left: 0;
@@ -1250,7 +1257,7 @@ footer .footer_copyright {
     height: 32px;
     justify-content: center;
     align-items: center;
-    border: 1px solid #572EE5;
+    border: 1px solid var(--color-primary);
     border-radius: 50%;
     margin-top: 24px;
     right: 25px;
@@ -1258,8 +1265,8 @@ footer .footer_copyright {
     font-family: "Roboto-regular";
     font-weight: 700;
     font-size: 18px;
-    background-color: #572EE5;
-    color: white;
+    background-color: var(--color-primary);
+    color: var(--color-main-background);
   }
   #create_gifos .gifos_status_main > .gifos_steps_and_timer > .gifos_status_main_step_to_step > .step-full:last-child {
     margin-left: 0;
@@ -1267,27 +1274,27 @@ footer .footer_copyright {
   #create_gifos .gifos_status_main > .create_gifo_button {
     width: 127px;
     height: 50px;
-    border: #572EE5 solid 1px;
-    background-color: white;
+    border: var(--color-primary) solid 1px;
+    background-color: var(--color-main-background);
     border-radius: 25px;
     font-family: "Montserrat-bold";
     font-size: 13px;
-    color: #572EE5;
+    color: var(--color-primary);
     text-transform: uppercase;
     margin-top: 46px;
     margin-bottom: 26px;
   }
   #create_gifos .gifos_status_main > .create_gifo_button:hover {
-    background-color: #572EE5;
-    color: white;
+    background-color: var(--color-primary);
+    color: var(--color-main-background);
   }
   #create_gifos .divisor {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 795.9px;
-    border: 3.45px solid #572EE5;
-    background-color: #572EE5;
+    border: 3.45px solid var(--color-primary);
+    background-color: var(--color-primary);
     border-radius: 3.45px;
     position: absolute;
     margin-top: 0px;
@@ -1306,6 +1313,9 @@ footer .footer_copyright {
     margin-top: auto;
     margin-left: 67px;
     margin-bottom: 102px;
+  }
+  #create_gifos .film_container > .video_tape {
+    content: var(--tape-image);
   }
 
   .timer {
