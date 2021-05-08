@@ -1,6 +1,6 @@
 
 //Esta función renderiza el overlay en los trending Gifos
-function generateGifWithOverlay(gif, isTrendGifos = false, isFavorites = false) {
+function generateGifWithOverlay(gif, isTrendGifos = false, isFavorites = false, isMyGifos = false) {
 
     //Se crea el div contenedor del gifo y el overlay
     const gif_div = document.createElement('div');
@@ -12,13 +12,13 @@ function generateGifWithOverlay(gif, isTrendGifos = false, isFavorites = false) 
     //Se crea una imagen donde se visualizará el gif
     const image = document.createElement('img');
     //Se agrega la dirección url del gif a la imagen
-    image.setAttribute('src', isFavorites ? gif?.url : gif?.images?.fixed_height?.url);
+    image.setAttribute('src', (isFavorites || isMyGifos) ? gif?.url : gif?.images?.fixed_height?.url);
     image.id = 'gif-' + gif?.id;
     image.dataset.id = gif?.id;
     image.dataset.favorite = isAFavoriteGif(gif?.id);
     image.dataset.title = gif?.title;
     image.dataset.username = gif?.username;
-    image.dataset.link = isFavorites ? gif?.url : gif?.images?.original?.url;
+    image.dataset.link = (isFavorites || isMyGifos) ? gif?.url : gif?.images?.original?.url;
 
     image.addEventListener('click', (event) => {
         event.preventDefault();
@@ -38,44 +38,66 @@ function generateGifWithOverlay(gif, isTrendGifos = false, isFavorites = false) 
     //Al div contenedor se le agrega la clase gif_cards_buttons del css
     buttonsDiv.className = 'gif_cards_buttons';
 
+    if (!isMyGifos) {
+        // Se crea el botón favorito de las tarjetas del gif
+        const favoriteButton = document.createElement('button');
+        //Al botón favoritos se le agrega la clase gif_favorite_button del css
+        favoriteButton.className = 'gif_favorite_button';
+        favoriteButton.id = gif?.id?.toString().concat('-fab');
+        // Se agregan los data attributes
+        favoriteButton.dataset.id = gif?.id;
+        favoriteButton.dataset.favorite = isAFavoriteGif(gif?.id);
+        favoriteButton.dataset.title = gif?.title;
+        favoriteButton.dataset.username = gif?.username;
+        favoriteButton.dataset.link = isFavorites ? gif?.url : gif?.images?.original?.url;
 
-    // Se crea el botón favorito de las tarjetas del gif
-    const favoriteButton = document.createElement('button');
-    //Al botón favoritos se le agrega la clase gif_favorite_button del css
-    favoriteButton.className = 'gif_favorite_button';
-    favoriteButton.id = gif?.id?.toString().concat('-fab');
-    // Se agregan los data attributes
-    favoriteButton.dataset.id = gif?.id;
-    favoriteButton.dataset.favorite = isAFavoriteGif(gif?.id);
-    favoriteButton.dataset.title = gif?.title;
-    favoriteButton.dataset.username = gif?.username;
-    favoriteButton.dataset.link = isFavorites ? gif?.url : gif?.images?.original?.url;
+        //Agregar la opción del click favorito
+        favoriteButton.addEventListener('click', (event) => {
+            event.preventDefault();
+            markAsFavorite(favoriteButton);
+        })
 
-    //Agregar la opción del click favorito
-    favoriteButton.addEventListener('click', (event) => {
-        event.preventDefault();
-        markAsFavorite(favoriteButton);
-    })
+        //Se crea una imagen donde se visualizará el icono favorito dentro del gif
+        const favIconOff = document.createElement('img');
+        //Se agrega la dirección url del gif a la imagen
+        favIconOff.setAttribute('src', "./assets/icon-fav-hover.svg");
+        // Se le agrega a la imagen el estilo favorite icon gifo
+        favIconOff.className = 'favorite_icon';
+        //Se agrega la imagen al gif contenedor
+        favoriteButton.appendChild(favIconOff);
 
-    //Se crea una imagen donde se visualizará el icono favorito dentro del gif
-    const favIconOff = document.createElement('img');
-    //Se agrega la dirección url del gif a la imagen
-    favIconOff.setAttribute('src', "./assets/icon-fav-hover.svg");
-    // Se le agrega a la imagen el estilo favorite icon gifo
-    favIconOff.className = 'favorite_icon';
-    //Se agrega la imagen al gif contenedor
-    favoriteButton.appendChild(favIconOff);
+        //Se crea una imagen donde se visualizará el icono activo favorito dentro del gif
+        const favIconOn = document.createElement('img');
+        //Se agrega la dirección url del gif a la imagen
+        favIconOn.setAttribute('src', "./assets/icon-fav-active.svg");
+        // Se le agrega a la imagen el estilo favorite_icon_active
+        favIconOn.className = 'favorite_icon_active';
+        //Se agrega la imagen al gif contenedor
+        favoriteButton.appendChild(favIconOn);
 
-    //Se crea una imagen donde se visualizará el icono activo favorito dentro del gif
-    const favIconOn = document.createElement('img');
-    //Se agrega la dirección url del gif a la imagen
-    favIconOn.setAttribute('src', "./assets/icon-fav-active.svg");
-    // Se le agrega a la imagen el estilo favorite_icon_active
-    favIconOn.className = 'favorite_icon_active';
-    //Se agrega la imagen al gif contenedor
-    favoriteButton.appendChild(favIconOn);
+        buttonsDiv.appendChild(favoriteButton);
+    }
+    else {
+        // Se crea el botón eliminar de las tarjetas del gif
+        const deleteButton = document.createElement('button');
+        //Al botón se le agrega la clase gif_download_button del css
+        deleteButton.id = gif?.id?.toString().concat('-download');
+        //Agregar la opción del click descargar Gifo
+        deleteButton.addEventListener('click', (event) => {
+            event.preventDefault();
+            deleteMyGifo(gif?.id);
+        })
 
-    buttonsDiv.appendChild(favoriteButton);
+        //Se crea una imagen donde se visualizará el icono de Basura dentro del gif
+        const deleteIcon = document.createElement('img');
+        //Se agrega la dirección url del gif a la imagen
+        deleteIcon.setAttribute('src', "./assets/icon_trash.svg");
+        //Se agrega la imagen al gif contenedor
+        deleteButton.appendChild(deleteIcon);
+
+        buttonsDiv.appendChild(deleteButton);
+
+    }
 
     // Se crea el botón descarga de las tarjetas del gif
     const downloadButton = document.createElement('button');
@@ -83,7 +105,7 @@ function generateGifWithOverlay(gif, isTrendGifos = false, isFavorites = false) 
     downloadButton.className = 'gif_download_button';
     downloadButton.id = gif?.id?.toString().concat('-download');
     // Se agregan los data attributes
-    downloadButton.dataset.link = isFavorites ? gif?.url : gif?.images?.original?.url;
+    downloadButton.dataset.link = (isFavorites || isMyGifos) ? gif?.url : gif?.images?.original?.url;
 
     //Agregar la opción del click descargar Gifo
     downloadButton.addEventListener('click', (event) => {
@@ -114,7 +136,7 @@ function generateGifWithOverlay(gif, isTrendGifos = false, isFavorites = false) 
     showButton.dataset.title = gif?.title;
     showButton.dataset.username = gif?.username;
     console.log(gif, gif.username);
-    showButton.dataset.link = isFavorites ? gif?.url : gif?.images?.original?.url;
+    showButton.dataset.link = (isFavorites || isMyGifos) ? gif?.url : gif?.images?.original?.url;
 
     //Agregar la opción del click descargar Gifo
     showButton.addEventListener('click', (event) => {
@@ -152,6 +174,29 @@ function generateGifWithOverlay(gif, isTrendGifos = false, isFavorites = false) 
 }
 
 //------>
+
+//Función para eliminar de la vista de Mis Gifos un gif mediante un id
+const deleteMyGifo = (id) => {
+    let gifos = getGifos();
+    let found = gifos.myOwnGifos.findIndex((g) => g.id === id);
+    gifos.myOwnGifos.splice(found, 1);
+    //Guardo nuevamente el objeto Gifos en el LocalStorage
+    saveGifos(gifos);
+
+
+    const gifContainer = document.getElementById('gif-content-my-gifos');
+    if (gifContainer?.hasChildNodes()) {
+        let result = null;
+        for (let position = 0; position < gifContainer.childNodes.length && !result; position++) {
+            if (gifContainer.childNodes[position]?.id === ('gif-' + id)) {
+                result = gifContainer.childNodes[position];
+            }
+        }
+        if (result) {
+            gifContainer.removeChild(result);
+        }
+    }
+}
 
 //Función para descargar tus Gifos
 const downloadGif = async (element) => {

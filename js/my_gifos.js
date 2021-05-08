@@ -11,7 +11,7 @@ const loadMyGifos = () => {
         const gifContainer = document.getElementById('gif-content-my-gifos');
         let offSet = (gifos.myOwnGifosOffset + 12 <= gifos.myOwnGifos.length) ? gifos?.myOwnGifosOffset + 12 : gifos.myOwnGifos.length;
         for (var position = gifos?.myOwnGifosOffset; position < offSet; position++) {
-            gifContainer.appendChild(generateGifWithOverlay(gifos.myOwnGifos[position], false, true));
+            gifContainer.appendChild(generateGifWithOverlay(gifos.myOwnGifos[position], false, false, true));
         }
         gifos.myOwnGifosOffset = offSet;
         saveGifos(gifos);
