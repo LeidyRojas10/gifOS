@@ -188,12 +188,17 @@ const deleteMyGifo = (id) => {
     if (gifContainer?.hasChildNodes()) {
         let result = null;
         for (let position = 0; position < gifContainer.childNodes.length && !result; position++) {
-            if (gifContainer.childNodes[position]?.id === ('gif-' + id)) {
+            if (gifContainer.childNodes[position]?.id === ('gif-container-' + id)) {
                 result = gifContainer.childNodes[position];
             }
         }
         if (result) {
             gifContainer.removeChild(result);
+        }
+        if (gifos.myOwnGifos.length == 0) {
+            document.getElementById('no_content').style.display = 'flex';
+            document.getElementById('more_content').style.display = 'none';
+            document.getElementById('my_gifos_title').style.marginBottom = '0px';
         }
     }
 }
@@ -254,12 +259,17 @@ const deleteFavorite = (id) => {
     if (gifContainer?.hasChildNodes()) {
         let result = null;
         for (let position = 0; position < gifContainer.childNodes.length && !result; position++) {
-            if (gifContainer.childNodes[position]?.id === ('gif-' + id)) {
+            if (gifContainer.childNodes[position]?.id === ('gif-container-' + id)) {
                 result = gifContainer.childNodes[position];
             }
         }
         if (result) {
             gifContainer.removeChild(result);
+        }
+        if (!gifContainer?.hasChildNodes()) {
+            document.getElementById('no_content').style.display = 'flex';
+            document.getElementById('more_content').style.display = 'none';
+            document.getElementById('favorites_title').style.marginBottom = '0px';
         }
     }
 }
