@@ -10,8 +10,7 @@
     <title>Mis GIFOS </title>
 </head>
 
-<body>
-
+<body id="app">
     <header>
         <img class="logo" src="./assets/gifos_diurno.png" alt="logo de GIFOS modo diurno">
         <!-- Inicia Barra de navegación -->
@@ -21,7 +20,7 @@
                 <span class="hamburguer"></span>
             </label>
             <ul class="menu">
-                <li> <a href="#" class="menu_link">Modo Nocturno</a></li>
+                <li> <a id="changer" href="#" class="menu_link">Modo Nocturno</a></li>
                 <li> <a href="#" class="menu_link">Favoritos</a></li>
                 <li> <a href="#" class="menu_link_final">Mis GIFOS</a></li>
                 <li> <button class="navigation_bottom" type="button"> <img src="./assets/botton_gif.svg"
@@ -34,28 +33,19 @@
     <main>
         <!-- Inicia Mis GIFOS -->
         <section id="introduction" class="container">
-            <img class="introduction_icon" src="./assets/icon-mis-gifos.svg" alt="imagen de un corazón pixelado para 
-                la sección tus Gifos favoritos">
-            <h1>Mis GIFOS</h1>
-            <!-- Inicia sección contenido de Favoritos-->
+            <img class="introduction_icon" src="./assets/icon-mis-gifos.svg" alt="imagen de una carita feliz  para 
+            la sección Mis Gifos">
+            <h1 id="my_gifos_title"> Mis GIFOS</h1>
+            <!-- Inicia sección contenido de Mis Gifos-->
             <div id="content">
                 <div id="no_content">
                     <img src="./assets/icon-mis-gifos-sin-contenido.svg" alt="imagen de una cara aburrida pixelada
                     cuando no se ha encontrado ningún GIFO creado">
                     <h3>¡Anímate a crear tu primer GIFO!</h3>
                 </div>
-                <div id="gif-content">
-                    <div class="gif">
-                        <img src="http://via.placeholder.com/156x120" alt="">
-                    </div>
-                    <div class="gif">
-                        <img src="http://via.placeholder.com/250x250" alt="">
-                    </div>
-                    <div class="gif">
-                        <img src="http://via.placeholder.com/250x250" alt="">
-                    </div>
+                <div id="gif-content-my-gifos">
                 </div>
-                <button id="more_content" type="button" onclick="moreResults()">ver más</button>
+                <button id="more_content" type="button" onclick="loadMyGifos()">ver más</button>
             </div>
         </section>
 
@@ -119,7 +109,9 @@
 
     <!-- Scrips para esta página -->
     <script src="js/classes.js"></script>
+    <script src="js/cards.js"></script>
     <script src="js/trendings_slider.js"></script>
+    <script src="js/my_gifos.js"></script>
 </body>
 
 </html>
