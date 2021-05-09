@@ -1,12 +1,27 @@
+/*mobile*/
+#mobile_no_supported {
+    display: block;
+    height: 100vh;
+}
+
+#create_gifos {
+    display: none;
+}
+
 /* first desktop y tablet */
 
 @media screen and (min-width: 768px) {
+    #mobile_no_supported {
+        display: none;
+    }
+
     #create_gifos {
         display: flex;
         padding-top: 5px;
         flex-direction: row;
         justify-content: center;
         align-items: stretch;
+        height: 73.1vh;
 
         /*Inicia cámara imagen*/
         .camera_container {
