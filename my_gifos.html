@@ -12,7 +12,8 @@
 
 <body id="app">
     <header>
-        <img class="logo" src="./assets/gifos_diurno.png" alt="logo de GIFOS modo diurno">
+        <a href="index.html">
+            <img class="logo" src="./assets/gifos_diurno.png" alt="logo de GIFOS modo diurno"> </a>
         <!-- Inicia Barra de navegación -->
         <nav>
             <input type="checkbox" id="toggle" class="toggle">
@@ -21,10 +22,10 @@
             </label>
             <ul class="menu">
                 <li> <a id="changer" href="#" class="menu_link">Modo Nocturno</a></li>
-                <li> <a href="#" class="menu_link">Favoritos</a></li>
-                <li> <a href="#" class="menu_link_final">Mis GIFOS</a></li>
-                <li> <button class="navigation_bottom" type="button"> <img src="./assets/botton_gif.svg"
-                            alt="imagen para botón crear tus propios GIFOS"></button></li>
+                <li> <a href="favorites.html" class="menu_link">Favoritos</a></li>
+                <li> <a href="my_gifos.html" class="menu_link_final">Mis GIFOS</a></li>
+                <li> <button onclick="location.href='/create_gifos.html'" class="navigation_bottom" type="button"> <img
+                            src="./assets/botton_gif.svg" alt="imagen para botón crear tus propios GIFOS"></button></li>
             </ul>
         </nav>
         <!-- Finaliza Barra de navegación -->
@@ -83,7 +84,7 @@
                 </div>
                 <div class="modal_buttons">
                     <button id="delete_modal" class="download_button_modal" type="button"><img
-                        src="./assets/icon_trash.svg"></button>
+                            src="./assets/icon_trash.svg"></button>
                     <button id="down_modal" class="download_button_modal" type="button"><img
                             src="./assets/icon-download.svg"></button>
                 </div>
