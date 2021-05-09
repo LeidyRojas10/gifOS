@@ -40,8 +40,8 @@
   --color-icon-hover: brightness(0) invert(1);
   --color-icon-active: brightness(0) invert(1);
   --color-modal-background: rgba(255, 255, 255, 0.90);
-  --camera-image: url("/assets/camara.svg");
-  --tape-image: url("/assets/pelicula.svg");
+  --camera-image: url("https://raw.githubusercontent.com/LeidyRojas10/gifOS/master/assets/camara.svg");
+  --tape-image: url("https://raw.githubusercontent.com/LeidyRojas10/gifOS/master/assets/pelicula.svg");
 }
 
 /* Dark mode*/
@@ -63,8 +63,8 @@
   --color-icon-hover: brightness(0);
   --color-icon-active: brightness(0) invert(1);
   --color-modal-background: rgba(34, 35, 38, 0.90);
-  --camera-image: url("/assets/camara-modo-noc.svg");
-  --tape-image: url("/assets/pelicula-modo-noc.svg");
+  --camera-image: url("https://raw.githubusercontent.com/LeidyRojas10/gifOS/master/assets/camara-modo-noc.svg");
+  --tape-image: url("https://raw.githubusercontent.com/LeidyRojas10/gifOS/master/assets/pelicula-modo-noc.svg");
 }
 
 .container {
