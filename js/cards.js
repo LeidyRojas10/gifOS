@@ -141,7 +141,7 @@ function generateGifWithOverlay(gif, isTrendGifos = false, isFavorites = false, 
     //Agregar la opción del click descargar Gifo
     showButton.addEventListener('click', (event) => {
         event.preventDefault();
-        openModal(showButton);
+        openModal(showButton, isMyGifos);
     })
 
     //Se crea una imagen donde se visualizará el icono de ampliar dentro del gifs
@@ -242,6 +242,11 @@ const markAsFavorite = (element) => {
         buttonShow.dataset.favorite = false;
         buttonFav.dataset.favorite = false;
         deleteFavorite(element.dataset.id);
+        if (gifos.favorites.length == 0) {
+            document.getElementById('no_content').style.display = 'flex';
+            document.getElementById('more_content').style.display = 'none';
+            document.getElementById('favorites_title').style.marginBottom = '0px';
+        }
     }
     else {
         gifos.favorites.push(gif);
@@ -265,17 +270,12 @@ const deleteFavorite = (id) => {
         }
         if (result) {
             gifContainer.removeChild(result);
-        }
-        if (!gifContainer?.hasChildNodes()) {
-            document.getElementById('no_content').style.display = 'flex';
-            document.getElementById('more_content').style.display = 'none';
-            document.getElementById('favorites_title').style.marginBottom = '0px';
-        }
+        }        
     }
 }
 
 //Función para abrir la opción modal de cada Gif
-const openModal = (element) => {
+const openModal = (element, isMyGifos = false) => {
     const modal = document.getElementById('modal_master');
     modal.style.display = 'flex';
 
@@ -288,7 +288,12 @@ const openModal = (element) => {
     const modal_gif = document.getElementById('modal_gif');
     modal_gif.src = element.dataset.link;
 
-    favoriteModal(element);
+    if (isMyGifos) {
+        deleteModal(element.dataset.id);
+    }
+    else {
+        favoriteModal(element);
+    }
     downloadModal(element);
 }
 
@@ -312,6 +317,7 @@ const favoriteModal = (element) => {
         event.preventDefault();
         markAsFavorite(element);
         modalsFavoriteButton.dataset.favorite = element.dataset.favorite;
+        closeModal();
     });
 }
 
@@ -321,6 +327,16 @@ const downloadModal = (element) => {
     downModal.addEventListener('click', (event) => {
         event.preventDefault();
         downloadGif(element);
+    });
+}
+
+//Función para borrar un Gifo en la vista del modal seleccionado
+const deleteModal = (id) => {
+    const deleteModal = document.getElementById('delete_modal');
+    deleteModal.addEventListener('click', (event) => {
+        event.preventDefault();
+        deleteMyGifo(id);
+        closeModal();
     });
 }
 
