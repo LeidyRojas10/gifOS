@@ -1,8 +1,6 @@
 //Función para cargar mis Gifos favoritos
 const loadMyFavorites = () => {
     let gifos = getGifos();
-    console.log("myCurrentFavorites", gifos?.favorites?.length);
-    console.log(gifos.favoritesOffset);
     if (gifos?.favorites?.length == 0) {
         document.getElementById('no_content').style.display = 'flex';
         document.getElementById('more_content').style.display = 'none';
@@ -18,7 +16,7 @@ const loadMyFavorites = () => {
         gifos.favoritesOffset = offSet;
         saveGifos(gifos);
         document.getElementById('more_content').style.display = 'block';
-        document.getElementById('favorites_title').style.marginBottom = (window.innerWidth >= 768) ? '36px' :  '46px';
+        document.getElementById('favorites_title').style.marginBottom = (window.innerWidth >= 768) ? '36px' : '46px';
     }
 };
 

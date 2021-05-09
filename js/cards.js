@@ -135,7 +135,6 @@ function generateGifWithOverlay(gif, isTrendGifos = false, isFavorites = false, 
     showButton.dataset.favorite = isAFavoriteGif(gif?.id);
     showButton.dataset.title = gif?.title;
     showButton.dataset.username = gif?.username;
-    console.log(gif, gif.username);
     showButton.dataset.link = (isFavorites || isMyGifos) ? gif?.url : gif?.images?.original?.url;
 
     //Agregar la opción del click descargar Gifo
@@ -205,7 +204,6 @@ const deleteMyGifo = (id) => {
 
 //Función para descargar tus Gifos
 const downloadGif = async (element) => {
-    console.log('downloadGif');
     let gifFromGiphy = await fetch(element.dataset.link);
     let blobObject = await gifFromGiphy.blob();
     let imgURL = URL.createObjectURL(blobObject);
@@ -227,7 +225,6 @@ const isAFavoriteGif = (id) => {
 
 //Función para marcar como favorito un Gifo
 const markAsFavorite = (element) => {
-    console.log(element.dataset.username);
     let gif = new Gif(element.dataset.id, element.dataset.title, element.dataset.username, element.dataset.link);
     //Ingresar al Localstorage para obtener el objeto Gifos
     let gifos = getGifos();

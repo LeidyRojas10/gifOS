@@ -81,7 +81,6 @@ const getVideo = () => {
         const recorder = createRecorder(mediaStream);
         recordButton.addEventListener('click', (event) => {
             event.preventDefault();
-            console.log('a')
             startRecording(recorder);
         });
 
@@ -108,7 +107,6 @@ const createRecorder = (mediaStream) => {
         width: 360,
         hidden: 240,
         onGifRecordingStarted: function () {
-            console.log('started')
         },
     });
     return recorder;
@@ -123,13 +121,11 @@ const startRecording = (recorder) => {
     recorder.startRecording();
     timerText.style.display = 'inline';
     timer();
-    console.log('startRecording');
 }
 
 //Detener la grabación para crear Gifo
 const stopRecording = (recorder) => {
     recorder.stopRecording(() => {
-        console.log('stopRecording');
         stopRecordingButton.style.display = 'none';
         isRecording = false;
         generateGifo(recorder);
@@ -141,8 +137,6 @@ const stopRecording = (recorder) => {
 
 //Crear Gif a partir de la grabación
 const generateGifo = (recorder) => {
-    console.log('generatingGifo');
-    console.log(recorder.getBlob());
     let form = new FormData();
     form.append('file', recorder.getBlob(), 'myGif.gif');
     currentGifo = form;
@@ -189,11 +183,9 @@ const receiveGifo = () => {
         repeatText.style.display = 'none';
         const giphyRequest = uploadGifosRequest(currentGifo);
         giphyRequest.then((gifData) => {
-            console.log(gifData);
             return gifData?.data?.id;
         }).then((gifId) => {
             getGifoById(gifId).then((gif) => {
-                console.log(gif);
                 saveMyGifo(gif.data);
             })
         })
@@ -248,7 +240,6 @@ function calculateTimeDuration(secs) {
 
 //Función para mostrar el contador
 const timer = () => {
-    console.log('timer');
     if (!isRecording) {
         return;
     }
@@ -276,7 +267,6 @@ repeatText.addEventListener('click', event => {
 
 //Función para descargar Gifos creados 
 const downloadGif = async (gif) => {
-    console.log('downloadGif');
     let gifFromGiphy = await fetch(gif.url);
     let blobObject = await gifFromGiphy.blob();
     let imgURL = URL.createObjectURL(blobObject);

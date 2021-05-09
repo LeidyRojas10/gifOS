@@ -77,7 +77,6 @@ function showSuggestions(suggestions) {
 
 //Función para completar la búsqueda con base a una sugerencia y realice la acción de búsqueda
 function completeSearch(word) {
-    console.log(word);
     document.getElementById('search').value = word;
     searchGif();
 }
@@ -135,7 +134,6 @@ function clearSearch() {
         document.getElementById("trendings_paragraph").style.marginBottom = "45px";
     }
 
-    console.log("Se borró la búsqueda");
 }
 
 //Listener para el botón limpiar o cancelar búsqueda
