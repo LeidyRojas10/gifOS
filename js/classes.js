@@ -66,17 +66,16 @@ function setMode(mode) {
     gifos.mode = mode;
     saveGifos(gifos);
     body.className = mode;
+    document.getElementById('changer').innerText = mode === darkMode ? 'Modo Diurno' : 'Modo Nocturno';
 }
 
 //Acción del botón cambiar modo
 function changeMode() {
     let gifos = getGifos();
     if (gifos.mode === darkMode) {
-        document.getElementById('changer').innerText = 'Modo Nocturno';
         setMode(lightMode);
     }
     else {
-        document.getElementById('changer').innerText = 'Modo Diurno';
         setMode(darkMode);
     }
 }
