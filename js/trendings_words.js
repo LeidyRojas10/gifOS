@@ -1,6 +1,6 @@
 //Este archivo tiene como finalidad mostrar las tendencias (palabras) en Giphy
 const trendingsWords = 'https://api.giphy.com/v1/trending/searches';
-const trendingsWords_url = ( trendingsWords + '?' + KEY);
+const trendingsWords_url = (trendingsWords + '?' + KEY);
 
 // Una vez obtenga la url estructurada puedo hacerle la consulta a la API de las trendings words
 //Para ello uso el método fetch y así obtener las palabras en tendencia
@@ -15,26 +15,35 @@ const trendingsWords_url = ( trendingsWords + '?' + KEY);
 const request = {
     method: 'GET',
     headers: {
-        'Content-type':'application/json',
+        'Content-type': 'application/json',
         'Accept': 'application/json'
     }
 }
 
 
-function loadTrendingsWords(){
+function loadTrendingsWords() {
     fetch(trendingsWords_url, request)
-    .then(response => response.json())
-    .then(jsonData => showTrendingsWords(jsonData))
-    .catch( error => console.error( 'Something went wrong' ) );
+        .then(response => response.json())
+        .then(jsonData => showTrendingsWords(jsonData))
+        .catch(error => console.error('Something went wrong'));
 }
 
 
 //función para pintar en el html las trendings words de Giphy
 
-function showTrendingsWords(jsonData){
+function showTrendingsWords(jsonData) {
     let trendings_paragraph = document.getElementById('trendings_paragraph');
     trendings_paragraph.innerHTML = '';
-    trendings_paragraph.innerHTML = jsonData.data[0]+ ", " + jsonData.data[1] + ", " + jsonData.data[2] + ", " + jsonData.data[3] + ", " + jsonData.data[4];
+
+    for (let position = 0; position < 5; position++) {
+        const trendingWord = document.createElement('a');
+        trendingWord.innerText = jsonData.data[position] + (position < 4 ? ', ' : '');
+        trendingWord.addEventListener('click', (event) => {
+            event.preventDefault();
+            completeSearch(jsonData.data[position]);
+        });
+        trendings_paragraph.appendChild(trendingWord);
+    }
 }
 
 loadTrendingsWords();
