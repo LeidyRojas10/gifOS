@@ -60,7 +60,7 @@ function showSuggestions(suggestions) {
     let ul = document.getElementById("search_options");
 
     //Para una posición que arranca en 0, mientras que esa posición sea menor a 5 la voy a incrementar en 1 cada vez q se repita
-    for (let position = 0; position < 5; position++) {
+    for (let position = 0; position < 4; position++) {
         let li = document.createElement("li");
         //Variable botón para el autocompletado
         let button = document.createElement("button");
