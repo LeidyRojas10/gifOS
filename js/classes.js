@@ -72,9 +72,11 @@ function setMode(mode) {
 function changeMode() {
     let gifos = getGifos();
     if (gifos.mode === darkMode) {
+        document.getElementById('changer').innerText = 'Modo Nocturno';
         setMode(lightMode);
     }
     else {
+        document.getElementById('changer').innerText = 'Modo Diurno';
         setMode(darkMode);
     }
 }
@@ -83,7 +85,7 @@ let currentGifos = getGifos();
 if (!currentGifos) {
     saveGifos(new Gifos(new Buscador("", 12, 0, []), [], [], lightMode));
 }
-else{
+else {
     setMode(currentGifos.mode);
 }
 document.getElementById("changer").addEventListener("click", () => changeMode());

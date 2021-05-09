@@ -106,7 +106,7 @@ nav {
     display: none;
     align-items: center;
     justify-content: space-between;
-    background:   var(--color-primary-90);
+    background: var(--color-primary-90);
     margin-top: 90px;
     padding: 0px;
     z-index: 3;
@@ -135,6 +135,17 @@ nav {
     color: var(--color-menu-link-color);
     text-align: center;
     line-height: 30px;
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 41px;
+        opacity: 50%;
+        margin-top: 43px;
+        margin-bottom: 11.9px;
+        left: calc(50% - 20.5px);
+        border-bottom: 0.1px solid var(--color-menu-link-color);
+    }
 }
 
 .menu_link {
@@ -154,6 +165,7 @@ nav {
         margin-top: 43px;
         margin-bottom: 11.9px;
         left: calc(50% - 20.5px);
+        border-bottom: 0.1px solid var(--color-menu-link-color);
     }
 }
 
@@ -173,7 +185,7 @@ nav {
     z-index: 3;
 
     &>img {
-        filter: var( --color-icon-normal);
+        filter: var(--color-icon-normal);
     }
 
     &:hover {
@@ -190,7 +202,7 @@ nav {
         background-color: var(--color-light-grey);
         color: var(--color-main-background);
         border: 1px solid var(--color-light-grey);
-        
+
         &>img {
             filter: var(--color-icon-active);
         }
@@ -286,6 +298,10 @@ nav {
         letter-spacing: 0;
         text-align: center;
         text-transform: uppercase;
+
+        &::after {
+            border-bottom: none;
+        }
 
         &:hover {
             text-decoration: underline;

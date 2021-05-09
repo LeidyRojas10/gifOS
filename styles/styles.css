@@ -200,6 +200,16 @@ nav {
   text-align: center;
   line-height: 30px;
 }
+.menu_link_final::after {
+  content: "";
+  position: absolute;
+  width: 41px;
+  opacity: 50%;
+  margin-top: 43px;
+  margin-bottom: 11.9px;
+  left: calc(50% - 20.5px);
+  border-bottom: 0.1px solid var(--color-menu-link-color);
+}
 
 .menu_link {
   text-decoration: none;
@@ -218,6 +228,7 @@ nav {
   margin-top: 43px;
   margin-bottom: 11.9px;
   left: calc(50% - 20.5px);
+  border-bottom: 0.1px solid var(--color-menu-link-color);
 }
 
 .navigation_bottom {
@@ -334,6 +345,10 @@ nav {
     letter-spacing: 0;
     text-align: center;
     text-transform: uppercase;
+  }
+  .menu_link_final::after,
+.menu_link::after {
+    border-bottom: none;
   }
   .menu_link_final:hover,
 .menu_link:hover {
