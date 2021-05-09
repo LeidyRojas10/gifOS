@@ -22,7 +22,8 @@ function searchGif() {
 }
 
 //Listener para el botón buscar
-document.getElementById("searchbox_search_button").addEventListener("click", function () {
+document.getElementById("searchbox_search_button").addEventListener("click", (event) => {
+    event.preventDefault();
     searchGif();
 });
 
@@ -65,7 +66,10 @@ function showSuggestions(suggestions) {
         //Variable botón para el autocompletado
         let button = document.createElement("button");
         button.innerHTML = '<img src="/assets/icon-search.svg"> ' + suggestions[position].name;
-        //button.addEventListener('click',completeSearch(suggestions[position].name));
+        button.addEventListener('click', (event) => {
+            event.preventDefault();
+            completeSearch(suggestions[position].name)
+        });
         li.appendChild(button);
         ul.appendChild(li);
     }
@@ -78,15 +82,14 @@ function completeSearch(word) {
     searchGif();
 }
 
-document.getElementById("search").addEventListener('keyup', function (event) {
+document.getElementById("search").addEventListener('keyup', (event) => {
+    event.preventDefault();
     if (event.keyCode == '13') {
         searchGif();
     }
     else {
         getSuggestions();
     }
-
-    console.log(event.code);
 });
 
 //Listener para Focus y Blur para el autocompletar la búsqueda
@@ -101,11 +104,13 @@ document.getElementById("search").addEventListener('focus', (event) => {
 });
 
 document.getElementById("search").addEventListener('blur', (event) => {
-    if (window.innerWidth >= 768) {
-        document.getElementById("search_line").style.display = "none";
-        document.getElementById("search_options").style.display = "none";
-        document.getElementById("search_box").style.position = "relative";
-    }
+    setTimeout(() => {
+        if (window.innerWidth >= 768) {
+            document.getElementById("search_line").style.display = "none";
+            document.getElementById("search_options").style.display = "none";
+            document.getElementById("search_box").style.position = "relative";
+        }
+    }, 3000);
 });
 
 
@@ -191,7 +196,7 @@ function showGifs(jsonData) {
         // hasta que la posición deje de ser menor al total de elementos en el arreglo llamado Data.
         for (var position = 0; position < data.length; position++) {
             var gifUrl = data[position].images.fixed_height.url;
-            gifContainer.appendChild(generateGifWithOverlay(data[position],false));
+            gifContainer.appendChild(generateGifWithOverlay(data[position], false));
         }
         document.getElementById("more_results").style.display = "block";
 
